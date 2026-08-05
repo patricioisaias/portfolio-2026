@@ -1,0 +1,171 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { siteConfig } from '../site.config';
+
+const skills = {
+  backend: ['Go', 'Node.js', 'TypeScript', 'PostgreSQL', 'Redis', 'GraphQL', 'REST APIs'],
+  cloudDevOps: ['Docker', 'AWS (EC2, S3, Lambda)', 'Linux', 'CI/CD', 'Git', 'Arquitectura EDA'],
+  creativo: ['Web Audio API', 'Canvas 2D/3D', 'SuperCollider', 'Fotografía Digital', 'Edición RAW', 'Figma'],
+  metodologias: ['Clean Architecture', 'Microservicios', 'TDD', 'Scrum', 'Liderazgo de Proyectos'],
+};
+
+const timeline = [
+  {
+    period: '2024 - Presente',
+    role: 'Estudiante de Analista Programador',
+    organization: 'Instituto Profesional',
+    description: 'Enfoque en desarrollo backend, estructuras de datos, patrones de diseño de software, computación en la nube.',
+  },
+  {
+    period: '2022 - 2024',
+    role: 'Gestión de Proyectos & Docencia Musical',
+    organization: 'Iniciativas Interdisciplinarias',
+    description: 'Dirección de ensambles musicales, diseño de metodologías pedagógicas. Proyecto galardonado con el Premio Azul universitario a la gestión.',
+  },
+  {
+    period: '2020 - Presente',
+    role: 'Creación Digital & Fotografía',
+    organization: 'Práctica Independiente',
+    description: 'Exploración de arte generativo mediante código, síntesis de audio interactiva, fotografía documental urbana.',
+  },
+];
+---
+
+<Layout
+  title="Sobre mí | Patricio"
+  description="Perfil profesional, trayectoria académica, áreas de especialización en backend, docencia, artes digitales."
+>
+  <div class="max-w-3xl mx-auto space-y-16">
+    
+    <!-- Intro Header -->
+    <header class="space-y-6">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono bg-neutral-100 dark:bg-neutral-900 border border-neutral-200/80 dark:border-neutral-800 text-neutral-600 dark:text-neutral-400">
+        <span>Perfil Multidisciplinario</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-neutral-950 dark:text-neutral-50 leading-tight">
+        Lógica de sistemas, rigor arquitectónico, sensibilidad artística.
+      </h1>
+
+      <div class="space-y-4 text-base sm:text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed">
+        <p>
+          Soy estudiante de cuarto semestre de Analista Programador con orientación hacia el desarrollo backend, diseño de microservicios, infraestructura en la nube.
+        </p>
+        <p>
+          Mi formación previa en docencia musical y dirección de proyectos me aportó una visión analítica para resolver problemas complejos, gestionar equipos, diseñar soluciones elegantes. Fui reconocido con el Premio Azul de la Universidad por liderar iniciativas interdisciplinarias de alto impacto.
+        </p>
+      </div>
+
+      <!-- Actions -->
+      <div class="flex flex-wrap items-center gap-3 pt-2">
+        <a
+          href={siteConfig.cvPath}
+          download
+          class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-900 hover:opacity-90 transition-opacity"
+        >
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+          </svg>
+          Descargar Currículum (PDF)
+        </a>
+        
+        <a
+          href="mailto:contacto@patricio.dev"
+          class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg border border-neutral-300 dark:border-neutral-700 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-50 dark:hover:bg-neutral-900 transition-colors"
+        >
+          Iniciar Conversación
+        </a>
+      </div>
+    </header>
+
+    <!-- Timeline / Trayectoria -->
+    <section class="space-y-6">
+      <h2 class="text-xl font-bold tracking-tight text-neutral-950 dark:text-neutral-50 border-b border-neutral-200/60 dark:border-neutral-800/60 pb-3">
+        Trayectoria & Experiencia
+      </h2>
+
+      <div class="space-y-8">
+        {timeline.map((item) => (
+          <div class="relative pl-6 border-l border-neutral-200 dark:border-neutral-800 space-y-1">
+            <span class="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-neutral-400 dark:bg-neutral-600"></span>
+            <div class="flex flex-wrap items-baseline justify-between gap-2">
+              <h3 class="text-sm font-semibold text-neutral-900 dark:text-neutral-100">
+                {item.role} · <span class="text-neutral-500 font-normal">{item.organization}</span>
+              </h3>
+              <span class="text-xs font-mono text-neutral-400 dark:text-neutral-500">
+                {item.period}
+              </span>
+            </div>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed pt-1">
+              {item.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Skills & Tecnologías -->
+    <section class="space-y-6">
+      <h2 class="text-xl font-bold tracking-tight text-neutral-950 dark:text-neutral-50 border-b border-neutral-200/60 dark:border-neutral-800/60 pb-3">
+        Competencias & Herramientas
+      </h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        
+        <div class="p-4 rounded-xl bg-neutral-50 dark:bg-neutral-900/50 border border-neutral-200/60 dark:border-neutral-800/60 space-y-2">
+          <h3 class="text-xs font-semibold text-neutral-900 dark:text-neutral-100 uppercase tracking-wider">
+            Backend & Bases de Datos
+          </h3>
+          <div class="flex flex-wrap gap-1.5">
+            {skills.backend.map((item) => (
+              <span class="px-2 py-0.5 text-xs font-mono rounded bg-white dark:bg-neutral-800 border border-neutral-200/60 dark:border-neutral-700/60 text-neutral-700 dark:text-neutral-300">
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div class="p-4 rounded-xl bg-neutral-50 dark:bg-neutral-900/50 border border-neutral-200/60 dark:border-neutral-800/60 space-y-2">
+          <h3 class="text-xs font-semibold text-neutral-900 dark:text-neutral-100 uppercase tracking-wider">
+            Cloud, Infraestructura & DevOps
+          </h3>
+          <div class="flex flex-wrap gap-1.5">
+            {skills.cloudDevOps.map((item) => (
+              <span class="px-2 py-0.5 text-xs font-mono rounded bg-white dark:bg-neutral-800 border border-neutral-200/60 dark:border-neutral-700/60 text-neutral-700 dark:text-neutral-300">
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div class="p-4 rounded-xl bg-neutral-50 dark:bg-neutral-900/50 border border-neutral-200/60 dark:border-neutral-800/60 space-y-2">
+          <h3 class="text-xs font-semibold text-neutral-900 dark:text-neutral-100 uppercase tracking-wider">
+            Creación Digital & Multimedia
+          </h3>
+          <div class="flex flex-wrap gap-1.5">
+            {skills.creativo.map((item) => (
+              <span class="px-2 py-0.5 text-xs font-mono rounded bg-white dark:bg-neutral-800 border border-neutral-200/60 dark:border-neutral-700/60 text-neutral-700 dark:text-neutral-300">
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div class="p-4 rounded-xl bg-neutral-50 dark:bg-neutral-900/50 border border-neutral-200/60 dark:border-neutral-800/60 space-y-2">
+          <h3 class="text-xs font-semibold text-neutral-900 dark:text-neutral-100 uppercase tracking-wider">
+            Arquitectura & Gestión
+          </h3>
+          <div class="flex flex-wrap gap-1.5">
+            {skills.metodologias.map((item) => (
+              <span class="px-2 py-0.5 text-xs font-mono rounded bg-white dark:bg-neutral-800 border border-neutral-200/60 dark:border-neutral-700/60 text-neutral-700 dark:text-neutral-300">
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+</Layout>

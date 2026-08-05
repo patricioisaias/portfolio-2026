@@ -1,0 +1,38 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import PhotoCard from '../../components/PhotoCard.astro';
+
+const photos = (await getCollection('photography')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+---
+
+<Layout
+  title="Fotografía | Patricio"
+  description="Galería fotográfica, exploración de luces, contrastes urbanos, paisajes, registro analógico."
+>
+  <div class="space-y-10">
+    
+    <!-- Page Header -->
+    <header class="space-y-3 max-w-2xl">
+      <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full text-xs font-mono bg-neutral-100 dark:bg-neutral-900 border border-neutral-200/80 dark:border-neutral-800 text-neutral-600 dark:text-neutral-400">
+        <span>Registro Visual & Artes</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-neutral-950 dark:text-neutral-50">
+        Fotografía
+      </h1>
+      <p class="text-sm sm:text-base text-neutral-600 dark:text-neutral-400 leading-relaxed">
+        Exploración de la geometría urbana, composiciones lumínicas en penumbra, texturas analógicas en 35mm.
+      </p>
+    </header>
+
+    <!-- Masonry Photo Grid -->
+    <section class="columns-1 sm:columns-2 lg:columns-3 gap-6" aria-label="Galería fotográfica">
+      {photos.map((photo) => (
+        <PhotoCard photo={photo} />
+      ))}
+    </section>
+
+  </div>
+</Layout>

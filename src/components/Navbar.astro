@@ -1,0 +1,110 @@
+---
+import ThemeToggle from './ThemeToggle.astro';
+import { siteConfig } from '../site.config';
+
+export interface Props {
+  currentPath?: string;
+}
+
+const pathname = Astro.props.currentPath ?? Astro.url.pathname;
+---
+
+<header class="sticky top-0 z-50 w-full backdrop-blur-md bg-white/80 dark:bg-neutral-950/80 border-b border-neutral-200/60 dark:border-neutral-800/60 transition-colors duration-200">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
+    <!-- Brand / Logo -->
+    <a
+      href="/"
+      class="group flex items-center gap-2 text-sm font-semibold tracking-tight text-neutral-900 dark:text-neutral-100 hover:opacity-80 transition-opacity"
+      aria-label="Ir al inicio"
+    >
+      <span class="inline-block w-2 h-2 rounded-full bg-neutral-900 dark:bg-neutral-100 group-hover:scale-125 transition-transform duration-200"></span>
+      <span class="font-mono text-xs text-neutral-500 dark:text-neutral-400">~/</span>{siteConfig.author.toLowerCase()}.dev
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="hidden md:flex items-center gap-1 text-sm font-medium text-neutral-600 dark:text-neutral-400" aria-label="Navegación principal">
+      {siteConfig.navItems.map((item) => {
+        const isActive = pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href));
+        return (
+          <a
+            href={item.href}
+            class={`px-3 py-1.5 rounded-md text-xs tracking-wide transition-colors ${
+              isActive
+                ? 'text-neutral-950 dark:text-white font-semibold bg-neutral-100 dark:bg-neutral-800/60'
+                : 'hover:text-neutral-900 dark:hover:text-neutral-100 hover:bg-neutral-50 dark:hover:bg-neutral-900/60'
+            }`}
+          >
+            {item.name}
+          </a>
+        );
+      })}
+
+      <div class="h-4 w-px bg-neutral-200 dark:bg-neutral-800 mx-2" aria-hidden="true"></div>
+
+      <!-- Theme Toggle -->
+      <ThemeToggle />
+    </nav>
+
+    <!-- Mobile Menu Button & Toggle -->
+    <div class="flex md:hidden items-center gap-2">
+      <ThemeToggle />
+      <button
+        id="mobile-menu-btn"
+        type="button"
+        aria-label="Abrir menú de navegación"
+        aria-expanded="false"
+        class="p-2 rounded-lg text-neutral-600 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors focus:outline-none focus:ring-2 focus:ring-neutral-400 dark:focus:ring-neutral-600"
+      >
+        <svg id="menu-icon-open" class="w-5 h-5 block" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+        <svg id="menu-icon-close" class="w-5 h-5 hidden" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Drawer -->
+  <div id="mobile-menu" class="hidden md:hidden border-b border-neutral-200/60 dark:border-neutral-800/60 bg-white/95 dark:bg-neutral-950/95 backdrop-blur-md px-4 pt-2 pb-4">
+    <nav class="flex flex-col space-y-1" aria-label="Navegación móvil">
+      {siteConfig.navItems.map((item) => {
+        const isActive = pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href));
+        return (
+          <a
+            href={item.href}
+            class={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+              isActive
+                ? 'text-neutral-950 dark:text-white font-semibold bg-neutral-100 dark:bg-neutral-800/60'
+                : 'text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 hover:bg-neutral-50 dark:hover:bg-neutral-900/60'
+            }`}
+          >
+            {item.name}
+          </a>
+        );
+      })}
+    </nav>
+  </div>
+</header>
+
+<script>
+  const setupMobileMenu = () => {
+    const btn = document.getElementById('mobile-menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    const iconOpen = document.getElementById('menu-icon-open');
+    const iconClose = document.getElementById('menu-icon-close');
+
+    if (!btn || !menu || !iconOpen || !iconClose) return;
+
+    btn.addEventListener('click', () => {
+      const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!isExpanded));
+      menu.classList.toggle('hidden');
+      iconOpen.classList.toggle('hidden');
+      iconClose.classList.toggle('hidden');
+    });
+  };
+
+  setupMobileMenu();
+  document.addEventListener('astro:after-swap', setupMobileMenu);
+</script>

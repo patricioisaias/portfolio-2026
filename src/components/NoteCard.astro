@@ -1,0 +1,41 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { formatDate } from '../utils/date';
+
+export interface Props {
+  note: CollectionEntry<'notes'>;
+}
+
+const { note } = Astro.props;
+const { title, description, pubDate, tags } = note.data;
+---
+
+<article class="group relative py-6 border-b border-neutral-200/60 dark:border-neutral-800/60 transition-colors">
+  <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
+    <div class="space-y-1.5 max-w-xl">
+      <h2 class="text-base font-semibold tracking-tight text-neutral-950 dark:text-neutral-50 group-hover:text-neutral-600 dark:group-hover:text-neutral-300 transition-colors">
+        <a href={`/notes/${note.id}`} class="focus:outline-none">
+          <span class="absolute inset-0 z-0" aria-hidden="true"></span>
+          {title}
+        </a>
+      </h2>
+      <p class="text-sm text-neutral-600 dark:text-neutral-400 line-clamp-2 leading-relaxed">
+        {description}
+      </p>
+      
+      <!-- Tags -->
+      <div class="flex flex-wrap gap-1.5 pt-1">
+        {tags.map((tag) => (
+          <span class="text-[11px] font-mono text-neutral-400 dark:text-neutral-500">
+            #{tag}
+          </span>
+        ))}
+      </div>
+    </div>
+
+    <!-- Date -->
+    <time datetime={pubDate.toISOString()} class="text-xs font-mono text-neutral-400 dark:text-neutral-500 whitespace-nowrap pt-1">
+      {formatDate(pubDate)}
+    </time>
+  </div>
+</article>

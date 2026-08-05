@@ -1,0 +1,17 @@
+---
+title: "Patrones de Resiliencia en Microservicios"
+description: "Estrategias para el aislamiento de fallos, circuit breakers, idempotencia en sistemas distribuidos."
+pubDate: 2026-08-03
+tags: ["Backend", "Microservicios", "Arquitectura", "Go"]
+draft: false
+---
+
+## Resiliencia en Sistemas Distribuidos
+
+Al diseñar sistemas distribuidos, asumir fallos en la red o dependencias externas es indispensable.
+
+### Patrones Clave
+
+- **Circuit Breaker**: Detiene peticiones repetitivas a un servicio degradado.
+- **Retry con Backoff Exponencial**: Evita saturar servicios en recuperación.
+- **Idempotencia**: Garantiza que peticiones duplicadas no alteren el estado del sistema.

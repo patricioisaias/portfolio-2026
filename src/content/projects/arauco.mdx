@@ -1,0 +1,64 @@
+---
+title: "ARAUCO"
+description: "Homenaje a la Araucaria araucana y a la iconografía mapuche mediante código creativo algorítmico en p5.js, lanzado como colección generativa en fxhash."
+pubDate: 2024-02-28
+category: "Arte Generativo"
+tags: ["p5.js", "Creative Coding", "fxhash", "Generative Art", "Perlin Noise", "Algoritmos"]
+featured: true
+coverImage: "../../assets/projects/arauco/cover.png"
+coverAlt: "ARAUCO Composición Principal"
+links:
+  live: "https://www.fxhash.xyz/generative/19823"
+---
+import { Image } from 'astro:assets';
+import coverImg from '../../assets/projects/arauco/cover.png';
+import variationsImg from '../../assets/projects/arauco/variations.png';
+import payneImg from '../../assets/projects/arauco/payne.png';
+import mentaImg from '../../assets/projects/arauco/menta.png';
+import chozImg from '../../assets/projects/arauco/choz.png';
+
+## Sobre la Obra
+
+La *Araucaria araucana*, conocida también como **pewén**, es un árbol sagrado para el pueblo mapuche y un emblema natural de Chile. Con un origen estimado en 260 millones de años durante el período Triásico, forma parte de uno de los ecosistemas boscosos más antiguos del planeta.
+
+**ARAUCO** es un tributo a las araucarias, la cordillera andina y la cosmovisión mapuche. La obra integra elementos simbólicos como el *kultrung*, la estrella *Wünelfe* y la cruz escalonada *Ngümin*, recreando un paisaje característico del sur de Chile con los Andes al fondo y el bosque nativo en primer plano.
+
+<div class="my-8 rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800">
+  <Image src={coverImg} alt="ARAUCO Composición Principal" class="w-full h-auto object-cover" />
+</div>
+
+---
+
+## Proceso Técnico & Algoritmos
+
+Desarrollado íntegramente con **p5.js** (JavaScript para creative coding). Cada salida visual es única, generada proceduralmente en el navegador mediante:
+
+- **Ruido Perlin**: Modelado de siluetas montañosas, atmósfera y textura del follaje.
+- **Curvas de Bézier**: Trazado orgánico de ramas, troncos y patrones geométricos.
+- **Estructuras Estocásticas**: Distribución probabilística de elementos según densidades controladas.
+
+<div class="my-8 rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800">
+  <Image src={variationsImg} alt="Variaciones de Color y Estructura" class="w-full h-auto object-cover" />
+</div>
+
+---
+
+## Galería de Iteraciones
+
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4 my-8">
+  <div class="rounded-xl overflow-hidden border border-neutral-200 dark:border-neutral-800">
+    <Image src={payneImg} alt="Iteración Payne" class="w-full h-auto object-cover" />
+  </div>
+  <div class="rounded-xl overflow-hidden border border-neutral-200 dark:border-neutral-800">
+    <Image src={mentaImg} alt="Iteración Menta" class="w-full h-auto object-cover" />
+  </div>
+  <div class="rounded-xl overflow-hidden border border-neutral-200 dark:border-neutral-800">
+    <Image src={chozImg} alt="Iteración Choz" class="w-full h-auto object-cover" />
+  </div>
+</div>
+
+---
+
+## Publicación
+
+El proyecto fue publicado como una colección de arte generativo en la plataforma [fxhash](https://www.fxhash.xyz/generative/19823).

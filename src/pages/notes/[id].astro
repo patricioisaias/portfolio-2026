@@ -1,0 +1,65 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import { formatDate } from '../../utils/date';
+
+export async function getStaticPaths() {
+  const notes = await getCollection('notes', ({ data }) => !data.draft);
+  return notes.map((note) => ({
+    params: { id: note.id },
+    props: { note },
+  }));
+}
+
+const { note } = Astro.props;
+const { title, description, pubDate, tags } = note.data;
+const { Content } = await render(note);
+---
+
+<Layout title={`${title} | Patricio`} description={description}>
+  <article class="max-w-2xl mx-auto space-y-10">
+    
+    <!-- Back Link -->
+    <div>
+      <a
+        href="/notes"
+        class="inline-flex items-center gap-1.5 text-xs font-medium text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100 transition-colors"
+      >
+        <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+        </svg>
+        Volver a notas
+      </a>
+    </div>
+
+    <!-- Header Section -->
+    <header class="space-y-3 border-b border-neutral-200/60 dark:border-neutral-800/60 pb-6">
+      <time datetime={pubDate.toISOString()} class="text-xs text-neutral-400 dark:text-neutral-500 font-mono">
+        {formatDate(pubDate)}
+      </time>
+
+      <h1 class="text-2xl sm:text-4xl font-bold tracking-tight text-neutral-950 dark:text-neutral-50">
+        {title}
+      </h1>
+
+      <p class="text-sm sm:text-base text-neutral-600 dark:text-neutral-400 leading-relaxed">
+        {description}
+      </p>
+
+      <!-- Tags -->
+      <div class="flex flex-wrap gap-1.5 pt-2">
+        {tags.map((tag) => (
+          <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-neutral-100 dark:bg-neutral-900 text-neutral-600 dark:text-neutral-400 border border-neutral-200/60 dark:border-neutral-800/60">
+            #{tag}
+          </span>
+        ))}
+      </div>
+    </header>
+
+    <!-- Content -->
+    <div class="prose dark:prose-invert max-w-none text-neutral-700 dark:text-neutral-300 leading-relaxed [&>h2]:text-xl [&>h2]:font-bold [&>h2]:text-neutral-950 dark:[&>h2]:text-neutral-50 [&>h2]:mt-8 [&>h2]:mb-3 [&>h3]:text-lg [&>h3]:font-semibold [&>h3]:text-neutral-900 dark:[&>h3]:text-neutral-100 [&>h3]:mt-6 [&>h3]:mb-2 [&>p]:mb-4 [&>ol]:list-decimal [&>ol]:pl-5 [&>ol]:space-y-1.5 [&>ol]:mb-4 [&>ul]:list-disc [&>ul]:pl-5 [&>ul]:space-y-1.5 [&>ul]:mb-4 [&>li]:text-sm sm:[&>li]:text-base">
+      <Content />
+    </div>
+
+  </article>
+</Layout>

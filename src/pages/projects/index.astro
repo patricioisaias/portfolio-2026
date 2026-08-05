@@ -1,0 +1,50 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+
+const projects = (await getCollection('projects')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const categories = Array.from(new Set(projects.map((p) => p.data.category)));
+---
+
+<Layout
+  title="Proyectos | Patricio"
+  description="Selección de proyectos en arquitectura backend, microservicios, arte generativo, experimentación sonora."
+>
+  <div class="space-y-10">
+    
+    <!-- Page Header -->
+    <header class="space-y-3 max-w-2xl">
+      <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full text-xs font-mono bg-neutral-100 dark:bg-neutral-900 border border-neutral-200/80 dark:border-neutral-800 text-neutral-600 dark:text-neutral-400">
+        <span>{projects.length} proyectos documentados</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-neutral-950 dark:text-neutral-50">
+        Proyectos
+      </h1>
+      <p class="text-sm sm:text-base text-neutral-600 dark:text-neutral-400 leading-relaxed">
+        Desarrollo de software, sistemas distribuidos, síntesis sonora, iniciativas de gestión interdisciplinaria.
+      </p>
+    </header>
+
+    <!-- Category Pills Overview -->
+    <div class="flex flex-wrap items-center gap-2 pt-2 border-b border-neutral-200/60 dark:border-neutral-800/60 pb-4 text-xs">
+      <span class="text-neutral-400 dark:text-neutral-500 font-mono">Disciplinas:</span>
+      {categories.map((cat) => (
+        <span class="px-2.5 py-1 rounded-md bg-neutral-100 dark:bg-neutral-900 text-neutral-700 dark:text-neutral-300 font-medium">
+          {cat}
+        </span>
+      ))}
+    </div>
+
+    <!-- Projects Grid -->
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-6" aria-label="Listado de proyectos">
+      {projects.map((project) => (
+        <ProjectCard project={project} />
+      ))}
+    </section>
+
+  </div>
+</Layout>
