@@ -21,12 +21,12 @@ export interface SiteConfig {
 }
 
 export const siteConfig: SiteConfig = {
-  author: 'Patricio',
-  title: 'Patricio | Desarrollador & Creador Multidisciplinario',
+  author: 'Patricio Isaías',
+  title: 'Patricio Isaías | Desarrollador & Creador Multidisciplinario',
   description: 'Portafolio personal, hub creativo, diario digital. Analista Programador enfocado en backend, arquitectura de microservicios, tecnologías cloud, arte digital.',
-  url: 'https://patricio.dev',
+  url: 'https://patricioisaias.dev',
   cvPath: '/CV.pdf',
-  status: 'Disponible para proyectos, colaboraciones, investigación',
+  status: 'Santiago, Chile',
   navItems: [
     { name: 'Proyectos', href: '/projects' },
     { name: 'Notas', href: '/notes' },
@@ -36,6 +36,5 @@ export const siteConfig: SiteConfig = {
   socialLinks: [
     { name: 'GitHub', href: 'https://github.com/patricioisaias' },
     { name: 'LinkedIn', href: 'https://linkedin.com/in/patricioisaias' },
-    { name: 'Email', href: 'mailto:contacto@patricio.dev' },
   ],
 };
