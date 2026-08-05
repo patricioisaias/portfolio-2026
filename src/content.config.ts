@@ -15,6 +15,8 @@ const projects = defineCollection({
         'Microservicios',
         'Arte Generativo',
         'Música & Sonido',
+        'Artes Visuales',
+        'Fotografía',
         'Desarrollo Web',
         'Investigación',
       ]),
