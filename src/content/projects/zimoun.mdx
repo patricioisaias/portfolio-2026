@@ -1,6 +1,6 @@
 ---
 title: "Zimoun: Estudio de Paisaje Sonoro"
-description: "Asistencia en el montaje de la exposición individual de Zimoun en MAC Quinta Normal. Composición electroacústica experimental con paisajes sonoros registrados en sala."
+description: "Proyecto de composición electroacústica desarrollado a partir de grabaciones de campo realizadas durante el montaje de la exposición del artista sonoro suizo Zimoun en el Museo de Arte Contemporáneo (MAC Quinta Normal). La obra explora el potencial musical de materiales industriales y mecanismos cinéticos mediante técnicas de procesamiento digital en Ableton Live."
 pubDate: 2019-11-15
 category: "Música & Sonido"
 tags: ["Arte Sonoro", "Música Electroacústica", "Ableton Live", "Max for Live", "Field Recording", "Sound Design"]
@@ -15,15 +15,16 @@ import { Image } from 'astro:assets';
 import coverImg from '../../assets/projects/zimoun/cover.png';
 import ableton1Img from '../../assets/projects/zimoun/ableton-1.png';
 import ableton2Img from '../../assets/projects/zimoun/ableton-2.png';
-import processingImg from '../../assets/projects/zimoun/processing.png';
 import structureImg from '../../assets/projects/zimoun/structure.png';
 import spatializationImg from '../../assets/projects/zimoun/spatialization.png';
 
-## Contexto & Experiencia
+## Contexto y experiencia
 
 En noviembre de 2019 participé como asistente en el montaje de la exposición individual del artista sonoro suizo [Zimoun](https://www.zimoun.net/) en el [Museo de Arte Contemporáneo (MAC Quinta Normal)](https://mac.uchile.cl/).
 
-Esta experiencia constituyó una inmersión profunda en el arte sonoro, la escultura cinética, el comportamiento acústico de materiales industriales. Inspirado por las dinámicas mecánicas de las instalaciones, desarrollé una pieza electroacústica experimental en Ableton Live a partir de grabaciones de campo registradas in situ.
+La experiencia representó una inmersión directa en el arte sonoro, la escultura cinética y el comportamiento acústico de materiales industriales. El contacto cotidiano con las instalaciones permitió comprender cómo sistemas mecánicos simples son capaces de generar estructuras sonoras complejas a través de la repetición, el azar y la resonancia.
+
+Como respuesta a esta experiencia, desarrollé una composición electroacústica experimental en Ableton Live, utilizando exclusivamente grabaciones de campo realizadas durante el montaje y funcionamiento de las obras.
 
 <div class="my-8 overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
   <Image src={coverImg} alt="Instalación sonora de Zimoun en MAC Quinta Normal" class="w-full h-auto object-cover" />
@@ -31,7 +32,9 @@ Esta experiencia constituyó una inmersión profunda en el arte sonoro, la escul
 
 ---
 
-## Registro Audiovisual
+## Registro audiovisual
+
+Documentación del montaje y funcionamiento de las instalaciones sonoras, registrando tanto los mecanismos físicos como los comportamientos acústicos que posteriormente dieron origen a la composición.
 
 <div class="my-8 aspect-video overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
   <iframe
@@ -45,7 +48,9 @@ Esta experiencia constituyó una inmersión profunda en el arte sonoro, la escul
 
 ---
 
-## Escucha de la Pieza
+## Escucha de la obra
+
+La pieza transforma los sonidos registrados en una composición electroacústica que preserva la identidad tímbrica de las instalaciones originales, explorando nuevas relaciones entre textura, ritmo, espacialidad y tiempo.
 
 <div class="my-8 overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
   <iframe
@@ -60,35 +65,37 @@ Esta experiencia constituyó una inmersión profunda en el arte sonoro, la escul
 
 ---
 
-## Selección de Fuentes Sonoras
+## Selección de fuentes sonoras
 
-Se seleccionaron seis fuentes acústicas primarias obtenidas directamente de las esculturas cinéticas. Ante la ausencia de alturas tonales convencionales (a excepción de los alambres metálicos), la composición se estructuró a partir del registro espectral, dinámica, espacialización.
+La composición se construyó a partir de seis fuentes acústicas registradas directamente en las esculturas cinéticas de la exposición. Debido a la ausencia de alturas tonales definidas —con excepción de las resonancias producidas por los alambres metálicos— el desarrollo musical se fundamentó en el análisis del espectro sonoro, la textura, la dinámica y la distribución espacial de cada material.
 
-Fuentes ordenadas de mayor a menor frecuencia:
+Las fuentes fueron organizadas desde los registros de mayor a menor contenido frecuencial:
 
-- Golpes de arandelas contra el suelo.
-- Gotas de agua sobre planchas de metal caliente.
+- Golpes de arandelas metálicas sobre el suelo.
+- Gotas de agua impactando planchas de metal caliente.
 - Listones de madera percutiéndose entre sí.
-- Bola de algodón individual golpeando caja de cartón.
-- Múltiples bolas de algodón en movimiento dentro de contenedores de cartón.
-- Bolas de algodón accionadas contra alambres tensados.
+- Bola de algodón golpeando una caja de cartón.
+- Múltiples bolas de algodón desplazándose dentro de contenedores de cartón.
+- Bolas de algodón accionadas contra alambres metálicos tensados.
 
 <div class="my-8 overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
-  <Image src={structureImg} alt="Estructura de fuentes sonoras" class="w-full h-auto object-cover" />
+  <Image src={structureImg} alt="Estructura y registro frecuencial de fuentes sonoras" class="w-full h-auto object-cover" />
 </div>
 
 ---
 
-## Procesamiento de Señal
+## Procesamiento de señal
 
-Para preservar la identidad tímbrica original, se limitaron los procesos a micro-edición (slicing), trasposición tonal (pitch shifting), inversión temporal (reverse), complementados con cadenas de procesamiento:
+Con el objetivo de preservar el carácter tímbrico de las grabaciones originales, el procesamiento se mantuvo deliberadamente contenido. Las intervenciones principales consistieron en microedición (slicing), transposición tonal (pitch shifting) e inversión temporal (reverse), complementadas mediante una cadena de procesamiento orientada al modelado espectral y espacial.
 
-- **EQ Eight**: Ecualización correctiva, esculpido frecuencial.
-- **Glue Compressor**: Control dinámico, cohesión de transientes.
-- **Reverb**: Espacios acústicos reflexivos.
-- **Ping Pong Delay**: Repeticiones rítmicas estéreo.
-- **Saturator**: Realce armónico sutil.
-- **Granulator**: Síntesis granular para estiramiento temporal de texturas.
+### Herramientas utilizadas
+
+- **EQ Eight**: ecualización correctiva y esculpido espectral.
+- **Glue Compressor**: control dinámico y cohesión de transientes.
+- **Reverb**: construcción de espacios acústicos y profundidad.
+- **Ping Pong Delay**: generación de ecos rítmicos en estéreo.
+- **Saturator**: enriquecimiento armónico de baja intensidad.
+- **Granulator**: síntesis granular para la expansión temporal y transformación de texturas.
 
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8">
   <div class="overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
@@ -101,9 +108,11 @@ Para preservar la identidad tímbrica original, se limitaron los procesos a micr
 
 ---
 
-## Espacialización & Profundidad
+## Espacialización y profundidad
 
-La mezcla estéreo (2.0) incorpora el dispositivo Max for Live `ml.distance`, el cual emula la atenuación física de altas frecuencias según la distancia perceptual. La ubicación tridimensional de las fuentes se construyó mediante automatización continua de panorama, ganancia, filtrado por canal.
+La mezcla fue realizada en formato estéreo (2.0), incorporando el dispositivo `ml.distance` de Max for Live, que simula la pérdida progresiva de altas frecuencias producida por la distancia perceptual.
+
+La ubicación espacial de cada fuente sonora fue construida mediante automatizaciones continuas de panorama, nivel y filtrado, generando una escena sonora dinámica donde los sonidos se desplazan, se acercan y se alejan del oyente, reforzando la sensación de profundidad y movimiento.
 
 <div class="my-8 overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
   <Image src={spatializationImg} alt="Automatización de espacialización y profundidad" class="w-full h-auto object-cover" />
