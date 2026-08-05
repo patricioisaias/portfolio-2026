@@ -11,7 +11,7 @@ const { photo } = Astro.props;
 const { title, description, date, location, camera, tags, photo: imageAsset } = photo.data;
 ---
 
-<figure class="group break-inside-avoid mb-6 rounded-2xl overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60 bg-neutral-100 dark:bg-neutral-900/50 transition-all duration-300 hover:shadow-md">
+<figure class="group break-inside-avoid mb-6 overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60 bg-neutral-100 dark:bg-neutral-900/50 transition-all duration-300 hover:shadow-md">
   <!-- Image Container -->
   <div class="relative overflow-hidden aspect-4/3 sm:aspect-auto">
     {imageAsset ? (
