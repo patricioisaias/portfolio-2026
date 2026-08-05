@@ -2,168 +2,500 @@
 import Layout from '../layouts/Layout.astro';
 import { siteConfig } from '../site.config';
 
-const skills = {
-  backend: ['Go', 'Node.js', 'TypeScript', 'PostgreSQL', 'Redis', 'GraphQL', 'REST APIs'],
-  cloudDevOps: ['Docker', 'AWS (EC2, S3, Lambda)', 'Linux', 'CI/CD', 'Git', 'Arquitectura EDA'],
-  creativo: ['Web Audio API', 'Canvas 2D/3D', 'SuperCollider', 'Fotografía Digital', 'Edición RAW', 'Figma'],
-  metodologias: ['Clean Architecture', 'Microservicios', 'TDD', 'Scrum', 'Liderazgo de Proyectos'],
+const stack = {
+  backend: ['Java', 'Spring Boot', 'Python', 'Diseño de APIs REST'],
+  databases: ['Oracle SQL'],
+  cloudTools: ['AWS (EC2, EBS)', 'Linux', 'Git / GitHub', 'Postman', 'Scrum'],
+  creativeTech: ['Arduino', 'p5.js', 'Max/MSP'],
 };
 
-const timeline = [
+const experience = [
   {
-    period: '2024 - Presente',
-    role: 'Estudiante de Analista Programador',
-    organization: 'Instituto Profesional',
-    description: 'Enfoque en desarrollo backend, estructuras de datos, patrones de diseño de software, computación en la nube.',
+    role: 'Director de Proyecto',
+    company: 'VOLTHAUS',
+    period: 'Marzo 2020 – Agosto 2022',
+    type: 'Dirección & Producción Interdisciplinaria',
   },
   {
-    period: '2022 - 2024',
-    role: 'Gestión de Proyectos & Docencia Musical',
-    organization: 'Iniciativas Interdisciplinarias',
-    description: 'Dirección de ensambles musicales, diseño de metodologías pedagógicas. Proyecto galardonado con el Premio Azul universitario a la gestión.',
+    role: 'Pasante de Arte',
+    company: 'Museo de Arte Contemporáneo (MAC)',
+    period: 'Septiembre 2019 – Diciembre 2019',
+    type: 'Montaje & Arte Sonoro',
   },
   {
-    period: '2020 - Presente',
-    role: 'Creación Digital & Fotografía',
-    organization: 'Práctica Independiente',
-    description: 'Exploración de arte generativo mediante código, síntesis de audio interactiva, fotografía documental urbana.',
+    role: 'Ayudante Docente',
+    company: 'Universidad de Chile',
+    period: 'Marzo 2019 – Noviembre 2019',
+    type: 'Docencia & Coordinación Académica',
+  },
+  {
+    role: 'Fotógrafo y Profesor de Música',
+    company: 'Freelance',
+    period: '2015 – Presente',
+    type: 'Práctica Independiente',
+  },
+];
+
+const education = [
+  {
+    degree: 'Analista Programador',
+    institution: 'Duoc UC',
+    period: '2025 – Presente',
+  },
+  {
+    degree: 'Licenciatura en Artes, mención Composición Musical',
+    institution: 'Universidad de Chile',
+    period: '2014 – 2020',
+  },
+  {
+    degree: 'Formación Artística, mención Interpretación en Piano',
+    institution: 'Liceo Experimental Artístico',
+    period: '2008 – 2011',
+  },
+  {
+    degree: 'Enseñanza Media',
+    institution: 'Instituto Nacional José Miguel Carrera',
+    period: '2007 – 2012',
+  },
+];
+
+const awards = [
+  {
+    title: 'Premio Azul a la Creatividad Estudiantil',
+    institution: 'Universidad de Chile',
+    year: '2019',
+  },
+  {
+    title: 'Premio al Mérito Artístico',
+    institution: 'Instituto Nacional',
+    year: '2009',
+  },
+];
+
+const allSkills = {
+  programming: ['Java', 'Spring Boot', 'Python', 'TypeScript'],
+  databases: ['Oracle SQL', 'MySQL', 'MongoDB'],
+  cloudTools: ['AWS', 'Linux', 'Git', 'GitHub', 'Postman'],
+  creativeCoding: ['Arduino', 'Processing', 'p5.js', 'Max/MSP', 'Pure Data'],
+  audioPhoto: ['Ableton Live', 'VCV Rack', 'Adobe Lightroom'],
+  languages: [
+    { name: 'Español', level: 'Nativo' },
+    { name: 'Inglés', level: 'B2' },
+    { name: 'Alemán', level: 'A1' },
+  ],
+};
+
+const selectedProjects = [
+  {
+    year: '2023',
+    items: [
+      { name: 'Generative Academy', desc: 'Plataforma educativa en línea.' },
+    ],
+  },
+  {
+    year: '2022',
+    items: [
+      { name: 'ARAUCO', desc: 'Proyecto de arte generativo.' },
+      { name: 'Teppich', desc: 'Proyecto de arte generativo.' },
+      { name: 'Madone Solitaire', desc: 'Proyecto de arte generativo.' },
+      { name: 'Monochrome Sonatas', desc: 'Serie fotográfica.' },
+      { name: 'Flores del Mal', desc: 'Proyecto de arte generativo.' },
+      { name: 'SENBIOSIS', desc: 'Obra interdisciplinaria.' },
+    ],
+  },
+  {
+    year: '2021',
+    items: [
+      { name: 'Extracciones', desc: 'Serie fotográfica.' },
+      { name: 'Nexos', desc: 'Concurso de música electrónica.' },
+      { name: 'IRRTUM', desc: 'Procesador de audio.' },
+    ],
+  },
+  {
+    year: '2020',
+    items: [
+      { name: 'GAMA', desc: 'Obra audiovisual.' },
+      { name: 'Pris', desc: 'Obra de música de cámara.' },
+    ],
+  },
+  {
+    year: '2019',
+    items: [
+      { name: 'VOLTHAUS', desc: 'Proyecto interdisciplinario.' },
+      { name: 'COLORADOR', desc: 'Aplicación para Android.' },
+      { name: 'Pasarela Cosmos', desc: 'Banda sonora.' },
+    ],
+  },
+  {
+    year: '2018',
+    items: [
+      { name: 'Zimoun', desc: 'Pasantía artística.' },
+      { name: 'Amazonas (Relatos Sintéticos)', desc: 'Obra de música electroacústica.' },
+      { name: '3 Miniaturas', desc: 'Obra para cuatro timbales.' },
+      { name: '3 Estudios', desc: 'Obra para piano solo.' },
+      { name: 'Trípticos', desc: 'Exposición individual (Espacio Elefante).' },
+    ],
+  },
+  {
+    year: '2017',
+    items: [
+      { name: 'Retratos', desc: 'Exposición colectiva (Café Chincol, Barrio Bellas Artes).' },
+      { name: 'Relatos del Puente', desc: 'Exposición individual (FAU, Universidad de Chile).' },
+      { name: 'ESPINOLA 2017', desc: 'Registro fotográfico de backstage (Ñuñoa, Lastarria y Bellavista).' },
+    ],
+  },
+  {
+    year: '2016',
+    items: [
+      { name: 'Ascenso', desc: 'Intervención artística (Facultad de Artes, Universidad de Chile).' },
+      { name: 'REFLEX', desc: 'Obra para tres bailarines, contrabajo y electrónica (Centro GAM y Espacio Matta).' },
+      { name: 'ESPINOLA Fashion Show', desc: 'Banda sonora (Facultad de Artes, Universidad de Chile).' },
+      { name: 'Nuestra Facultad', desc: 'Serie fotográfica.' },
+    ],
+  },
+  {
+    year: '2015',
+    items: [
+      { name: 'ESPINOLA Fashion Show', desc: 'Banda sonora y registro fotográfico (Barrio Lastarria).' },
+      { name: 'Lehaim', desc: 'EP de música electrónica.' },
+    ],
+  },
+  {
+    year: '2013',
+    items: [
+      { name: 'Estación Común', desc: 'EP de música instrumental.' },
+    ],
   },
 ];
 ---
 
 <Layout
-  title="Sobre mí | Patricio"
-  description="Perfil profesional, trayectoria académica, áreas de especialización en backend, docencia, artes digitales."
+  title="Sobre mí | Patricio Isaías"
+  description="Estudiante de Analista Programador, Licenciado en Artes. Backend, arquitectura de microservicios, cloud y creación interdisciplinaria."
 >
-  <div class="max-w-3xl mx-auto space-y-16">
+  <div class="max-w-3xl mx-auto space-y-16 sm:space-y-20">
     
-    <!-- Intro Header -->
+    <!-- Intro / Bio Section -->
     <header class="space-y-6">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono bg-neutral-100 dark:bg-neutral-900 border border-neutral-200/80 dark:border-neutral-800 text-neutral-600 dark:text-neutral-400">
-        <span>Perfil Multidisciplinario</span>
+      <div class="inline-flex items-center gap-2 px-3 py-1 text-xs font-mono bg-neutral-100 dark:bg-neutral-900 border border-neutral-200/80 dark:border-neutral-800 text-neutral-700 dark:text-neutral-300">
+        Analista Programador <span class="text-neutral-400 dark:text-neutral-600">|</span> Licenciado en Artes
       </div>
 
       <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-neutral-950 dark:text-neutral-50 leading-tight">
-        Lógica de sistemas, rigor arquitectónico, sensibilidad artística.
+        Patricio Isaías
       </h1>
 
       <div class="space-y-4 text-base sm:text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed">
         <p>
-          Soy estudiante de cuarto semestre de Analista Programador con orientación hacia el desarrollo backend, diseño de microservicios, infraestructura en la nube.
+          Soy estudiante de cuarto semestre de Analista Programador, con interés en desarrollo backend, arquitectura de microservicios y tecnologías cloud. Me motiva diseñar soluciones escalables, aprender nuevas tecnologías y seguir fortaleciendo mis habilidades en desarrollo de software.
         </p>
         <p>
-          Mi formación previa en docencia musical y dirección de proyectos me aportó una visión analítica para resolver problemas complejos, gestionar equipos, diseñar soluciones elegantes. Fui reconocido con el Premio Azul de la Universidad por liderar iniciativas interdisciplinarias de alto impacto.
+          Antes de iniciar mi formación actual me desempeñé en el ámbito artístico, liderando proyectos interdisciplinarios y ejerciendo docencia musical. Esa experiencia me permitió fortalecer competencias de gestión de equipos, comunicación y resolución de problemas, además de desarrollar una visión creativa para enfrentar desafíos complejos. Este trabajo fue reconocido con el Premio Azul de la Universidad de Chile.
+        </p>
+        <p>
+          Actualmente busco integrarme a un equipo donde pueda seguir desarrollándome profesionalmente, aportando una perspectiva técnico-creativa en el desarrollo de productos y soluciones tecnológicas innovadoras.
         </p>
       </div>
 
-      <!-- Actions -->
+      <!-- Quick Action Buttons -->
       <div class="flex flex-wrap items-center gap-3 pt-2">
         <a
-          href={siteConfig.cvPath}
-          download
+          href="https://linkedin.com/in/patricioisaias"
+          target="_blank"
+          rel="noopener noreferrer"
           class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-900 hover:opacity-90 transition-opacity"
         >
-          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
           </svg>
-          Descargar Currículum (PDF)
+          Conectar en LinkedIn
         </a>
-        
         <a
-          href="mailto:contacto@patricio.dev"
+          href="https://github.com/patricioisaias"
+          target="_blank"
+          rel="noopener noreferrer"
           class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg border border-neutral-300 dark:border-neutral-700 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-50 dark:hover:bg-neutral-900 transition-colors"
         >
-          Iniciar Conversación
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+          </svg>
+          GitHub
         </a>
       </div>
     </header>
 
-    <!-- Timeline / Trayectoria -->
+    <!-- Stack Tecnológico -->
     <section class="space-y-6">
       <h2 class="text-xl font-bold tracking-tight text-neutral-950 dark:text-neutral-50 border-b border-neutral-200/60 dark:border-neutral-800/60 pb-3">
-        Trayectoria & Experiencia
+        Stack tecnológico
       </h2>
 
-      <div class="space-y-8">
-        {timeline.map((item) => (
-          <div class="relative pl-6 border-l border-neutral-200 dark:border-neutral-800 space-y-1">
-            <span class="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-neutral-400 dark:bg-neutral-600"></span>
-            <div class="flex flex-wrap items-baseline justify-between gap-2">
-              <h3 class="text-sm font-semibold text-neutral-900 dark:text-neutral-100">
-                {item.role} · <span class="text-neutral-500 font-normal">{item.organization}</span>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <!-- Backend -->
+        <div class="p-5 border border-neutral-200/60 dark:border-neutral-800/60 bg-neutral-50/40 dark:bg-neutral-900/30 space-y-3">
+          <h3 class="text-xs font-mono font-semibold uppercase tracking-wider text-neutral-900 dark:text-neutral-100">
+            Backend
+          </h3>
+          <ul class="space-y-1.5 text-sm text-neutral-700 dark:text-neutral-300">
+            {stack.backend.map((item) => (
+              <li class="flex items-center gap-2">
+                <span class="w-1 h-1 bg-neutral-400 dark:bg-neutral-600 select-none"></span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Bases de datos -->
+        <div class="p-5 border border-neutral-200/60 dark:border-neutral-800/60 bg-neutral-50/40 dark:bg-neutral-900/30 space-y-3">
+          <h3 class="text-xs font-mono font-semibold uppercase tracking-wider text-neutral-900 dark:text-neutral-100">
+            Bases de datos
+          </h3>
+          <ul class="space-y-1.5 text-sm text-neutral-700 dark:text-neutral-300">
+            {stack.databases.map((item) => (
+              <li class="flex items-center gap-2">
+                <span class="w-1 h-1 bg-neutral-400 dark:bg-neutral-600 select-none"></span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Cloud y herramientas -->
+        <div class="p-5 border border-neutral-200/60 dark:border-neutral-800/60 bg-neutral-50/40 dark:bg-neutral-900/30 space-y-3">
+          <h3 class="text-xs font-mono font-semibold uppercase tracking-wider text-neutral-900 dark:text-neutral-100">
+            Cloud y herramientas
+          </h3>
+          <ul class="space-y-1.5 text-sm text-neutral-700 dark:text-neutral-300">
+            {stack.cloudTools.map((item) => (
+              <li class="flex items-center gap-2">
+                <span class="w-1 h-1 bg-neutral-400 dark:bg-neutral-600 select-none"></span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Creative Tech -->
+        <div class="p-5 border border-neutral-200/60 dark:border-neutral-800/60 bg-neutral-50/40 dark:bg-neutral-900/30 space-y-3">
+          <h3 class="text-xs font-mono font-semibold uppercase tracking-wider text-neutral-900 dark:text-neutral-100">
+            Creative Tech
+          </h3>
+          <ul class="space-y-1.5 text-sm text-neutral-700 dark:text-neutral-300">
+            {stack.creativeTech.map((item) => (
+              <li class="flex items-center gap-2">
+                <span class="w-1 h-1 bg-neutral-400 dark:bg-neutral-600 select-none"></span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experiencia -->
+    <section class="space-y-6">
+      <h2 class="text-xl font-bold tracking-tight text-neutral-950 dark:text-neutral-50 border-b border-neutral-200/60 dark:border-neutral-800/60 pb-3">
+        Experiencia
+      </h2>
+
+      <div class="divide-y divide-neutral-200/60 dark:divide-neutral-800/60">
+        {experience.map((item) => (
+          <div class="py-4 first:pt-0 last:pb-0 flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 sm:gap-4">
+            <div>
+              <h3 class="text-sm sm:text-base font-semibold text-neutral-900 dark:text-neutral-100">
+                {item.company} <span class="text-neutral-400 font-normal">—</span> {item.role}
               </h3>
-              <span class="text-xs font-mono text-neutral-400 dark:text-neutral-500">
-                {item.period}
-              </span>
+              <p class="text-xs text-neutral-500 dark:text-neutral-400">
+                {item.type}
+              </p>
             </div>
-            <p class="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed pt-1">
-              {item.description}
-            </p>
+            <span class="text-xs font-mono text-neutral-400 dark:text-neutral-500 whitespace-nowrap">
+              {item.period}
+            </span>
           </div>
         ))}
       </div>
     </section>
 
-    <!-- Skills & Tecnologías -->
+    <!-- Formación -->
     <section class="space-y-6">
       <h2 class="text-xl font-bold tracking-tight text-neutral-950 dark:text-neutral-50 border-b border-neutral-200/60 dark:border-neutral-800/60 pb-3">
-        Competencias & Herramientas
+        Formación
       </h2>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        
-        <div class="p-4 rounded-xl bg-neutral-50 dark:bg-neutral-900/50 border border-neutral-200/60 dark:border-neutral-800/60 space-y-2">
-          <h3 class="text-xs font-semibold text-neutral-900 dark:text-neutral-100 uppercase tracking-wider">
-            Backend & Bases de Datos
-          </h3>
-          <div class="flex flex-wrap gap-1.5">
-            {skills.backend.map((item) => (
-              <span class="px-2 py-0.5 text-xs font-mono rounded bg-white dark:bg-neutral-800 border border-neutral-200/60 dark:border-neutral-700/60 text-neutral-700 dark:text-neutral-300">
-                {item}
-              </span>
-            ))}
+      <div class="divide-y divide-neutral-200/60 dark:divide-neutral-800/60">
+        {education.map((item) => (
+          <div class="py-4 first:pt-0 last:pb-0 flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 sm:gap-4">
+            <div>
+              <h3 class="text-sm sm:text-base font-semibold text-neutral-900 dark:text-neutral-100">
+                {item.institution}
+              </h3>
+              <p class="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400">
+                {item.degree}
+              </p>
+            </div>
+            <span class="text-xs font-mono text-neutral-400 dark:text-neutral-500 whitespace-nowrap">
+              {item.period}
+            </span>
           </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Reconocimientos -->
+    <section class="space-y-6">
+      <h2 class="text-xl font-bold tracking-tight text-neutral-950 dark:text-neutral-50 border-b border-neutral-200/60 dark:border-neutral-800/60 pb-3">
+        Reconocimientos
+      </h2>
+
+      <div class="divide-y divide-neutral-200/60 dark:divide-neutral-800/60">
+        {awards.map((item) => (
+          <div class="py-4 first:pt-0 last:pb-0 flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 sm:gap-4">
+            <div>
+              <h3 class="text-sm sm:text-base font-semibold text-neutral-900 dark:text-neutral-100">
+                {item.title}
+              </h3>
+              <p class="text-xs text-neutral-500 dark:text-neutral-400">
+                {item.institution}
+              </p>
+            </div>
+            <span class="text-xs font-mono text-neutral-400 dark:text-neutral-500 whitespace-nowrap">
+              {item.year}
+            </span>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Competencias técnicas -->
+    <section class="space-y-6">
+      <h2 class="text-xl font-bold tracking-tight text-neutral-950 dark:text-neutral-50 border-b border-neutral-200/60 dark:border-neutral-800/60 pb-3">
+        Competencias técnicas
+      </h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-sm">
+        <!-- Programación -->
+        <div class="space-y-2">
+          <h3 class="text-xs font-mono font-semibold uppercase tracking-wider text-neutral-900 dark:text-neutral-100">
+            Programación
+          </h3>
+          <ul class="space-y-1 text-neutral-600 dark:text-neutral-400 text-xs">
+            {allSkills.programming.map((item) => (
+              <li class="flex items-center gap-2">
+                <span class="w-1 h-1 bg-neutral-400 dark:bg-neutral-600 select-none"></span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
         </div>
 
-        <div class="p-4 rounded-xl bg-neutral-50 dark:bg-neutral-900/50 border border-neutral-200/60 dark:border-neutral-800/60 space-y-2">
-          <h3 class="text-xs font-semibold text-neutral-900 dark:text-neutral-100 uppercase tracking-wider">
-            Cloud, Infraestructura & DevOps
+        <!-- Bases de datos -->
+        <div class="space-y-2">
+          <h3 class="text-xs font-mono font-semibold uppercase tracking-wider text-neutral-900 dark:text-neutral-100">
+            Bases de datos
           </h3>
-          <div class="flex flex-wrap gap-1.5">
-            {skills.cloudDevOps.map((item) => (
-              <span class="px-2 py-0.5 text-xs font-mono rounded bg-white dark:bg-neutral-800 border border-neutral-200/60 dark:border-neutral-700/60 text-neutral-700 dark:text-neutral-300">
-                {item}
-              </span>
+          <ul class="space-y-1 text-neutral-600 dark:text-neutral-400 text-xs">
+            {allSkills.databases.map((item) => (
+              <li class="flex items-center gap-2">
+                <span class="w-1 h-1 bg-neutral-400 dark:bg-neutral-600 select-none"></span>
+                <span>{item}</span>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
 
-        <div class="p-4 rounded-xl bg-neutral-50 dark:bg-neutral-900/50 border border-neutral-200/60 dark:border-neutral-800/60 space-y-2">
-          <h3 class="text-xs font-semibold text-neutral-900 dark:text-neutral-100 uppercase tracking-wider">
-            Creación Digital & Multimedia
+        <!-- Cloud y herramientas -->
+        <div class="space-y-2">
+          <h3 class="text-xs font-mono font-semibold uppercase tracking-wider text-neutral-900 dark:text-neutral-100">
+            Cloud y herramientas
           </h3>
-          <div class="flex flex-wrap gap-1.5">
-            {skills.creativo.map((item) => (
-              <span class="px-2 py-0.5 text-xs font-mono rounded bg-white dark:bg-neutral-800 border border-neutral-200/60 dark:border-neutral-700/60 text-neutral-700 dark:text-neutral-300">
-                {item}
-              </span>
+          <ul class="space-y-1 text-neutral-600 dark:text-neutral-400 text-xs">
+            {allSkills.cloudTools.map((item) => (
+              <li class="flex items-center gap-2">
+                <span class="w-1 h-1 bg-neutral-400 dark:bg-neutral-600 select-none"></span>
+                <span>{item}</span>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
 
-        <div class="p-4 rounded-xl bg-neutral-50 dark:bg-neutral-900/50 border border-neutral-200/60 dark:border-neutral-800/60 space-y-2">
-          <h3 class="text-xs font-semibold text-neutral-900 dark:text-neutral-100 uppercase tracking-wider">
-            Arquitectura & Gestión
+        <!-- Creative Coding -->
+        <div class="space-y-2">
+          <h3 class="text-xs font-mono font-semibold uppercase tracking-wider text-neutral-900 dark:text-neutral-100">
+            Creative Coding
           </h3>
-          <div class="flex flex-wrap gap-1.5">
-            {skills.metodologias.map((item) => (
-              <span class="px-2 py-0.5 text-xs font-mono rounded bg-white dark:bg-neutral-800 border border-neutral-200/60 dark:border-neutral-700/60 text-neutral-700 dark:text-neutral-300">
-                {item}
-              </span>
+          <ul class="space-y-1 text-neutral-600 dark:text-neutral-400 text-xs">
+            {allSkills.creativeCoding.map((item) => (
+              <li class="flex items-center gap-2">
+                <span class="w-1 h-1 bg-neutral-400 dark:bg-neutral-600 select-none"></span>
+                <span>{item}</span>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
 
+        <!-- Música y fotografía -->
+        <div class="space-y-2">
+          <h3 class="text-xs font-mono font-semibold uppercase tracking-wider text-neutral-900 dark:text-neutral-100">
+            Música y fotografía
+          </h3>
+          <ul class="space-y-1 text-neutral-600 dark:text-neutral-400 text-xs">
+            {allSkills.audioPhoto.map((item) => (
+              <li class="flex items-center gap-2">
+                <span class="w-1 h-1 bg-neutral-400 dark:bg-neutral-600 select-none"></span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Idiomas -->
+        <div class="space-y-2">
+          <h3 class="text-xs font-mono font-semibold uppercase tracking-wider text-neutral-900 dark:text-neutral-100">
+            Idiomas
+          </h3>
+          <ul class="space-y-1 text-neutral-600 dark:text-neutral-400 text-xs">
+            {allSkills.languages.map((item) => (
+              <li class="flex items-center gap-2">
+                <span class="w-1 h-1 bg-neutral-400 dark:bg-neutral-600 select-none"></span>
+                <span>{item.name} <span class="text-neutral-400 font-mono">({item.level})</span></span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Proyectos seleccionados -->
+    <section class="space-y-8">
+      <h2 class="text-xl font-bold tracking-tight text-neutral-950 dark:text-neutral-50 border-b border-neutral-200/60 dark:border-neutral-800/60 pb-3">
+        Proyectos seleccionados
+      </h2>
+
+      <div class="space-y-8">
+        {selectedProjects.map((group) => (
+          <div class="space-y-3">
+            <div class="flex items-center gap-3">
+              <span class="text-xs font-mono font-bold text-neutral-900 dark:text-neutral-100 px-2 py-0.5 border border-neutral-200/80 dark:border-neutral-800 bg-neutral-100/80 dark:bg-neutral-900">
+                {group.year}
+              </span>
+              <div class="h-px flex-1 bg-neutral-200/40 dark:bg-neutral-800/40"></div>
+            </div>
+
+            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs sm:text-sm pl-1">
+              {group.items.map((item) => (
+                <li class="flex items-start gap-2 py-1 text-neutral-700 dark:text-neutral-300">
+                  <span class="text-neutral-400 mt-0.5 select-none">•</span>
+                  <div>
+                    <span class="font-semibold text-neutral-950 dark:text-neutral-50">{item.name}</span>
+                    <span class="text-neutral-500 dark:text-neutral-400 font-normal"> — {item.desc}</span>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
       </div>
     </section>
 
