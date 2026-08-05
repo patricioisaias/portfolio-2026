@@ -1,0 +1,110 @@
+---
+title: "Zimoun: Estudio de Paisaje Sonoro"
+description: "Asistencia en el montaje de la exposición individual de Zimoun en MAC Quinta Normal. Composición electroacústica experimental con paisajes sonoros registrados en sala."
+pubDate: 2019-11-15
+category: "Música & Sonido"
+tags: ["Arte Sonoro", "Música Electroacústica", "Ableton Live", "Max for Live", "Field Recording", "Sound Design"]
+featured: true
+coverImage: "../../assets/projects/zimoun/cover.png"
+coverAlt: "Instalación de arte sonoro de Zimoun"
+links:
+  live: "https://soundcloud.com/patricioisaias/zimoun"
+  demo: "https://www.youtube.com/watch?v=YE7NPbBkcII"
+---
+import { Image } from 'astro:assets';
+import coverImg from '../../assets/projects/zimoun/cover.png';
+import ableton1Img from '../../assets/projects/zimoun/ableton-1.png';
+import ableton2Img from '../../assets/projects/zimoun/ableton-2.png';
+import processingImg from '../../assets/projects/zimoun/processing.png';
+import structureImg from '../../assets/projects/zimoun/structure.png';
+import spatializationImg from '../../assets/projects/zimoun/spatialization.png';
+
+## Contexto & Experiencia
+
+En noviembre de 2019 participé como asistente en el montaje de la exposición individual del artista sonoro suizo [Zimoun](https://www.zimoun.net/) en el [Museo de Arte Contemporáneo (MAC Quinta Normal)](https://mac.uchile.cl/).
+
+Esta experiencia constituyó una inmersión profunda en el arte sonoro, la escultura cinética, el comportamiento acústico de materiales industriales. Inspirado por las dinámicas mecánicas de las instalaciones, desarrollé una pieza electroacústica experimental en Ableton Live a partir de grabaciones de campo registradas in situ.
+
+<div class="my-8 rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800">
+  <Image src={coverImg} alt="Instalación sonora de Zimoun en MAC Quinta Normal" class="w-full h-auto object-cover" />
+</div>
+
+---
+
+## Registro Audiovisual
+
+<div class="my-8 aspect-video rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800">
+  <iframe
+    src="https://www.youtube.com/embed/YE7NPbBkcII?rel=0"
+    title="Zimoun MAC Quinta Normal"
+    class="w-full h-full"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen
+  ></iframe>
+</div>
+
+---
+
+## Escucha de la Pieza
+
+<div class="my-8 rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800">
+  <iframe
+    width="100%"
+    height="166"
+    scrolling="no"
+    frameborder="no"
+    allow="autoplay"
+    src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/713081641&color=%23171717&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"
+  ></iframe>
+</div>
+
+---
+
+## Selección de Fuentes Sonoras
+
+Se seleccionaron seis fuentes acústicas primarias obtenidas directamente de las esculturas cinéticas. Ante la ausencia de alturas tonales convencionales (a excepción de los alambres metálicos), la composición se estructuró a partir del registro espectral, dinámica, espacialización.
+
+Fuentes ordenadas de mayor a menor frecuencia:
+
+- Golpes de arandelas contra el suelo.
+- Gotas de agua sobre planchas de metal caliente.
+- Listones de madera percutiéndose entre sí.
+- Bola de algodón individual golpeando caja de cartón.
+- Múltiples bolas de algodón en movimiento dentro de contenedores de cartón.
+- Bolas de algodón accionadas contra alambres tensados.
+
+<div class="my-8 rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800">
+  <Image src={structureImg} alt="Estructura de fuentes sonoras" class="w-full h-auto object-cover" />
+</div>
+
+---
+
+## Procesamiento de Señal
+
+Para preservar la identidad tímbrica original, se limitaron los procesos a micro-edición (slicing), trasposición tonal (pitch shifting), inversión temporal (reverse), complementados con cadenas de procesamiento:
+
+- **EQ Eight**: Ecualización correctiva, esculpido frecuencial.
+- **Glue Compressor**: Control dinámico, cohesión de transientes.
+- **Reverb**: Espacios acústicos reflexivos.
+- **Ping Pong Delay**: Repeticiones rítmicas estéreo.
+- **Saturator**: Realce armónico sutil.
+- **Granulator**: Síntesis granular para estiramiento temporal de texturas.
+
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8">
+  <div class="rounded-xl overflow-hidden border border-neutral-200 dark:border-neutral-800">
+    <Image src={ableton1Img} alt="Sesión de mezcla en Ableton Live" class="w-full h-auto object-cover" />
+  </div>
+  <div class="rounded-xl overflow-hidden border border-neutral-200 dark:border-neutral-800">
+    <Image src={ableton2Img} alt="Detalle de automatizaciones en Ableton Live" class="w-full h-auto object-cover" />
+  </div>
+</div>
+
+---
+
+## Espacialización & Profundidad
+
+La mezcla estéreo (2.0) incorpora el dispositivo Max for Live `ml.distance`, el cual emula la atenuación física de altas frecuencias según la distancia perceptual. La ubicación tridimensional de las fuentes se construyó mediante automatización continua de panorama, ganancia, filtrado por canal.
+
+<div class="my-8 rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800">
+  <Image src={spatializationImg} alt="Automatización de espacialización y profundidad" class="w-full h-auto object-cover" />
+</div>
