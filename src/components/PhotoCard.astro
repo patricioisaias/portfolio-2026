@@ -1,64 +1,85 @@
 ---
-import type { CollectionEntry } from 'astro:content';
-import { Image } from 'astro:assets';
-import { formatDate } from '../utils/date';
+import type { CollectionEntry } from "astro:content";
+import { Image } from "astro:assets";
+import { formatDate } from "../utils/date";
 
 export interface Props {
-  photo: CollectionEntry<'photography'>;
+  photo: CollectionEntry<"photography">;
 }
 
 const { photo } = Astro.props;
-const { title, description, date, location, camera, tags, photo: imageAsset } = photo.data;
+const {
+  title,
+  description,
+  date,
+  location,
+  camera,
+  tags,
+  photo: imageAsset,
+} = photo.data;
 ---
 
-<figure class="group break-inside-avoid mb-6 overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60 bg-neutral-100 dark:bg-neutral-900/50 transition-all duration-300 hover:shadow-md">
+<figure
+  class="group break-inside-avoid mb-6 overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60 bg-neutral-100 dark:bg-neutral-900/50 transition-all duration-300 hover:shadow-md"
+>
   <!-- Image Container -->
   <div class="relative overflow-hidden aspect-4/3 sm:aspect-auto">
-    {imageAsset ? (
-      <Image
-        src={imageAsset}
-        alt={title}
-        class="w-full h-auto object-cover group-hover:scale-102 transition-transform duration-500"
-        loading="lazy"
-      />
-    ) : (
-      <div class="w-full aspect-4/3 bg-radial from-neutral-200 to-neutral-300 dark:from-neutral-800 dark:to-neutral-900 flex items-center justify-center p-6 text-center">
-        <span class="font-mono text-xs text-neutral-500 dark:text-neutral-400">
-          [Fotografía / Asset Visual: {title}]
-        </span>
-      </div>
-    )}
+    {
+      imageAsset ? (
+        <Image
+          src={imageAsset}
+          alt={title}
+          class="w-full h-auto object-cover group-hover:scale-102 transition-transform duration-500"
+          loading="lazy"
+        />
+      ) : (
+        <div class="w-full aspect-4/3 bg-radial from-neutral-200 to-neutral-300 dark:from-neutral-800 dark:to-neutral-900 flex items-center justify-center p-6 text-center">
+          <span class="font-mono text-xs text-neutral-500 dark:text-neutral-400">
+            [Fotografía / Asset Visual: {title}]
+          </span>
+        </div>
+      )
+    }
   </div>
 
   <!-- Caption & Metadata -->
   <figcaption class="p-4 space-y-2 bg-white dark:bg-neutral-950">
     <div class="flex items-baseline justify-between gap-2">
-      <h3 class="text-sm font-semibold tracking-tight text-neutral-950 dark:text-neutral-100">
+      <h3
+        class="text-sm font-semibold tracking-tight text-neutral-950 dark:text-neutral-100"
+      >
         {title}
       </h3>
-      <time datetime={date.toISOString()} class="text-[11px] font-mono text-neutral-400 dark:text-neutral-500">
+      <time
+        datetime={date.toISOString()}
+        class="text-[11px] font-mono text-neutral-400 dark:text-neutral-500"
+      >
         {formatDate(date)}
       </time>
     </div>
 
-    {description && (
-      <p class="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed">
-        {description}
-      </p>
-    )}
+    {
+      description && (
+        <p class="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed">
+          {description}
+        </p>
+      )
+    }
 
     <!-- EXIF / Location tags -->
-    <div class="flex flex-wrap items-center gap-x-3 gap-y-1 pt-1 text-[11px] text-neutral-500 dark:text-neutral-400 font-mono">
-      {location && (
-        <span class="inline-flex items-center gap-1">
-          📍 {location}
-        </span>
-      )}
-      {camera && (
-        <span class="inline-flex items-center gap-1">
-          📷 {camera}
-        </span>
-      )}
+    <div
+      class="flex flex-wrap items-center gap-x-3 gap-y-1 pt-1 text-[11px] text-neutral-500 dark:text-neutral-400 font-mono"
+    >
+      {
+        location && (
+          <span class="inline-flex items-center gap-1">📍 {location}</span>
+        )
+      }
+      {
+        camera && (
+          <span class="inline-flex items-center gap-1">📷 {camera}</span>
+        )
+      }
     </div>
   </figcaption>
 </figure>
