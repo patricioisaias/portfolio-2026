@@ -52,11 +52,21 @@ const photography = defineCollection({
     z.object({
       title: z.string(),
       description: z.string().optional(),
-      date: z.coerce.date(),
-      photo: image().optional(),
-      location: z.string().optional(),
-      camera: z.string().optional(),
+      pubDate: z.coerce.date(),
+      coverImage: image().optional(),
+      coverAlt: z.string().optional(),
+      category: z.string().default('Fotografía'),
       tags: z.array(z.string()).default([]),
+      featured: z.boolean().default(false),
+      camera: z.string().optional(),
+      location: z.string().optional(),
+      links: z
+        .object({
+          github: z.string().url().optional(),
+          live: z.string().url().optional(),
+          demo: z.string().url().optional(),
+        })
+        .default({}),
     }),
 });
 

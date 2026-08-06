@@ -21,7 +21,7 @@ const recentNotes = (await getCollection('notes', ({ data }) => !data.draft))
 <Layout title={siteConfig.title} description={siteConfig.description}>
   <div class="space-y-16 sm:space-y-20">
     <!-- Hero Section -->
-    <section class="space-y-8 max-w-3xl">
+    <section class="space-y-8">
       <!-- Main Headline -->
       <div class="space-y-4">
         <h1
@@ -60,7 +60,7 @@ const recentNotes = (await getCollection('notes', ({ data }) => !data.draft))
         <Image
           src={homeCover}
           alt="Fotografía urbana en blanco y negro de Patricio Céspedes"
-          class="w-full h-auto object-cover max-h-[480px]"
+          class="w-full h-auto"
           loading="eager"
         />
       </div>

@@ -5,12 +5,12 @@ pubDate: 2024-02-28
 category: "Arte Generativo"
 tags: ["Creative Coding", "p5.js", "fxhash", "Generative Art", "Perlin Noise"]
 featured: true
-coverImage: "../../assets/projects/arauco/cover.jpg"
+coverImage: "../../assets/projects/arauco/cover2.jpg"
 coverAlt: "ARAUCO enmarcado - Arte generativo en p5.js"
 links: {}
 ---
 import { Image } from 'astro:assets';
-import coverImg from '../../assets/projects/arauco/cover.jpg';
+import coverImg from '../../assets/projects/arauco/cover2.jpg';
 import codeImg from '../../assets/projects/arauco/code.png';
 import payneImg from '../../assets/projects/arauco/payne.jpg';
 import polewImg from '../../assets/projects/arauco/polew.jpg';
@@ -21,9 +21,9 @@ import deskImg from '../../assets/projects/arauco/desk.jpg';
 
 ## Sobre la obra
 
-La Araucaria araucana, conocida también como pewén, es un árbol sagrado para el pueblo mapuche y uno de los principales emblemas naturales de Chile. Su linaje evolutivo se remonta aproximadamente a 260 millones de años, hasta el período Triásico, formando parte de uno de los grupos de árboles más antiguos que aún existen en el planeta.
+La *Araucaria araucana*, conocida también como **pewén**, es un árbol sagrado para el pueblo mapuche y uno de los principales emblemas naturales de Chile. Su linaje evolutivo se remonta aproximadamente a 260 millones de años, hasta el período Triásico, formando parte de una de las especies arbóreas más antiguas que aún habitan el planeta.
 
-ARAUCO es un homenaje a la araucaria, a la cordillera de los Andes y a la cosmovisión mapuche. La composición integra elementos simbólicos como el kultrung, la estrella Wünelfe y la cruz escalonada Ngümin, recreando un paisaje inspirado en el sur de Chile, donde la cordillera se alza tras el bosque nativo.
+**ARAUCO** rinde homenaje a la araucaria, la cordillera de los Andes y la cosmovisión mapuche. La obra incorpora elementos simbólicos como el *kultrun*, la estrella *Wünelfe* y el *Ngümin* (cruz escalonada), reinterpretándolos mediante un sistema generativo que recrea un paisaje inspirado en el sur de Chile, donde la cordillera emerge tras el bosque nativo.
 
 <div class="my-8 overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
   <Image src={coverImg} alt="ARAUCO - Composición Enmarcada" class="w-full h-auto object-cover" />
@@ -33,42 +33,44 @@ ARAUCO es un homenaje a la araucaria, a la cordillera de los Andes y a la cosmov
 
 ## Proceso creativo
 
-La obra fue desarrollada íntegramente en p5.js (JavaScript para creative coding). Cada pieza se genera de forma procedural en el navegador, dando origen a una composición única mediante la combinación de distintas técnicas algorítmicas:
+La obra fue desarrollada en [p5.js](https://p5js.org/), una biblioteca de JavaScript orientada a la programación creativa. Cada composición es generada de forma procedural en el navegador a partir de un mismo algoritmo, cuyo comportamiento varía mediante distintos parámetros y procesos estocásticos.
 
-- **Ruido Perlin**: utilizado para modelar las siluetas de la cordillera, la atmósfera y las texturas orgánicas del follaje.
-- **Curvas de Bézier**: empleadas para construir las ramas, los troncos y diversos patrones geométricos de manera fluida y natural.
-- **Procesos estocásticos**: responsables de distribuir los elementos visuales mediante reglas probabilísticas que equilibran variación y coherencia compositiva.
+Entre las principales técnicas utilizadas destacan:
+
+- **Perlin Noise**: para modelar la silueta de la cordillera, la atmósfera y las texturas orgánicas del follaje.
+- **Curvas de Bézier**: empleadas en la construcción de ramas, troncos y patrones geométricos de forma fluida.
+- **Procesos estocásticos**: responsables de distribuir los elementos visuales mediante reglas probabilísticas que equilibran variación, ritmo y coherencia compositiva.
 
 <div class="my-8 overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
-  <Image src={codeImg} alt="Snippet de código procedural en p5.js para ARAUCO" class="w-full h-auto object-cover" />
+  <Image src={codeImg} alt="Snippet del código en p5.js" class="w-full h-auto object-cover" />
 </div>
 
 ---
 
 ## Galería de iteraciones
 
-Cada iteración es generada a partir del mismo algoritmo, variando automáticamente su composición, distribución de elementos y paleta cromática identificada en mapudungun. Aunque todas las piezas comparten un lenguaje visual común, cada una constituye una obra única e irrepetible.
+Cada iteración surge del mismo sistema generativo, modificando automáticamente la composición, la distribución de los elementos y la paleta cromática. Aunque todas las obras comparten una identidad visual común, ninguna se repite exactamente, convirtiendo cada ejecución del algoritmo en una pieza única.
 
 <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 my-8">
   <div class="overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
-    <Image src={payneImg} alt="Iteración Payne" class="w-full h-auto object-cover" />
+    <Image src={payneImg} alt="Payne" class="w-full h-auto object-cover" />
   </div>
   <div class="overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
-    <Image src={polewImg} alt="Iteración Polew" class="w-full h-auto object-cover" />
+    <Image src={polewImg} alt="Polew" class="w-full h-auto object-cover" />
   </div>
   <div class="overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
-    <Image src={keluImg} alt="Iteración Kelü" class="w-full h-auto object-cover" />
+    <Image src={keluImg} alt="Kelü" class="w-full h-auto object-cover" />
   </div>
   <div class="overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
-    <Image src={chozImg} alt="Iteración Choz" class="w-full h-auto object-cover" />
+    <Image src={chozImg} alt="Choz" class="w-full h-auto object-cover" />
   </div>
 </div>
 
 ---
 
-## Presentación y montaje físico
+## Presentación y montaje
 
-Las piezas de la colección fueron concebidas en alta resolución, permitiendo su reproducción tanto en formato digital como en impresiones de bellas artes con calidad de archivo (A3 a 300 DPI).
+Las obras fueron concebidas en alta resolución para garantizar una reproducción fiel tanto en formato digital como en impresiones Fine Art (A3 a 300 DPI), permitiendo su exhibición en distintos contextos expositivos.
 
 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-8">
   <div class="overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
@@ -83,4 +85,4 @@ Las piezas de la colección fueron concebidas en alta resolución, permitiendo s
 
 ## Publicación
 
-ARAUCO fue publicado como una colección de arte generativo en [fxhash](https://www.fxhash.xyz/generative/19823), plataforma especializada en arte generativo sobre la blockchain de Tezos. Cada obra acuñada se genera en el momento de la compra mediante el mismo algoritmo, produciendo una composición única para cada coleccionista.
+**ARAUCO** fue publicado como una colección de 128 obras en [fxhash](https://www.fxhash.xyz/generative/19823), plataforma especializada en arte generativo sobre la blockchain de Tezos. Cada pieza es generada en el momento de su acuñación (mint) a partir del mismo algoritmo, produciendo una composición irrepetible para cada coleccionista.
