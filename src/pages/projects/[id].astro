@@ -1,10 +1,10 @@
 ---
-import { getCollection, render } from 'astro:content';
-import Layout from '../../layouts/Layout.astro';
-import { formatDate } from '../../utils/date';
+import { getCollection, render } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import { formatDate } from "../../utils/date";
 
 export async function getStaticPaths() {
-  const projects = await getCollection('projects');
+  const projects = await getCollection("projects");
   return projects.map((project) => ({
     params: { id: project.id },
     props: { project },
@@ -18,36 +18,55 @@ const { Content } = await render(project);
 
 <Layout title={`${title} | Patricio`} description={description}>
   <article class="max-w-3xl mx-auto space-y-10">
-    
     <!-- Back Link -->
     <div>
       <a
         href="/projects"
         class="inline-flex items-center gap-1.5 text-xs font-medium text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100 transition-colors"
       >
-        <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+        <svg
+          class="w-3.5 h-3.5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="2"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"></path>
         </svg>
         Volver a proyectos
       </a>
     </div>
 
     <!-- Header Section -->
-    <header class="space-y-4 border-b border-neutral-200/60 dark:border-neutral-800/60 pb-8">
+    <header
+      class="space-y-4 border-b border-neutral-200/60 dark:border-neutral-800/60 pb-8"
+    >
       <div class="flex items-center gap-3 text-xs">
-        <span class="px-2.5 py-0.5 rounded-full font-medium bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300">
+        <span
+          class="px-2.5 py-0.5 rounded-full font-medium bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300"
+        >
           {category}
         </span>
-        <time datetime={pubDate.toISOString()} class="text-neutral-400 dark:text-neutral-500 font-mono">
+        <time
+          datetime={pubDate.toISOString()}
+          class="text-neutral-400 dark:text-neutral-500 font-mono"
+        >
           {formatDate(pubDate)}
         </time>
       </div>
 
-      <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-neutral-950 dark:text-neutral-50">
+      <h1
+        class="text-3xl sm:text-5xl font-bold tracking-tight text-neutral-950 dark:text-neutral-50"
+      >
         {title}
       </h1>
 
-      <p class="text-base sm:text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed">
+      <p
+        class="text-base sm:text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed"
+      >
         {description}
       </p>
 
@@ -55,46 +74,61 @@ const { Content } = await render(project);
       <div class="flex flex-wrap items-center justify-between gap-4 pt-4">
         <!-- Tags -->
         <div class="flex flex-wrap gap-1.5">
-          {tags.map((tag) => (
-            <span class="px-2 py-0.5 text-xs font-mono rounded bg-neutral-100 dark:bg-neutral-900 text-neutral-600 dark:text-neutral-400 border border-neutral-200/60 dark:border-neutral-800/60">
-              #{tag}
-            </span>
-          ))}
+          {
+            tags.map((tag) => (
+              <span class="px-2 py-0.5 text-xs font-mono rounded bg-neutral-100 dark:bg-neutral-900 text-neutral-600 dark:text-neutral-400 border border-neutral-200/60 dark:border-neutral-800/60">
+                #{tag}
+              </span>
+            ))
+          }
         </div>
 
         <!-- External Links -->
         <div class="flex items-center gap-3">
-          {links.github && (
-            <a
-              href={links.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-900 hover:opacity-90 transition-opacity"
-            >
-              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
-              </svg>
-              GitHub
-            </a>
-          )}
-          {links.live && (
-            <a
-              href={links.live}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium border border-neutral-300 dark:border-neutral-700 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-50 dark:hover:bg-neutral-900 transition-colors"
-            >
-              Demo en Vivo ↗
-            </a>
-          )}
+          {
+            links.github && (
+              <a
+                href={links.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-900 hover:opacity-90 transition-opacity"
+              >
+                <svg
+                  class="w-3.5 h-3.5"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                  />
+                </svg>
+                GitHub
+              </a>
+            )
+          }
+          {
+            links.live && (
+              <a
+                href={links.live}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium border border-neutral-300 dark:border-neutral-700 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-50 dark:hover:bg-neutral-900 transition-colors"
+              >
+                Demo en Vivo ↗
+              </a>
+            )
+          }
         </div>
       </div>
     </header>
 
     <!-- MDX Article Body -->
-    <div class="prose dark:prose-invert max-w-none text-neutral-700 dark:text-neutral-300 leading-relaxed [&>h2]:text-xl [&>h2]:font-bold [&>h2]:text-neutral-950 dark:[&>h2]:text-neutral-50 [&>h2]:mt-8 [&>h2]:mb-4 [&>h3]:text-lg [&>h3]:font-semibold [&>h3]:text-neutral-900 dark:[&>h3]:text-neutral-100 [&>h3]:mt-6 [&>h3]:mb-3 [&>p]:mb-4 [&>ul]:list-disc [&>ul]:pl-5 [&>ul]:space-y-1 [&>ul]:mb-4 [&>li]:text-sm sm:[&>li]:text-base [&>hr]:border-0 [&>hr]:border-t [&>hr]:border-neutral-200/60 dark:[&>hr]:border-neutral-800/60 [&>hr]:my-8 [&_img]:rounded-none">
+    <div
+      class="prose dark:prose-invert max-w-none text-neutral-700 dark:text-neutral-300 leading-relaxed [&>h2]:text-xl [&>h2]:font-bold [&>h2]:text-neutral-950 dark:[&>h2]:text-neutral-50 [&>h2]:mt-8 [&>h2]:mb-4 [&>h3]:text-lg [&>h3]:font-semibold [&>h3]:text-neutral-900 dark:[&>h3]:text-neutral-100 [&>h3]:mt-6 [&>h3]:mb-3 [&>p]:mb-4 [&>ul]:list-disc [&>ul]:pl-5 [&>ul]:space-y-1 [&>ul]:mb-4 [&>li]:text-sm sm:[&>li]:text-base [&>hr]:border-0 [&>hr]:border-t [&>hr]:border-neutral-200/60 dark:[&>hr]:border-neutral-800/60 [&>hr]:my-8 [&_img]:rounded-none"
+    >
       <Content />
     </div>
-
   </article>
 </Layout>

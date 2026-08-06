@@ -1,21 +1,23 @@
 ---
 title: "ARAUCO"
-description: "Homenaje a la Araucaria araucana y a la iconografía mapuche mediante código creativo algorítmico en p5.js, publicado como colección de arte generativo en fxhash."
+description: "Colección de arte generativo que rinde homenaje a la Araucaria araucana y a la iconografía mapuche mediante algoritmos de programación creativa."
 pubDate: 2024-02-28
 category: "Arte Generativo"
-tags: ["p5.js", "Creative Coding", "fxhash", "Generative Art", "Perlin Noise", "Algoritmos", "Tezos"]
+tags: ["Creative Coding", "p5.js", "fxhash", "Generative Art", "Perlin Noise"]
 featured: true
-coverImage: "../../assets/projects/arauco/cover.png"
-coverAlt: "ARAUCO Composición Principal"
-links:
-  live: "https://www.fxhash.xyz/generative/19823"
+coverImage: "../../assets/projects/arauco/cover.jpg"
+coverAlt: "ARAUCO enmarcado - Arte generativo en p5.js"
+links: {}
 ---
 import { Image } from 'astro:assets';
-import coverImg from '../../assets/projects/arauco/cover.png';
-import variationsImg from '../../assets/projects/arauco/variations.png';
-import payneImg from '../../assets/projects/arauco/payne.png';
-import mentaImg from '../../assets/projects/arauco/menta.png';
-import chozImg from '../../assets/projects/arauco/choz.png';
+import coverImg from '../../assets/projects/arauco/cover.jpg';
+import codeImg from '../../assets/projects/arauco/code.png';
+import payneImg from '../../assets/projects/arauco/payne.jpg';
+import polewImg from '../../assets/projects/arauco/polew.jpg';
+import keluImg from '../../assets/projects/arauco/kelu.jpg';
+import chozImg from '../../assets/projects/arauco/choz.jpg';
+import hangingImg from '../../assets/projects/arauco/hanging.jpg';
+import deskImg from '../../assets/projects/arauco/desk.jpg';
 
 ## Sobre la obra
 
@@ -24,12 +26,12 @@ La Araucaria araucana, conocida también como pewén, es un árbol sagrado para 
 ARAUCO es un homenaje a la araucaria, a la cordillera de los Andes y a la cosmovisión mapuche. La composición integra elementos simbólicos como el kultrung, la estrella Wünelfe y la cruz escalonada Ngümin, recreando un paisaje inspirado en el sur de Chile, donde la cordillera se alza tras el bosque nativo.
 
 <div class="my-8 overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
-  <Image src={coverImg} alt="ARAUCO Composición Principal" class="w-full h-auto object-cover" />
+  <Image src={coverImg} alt="ARAUCO - Composición Enmarcada" class="w-full h-auto object-cover" />
 </div>
 
 ---
 
-## Proceso técnico y algoritmos
+## Proceso creativo
 
 La obra fue desarrollada íntegramente en p5.js (JavaScript para creative coding). Cada pieza se genera de forma procedural en el navegador, dando origen a una composición única mediante la combinación de distintas técnicas algorítmicas:
 
@@ -38,24 +40,42 @@ La obra fue desarrollada íntegramente en p5.js (JavaScript para creative coding
 - **Procesos estocásticos**: responsables de distribuir los elementos visuales mediante reglas probabilísticas que equilibran variación y coherencia compositiva.
 
 <div class="my-8 overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
-  <Image src={variationsImg} alt="Variaciones de Color y Estructura" class="w-full h-auto object-cover" />
+  <Image src={codeImg} alt="Snippet de código procedural en p5.js para ARAUCO" class="w-full h-auto object-cover" />
 </div>
 
 ---
 
 ## Galería de iteraciones
 
-Cada iteración es generada a partir del mismo algoritmo, variando automáticamente su composición, distribución de elementos y paleta cromática. Aunque todas las piezas comparten un lenguaje visual común, cada una constituye una obra única e irrepetible.
+Cada iteración es generada a partir del mismo algoritmo, variando automáticamente su composición, distribución de elementos y paleta cromática identificada en mapudungun. Aunque todas las piezas comparten un lenguaje visual común, cada una constituye una obra única e irrepetible.
 
-<div class="grid grid-cols-1 sm:grid-cols-3 gap-4 my-8">
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-4 my-8">
   <div class="overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
     <Image src={payneImg} alt="Iteración Payne" class="w-full h-auto object-cover" />
   </div>
   <div class="overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
-    <Image src={mentaImg} alt="Iteración Menta" class="w-full h-auto object-cover" />
+    <Image src={polewImg} alt="Iteración Polew" class="w-full h-auto object-cover" />
+  </div>
+  <div class="overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
+    <Image src={keluImg} alt="Iteración Kelü" class="w-full h-auto object-cover" />
   </div>
   <div class="overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
     <Image src={chozImg} alt="Iteración Choz" class="w-full h-auto object-cover" />
+  </div>
+</div>
+
+---
+
+## Presentación y montaje físico
+
+Las piezas de la colección fueron concebidas en alta resolución, permitiendo su reproducción tanto en formato digital como en impresiones de bellas artes con calidad de archivo (A3 a 300 DPI).
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-8">
+  <div class="overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
+    <Image src={hangingImg} alt="Póster ARAUCO suspendido en galería" class="w-full h-auto object-cover" />
+  </div>
+  <div class="overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
+    <Image src={deskImg} alt="Lámina enmarcada ARAUCO en espacio de trabajo" class="w-full h-auto object-cover" />
   </div>
 </div>
 
