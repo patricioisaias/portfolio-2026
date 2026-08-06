@@ -13,6 +13,7 @@ links: {}
 ---
 import { Image } from 'astro:assets';
 import collageImg from '../../assets/projects/extracciones/collage.png';
+import mockupImg from '../../assets/projects/extracciones/mockup.jpg';
 import e1Img from '../../assets/projects/extracciones/e1.jpg';
 import e2Img from '../../assets/projects/extracciones/e2.jpg';
 import e3Img from '../../assets/projects/extracciones/e3.jpg';
@@ -56,7 +57,7 @@ Cada fotografía registra un instante irrepetible surgido durante las presentaci
   <div class="overflow-hidden bg-neutral-900">
     <Image src={e2Img} alt="Extracción II" class="w-full h-auto object-cover" />
   </div>
-  <div class="overflow-hidden bg-neutral-900">
+  <div class="overflow-hidden bg-neutral-100">
     <Image src={e3Img} alt="Extracción III" class="w-full h-auto object-cover" />
   </div>
   <div class="overflow-hidden bg-neutral-900">
@@ -74,9 +75,13 @@ Cada fotografía registra un instante irrepetible surgido durante las presentaci
   <div class="overflow-hidden bg-neutral-900">
     <Image src={e8Img} alt="Extracción VIII" class="w-full h-auto object-cover" />
   </div>
-  <div class="overflow-hidden bg-neutral-900">
+  <div class="overflow-hidden bg-neutral-100">
     <Image src={e9Img} alt="Extracción IX" class="w-full h-auto object-cover" />
   </div>
+</div>
+
+<div class="my-8 overflow-hidden">
+  <Image src={mockupImg} alt="Montaje y enmarcado de obra de la serie Extracciones" class="w-full h-auto object-cover" />
 </div>
 
 ---
