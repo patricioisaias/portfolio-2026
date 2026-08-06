@@ -21,20 +21,19 @@ export interface SiteConfig {
 }
 
 export const siteConfig: SiteConfig = {
-  author: 'Patricio Isaías',
-  title: 'Patricio Isaías | Desarrollador & Creador Multidisciplinario',
+  author: 'Patricio Céspedes',
+  title: 'Patricio Céspedes | Analista Programador & Licenciado en Artes',
   description: 'Portafolio personal, hub creativo, diario digital. Analista Programador enfocado en backend, arquitectura de microservicios, tecnologías cloud, arte digital.',
   url: 'https://patricioisaias.dev',
   cvPath: '/CV.pdf',
   status: 'Santiago, Chile',
   navItems: [
     { name: 'Proyectos', href: '/projects' },
-    { name: 'Notas', href: '/notes' },
     { name: 'Fotografía', href: '/photography' },
     { name: 'Sobre mí', href: '/about' },
   ],
   socialLinks: [
-    { name: 'GitHub', href: 'https://github.com/patricioisaias' },
     { name: 'LinkedIn', href: 'https://linkedin.com/in/patricioisaias' },
+    { name: 'GitHub', href: 'https://github.com/patricioisaias' },
   ],
 };

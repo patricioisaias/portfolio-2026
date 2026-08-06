@@ -2,37 +2,50 @@
 import Layout from '../layouts/Layout.astro';
 import { siteConfig } from '../site.config';
 
-const stack = {
-  backend: ['Java', 'Spring Boot', 'Python', 'Diseño de APIs REST'],
-  databases: ['Oracle SQL'],
-  cloudTools: ['AWS (EC2, EBS)', 'Linux', 'Git / GitHub', 'Postman', 'Scrum'],
-  creativeTech: ['Arduino', 'p5.js', 'Max/MSP'],
-};
+const stack = [
+  {
+    category: 'Backend & Lenguajes',
+    skills: ['Java', 'Spring Boot', 'Python', 'JavaScript', 'Diseño de APIs REST'],
+  },
+  {
+    category: 'Bases de datos',
+    skills: ['Oracle SQL', 'PL/SQL', 'MySQL'],
+  },
+  {
+    category: 'Cloud & Herramientas',
+    skills: ['AWS (EC2, EBS)', 'Docker', 'Linux', 'Git / GitHub', 'Postman', 'Scrum', 'Antigravity'],
+  },
+  {
+    category: 'Creative Tech & Audio',
+    skills: ['Arduino', 'p5.js', 'Max/MSP', 'Ableton Live'],
+  },
+];
 
 const experience = [
+  {
+    role: 'Desarrollador Freelance',
+    company: 'Remoto',
+    period: 'Enero 2023 – Julio 2025',
+  },
   {
     role: 'Director de Proyecto',
     company: 'VOLTHAUS',
     period: 'Marzo 2020 – Agosto 2022',
-    type: 'Dirección & Producción Interdisciplinaria',
   },
   {
     role: 'Pasante de Arte',
     company: 'Museo de Arte Contemporáneo (MAC)',
     period: 'Septiembre 2019 – Diciembre 2019',
-    type: 'Montaje & Arte Sonoro',
   },
   {
     role: 'Ayudante Docente',
     company: 'Universidad de Chile',
     period: 'Marzo 2019 – Noviembre 2019',
-    type: 'Docencia & Coordinación Académica',
   },
   {
     role: 'Fotógrafo y Profesor de Música',
     company: 'Freelance',
     period: '2015 – Presente',
-    type: 'Práctica Independiente',
   },
 ];
 
@@ -72,18 +85,11 @@ const awards = [
   },
 ];
 
-const allSkills = {
-  programming: ['Java', 'Spring Boot', 'Python', 'TypeScript'],
-  databases: ['Oracle SQL', 'MySQL', 'MongoDB'],
-  cloudTools: ['AWS', 'Linux', 'Git', 'GitHub', 'Postman'],
-  creativeCoding: ['Arduino', 'Processing', 'p5.js', 'Max/MSP', 'Pure Data'],
-  audioPhoto: ['Ableton Live', 'VCV Rack', 'Adobe Lightroom'],
-  languages: [
-    { name: 'Español', level: 'Nativo' },
-    { name: 'Inglés', level: 'B2' },
-    { name: 'Alemán', level: 'A1' },
-  ],
-};
+const languages = [
+  { name: 'Español', level: 'Nativo' },
+  { name: 'Inglés', level: 'B2 – Competencia profesional' },
+  { name: 'Alemán', level: 'A1 – Inicial' },
+];
 
 const selectedProjects = [
   {
@@ -170,22 +176,18 @@ const selectedProjects = [
 ---
 
 <Layout
-  title="Sobre mí | Patricio Isaías"
+  title="Sobre mí | Patricio Céspedes"
   description="Estudiante de Analista Programador, Licenciado en Artes. Backend, arquitectura de microservicios, cloud y creación interdisciplinaria."
 >
   <div class="max-w-3xl mx-auto space-y-16 sm:space-y-20">
     
-    <!-- Intro / Bio Section -->
+    <!-- Intro / Bio Header -->
     <header class="space-y-6">
-      <div class="inline-flex items-center gap-2 px-3 py-1 text-xs font-mono bg-neutral-100 dark:bg-neutral-900 border border-neutral-200/80 dark:border-neutral-800 text-neutral-700 dark:text-neutral-300">
-        Analista Programador <span class="text-neutral-400 dark:text-neutral-600">|</span> Licenciado en Artes
-      </div>
-
-      <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-neutral-950 dark:text-neutral-50 leading-tight">
-        Patricio Isaías
+      <h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-neutral-950 dark:text-neutral-50 leading-tight">
+        Patricio Céspedes
       </h1>
 
-      <div class="space-y-4 text-base sm:text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed">
+      <div class="space-y-4 text-base text-neutral-600 dark:text-neutral-400 leading-relaxed">
         <p>
           Soy estudiante de cuarto semestre de Analista Programador, con interés en desarrollo backend, arquitectura de microservicios y tecnologías cloud. Me motiva diseñar soluciones escalables, aprender nuevas tecnologías y seguir fortaleciendo mis habilidades en desarrollo de software.
         </p>
@@ -231,65 +233,21 @@ const selectedProjects = [
       </h2>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <!-- Backend -->
-        <div class="p-5 border border-neutral-200/60 dark:border-neutral-800/60 bg-neutral-50/40 dark:bg-neutral-900/30 space-y-3">
-          <h3 class="text-xs font-mono font-semibold uppercase tracking-wider text-neutral-900 dark:text-neutral-100">
-            Backend
-          </h3>
-          <ul class="space-y-1.5 text-sm text-neutral-700 dark:text-neutral-300">
-            {stack.backend.map((item) => (
-              <li class="flex items-center gap-2">
-                <span class="w-1 h-1 bg-neutral-400 dark:bg-neutral-600 select-none"></span>
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <!-- Bases de datos -->
-        <div class="p-5 border border-neutral-200/60 dark:border-neutral-800/60 bg-neutral-50/40 dark:bg-neutral-900/30 space-y-3">
-          <h3 class="text-xs font-mono font-semibold uppercase tracking-wider text-neutral-900 dark:text-neutral-100">
-            Bases de datos
-          </h3>
-          <ul class="space-y-1.5 text-sm text-neutral-700 dark:text-neutral-300">
-            {stack.databases.map((item) => (
-              <li class="flex items-center gap-2">
-                <span class="w-1 h-1 bg-neutral-400 dark:bg-neutral-600 select-none"></span>
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <!-- Cloud y herramientas -->
-        <div class="p-5 border border-neutral-200/60 dark:border-neutral-800/60 bg-neutral-50/40 dark:bg-neutral-900/30 space-y-3">
-          <h3 class="text-xs font-mono font-semibold uppercase tracking-wider text-neutral-900 dark:text-neutral-100">
-            Cloud y herramientas
-          </h3>
-          <ul class="space-y-1.5 text-sm text-neutral-700 dark:text-neutral-300">
-            {stack.cloudTools.map((item) => (
-              <li class="flex items-center gap-2">
-                <span class="w-1 h-1 bg-neutral-400 dark:bg-neutral-600 select-none"></span>
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <!-- Creative Tech -->
-        <div class="p-5 border border-neutral-200/60 dark:border-neutral-800/60 bg-neutral-50/40 dark:bg-neutral-900/30 space-y-3">
-          <h3 class="text-xs font-mono font-semibold uppercase tracking-wider text-neutral-900 dark:text-neutral-100">
-            Creative Tech
-          </h3>
-          <ul class="space-y-1.5 text-sm text-neutral-700 dark:text-neutral-300">
-            {stack.creativeTech.map((item) => (
-              <li class="flex items-center gap-2">
-                <span class="w-1 h-1 bg-neutral-400 dark:bg-neutral-600 select-none"></span>
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
+        {stack.map((group) => (
+          <div class="p-5 border border-neutral-200/60 dark:border-neutral-800/60 bg-neutral-50/40 dark:bg-neutral-900/30 space-y-3">
+            <h3 class="text-xs font-mono font-semibold uppercase tracking-wider text-neutral-900 dark:text-neutral-100">
+              {group.category}
+            </h3>
+            <ul class="space-y-1.5 text-sm text-neutral-700 dark:text-neutral-300">
+              {group.skills.map((skill) => (
+                <li class="flex items-center gap-2">
+                  <span class="w-1 h-1 bg-neutral-400 dark:bg-neutral-600 select-none"></span>
+                  <span>{skill}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
       </div>
     </section>
 
@@ -302,14 +260,9 @@ const selectedProjects = [
       <div class="divide-y divide-neutral-200/60 dark:divide-neutral-800/60">
         {experience.map((item) => (
           <div class="py-4 first:pt-0 last:pb-0 flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 sm:gap-4">
-            <div>
-              <h3 class="text-sm sm:text-base font-semibold text-neutral-900 dark:text-neutral-100">
-                {item.company} <span class="text-neutral-400 font-normal">—</span> {item.role}
-              </h3>
-              <p class="text-xs text-neutral-500 dark:text-neutral-400">
-                {item.type}
-              </p>
-            </div>
+            <h3 class="text-sm sm:text-base font-semibold text-neutral-900 dark:text-neutral-100">
+              {item.company} <span class="text-neutral-400 font-normal">—</span> <span class="font-normal text-neutral-700 dark:text-neutral-300">{item.role}</span>
+            </h3>
             <span class="text-xs font-mono text-neutral-400 dark:text-neutral-500 whitespace-nowrap">
               {item.period}
             </span>
@@ -331,7 +284,7 @@ const selectedProjects = [
               <h3 class="text-sm sm:text-base font-semibold text-neutral-900 dark:text-neutral-100">
                 {item.institution}
               </h3>
-              <p class="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400">
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">
                 {item.degree}
               </p>
             </div>
@@ -356,7 +309,7 @@ const selectedProjects = [
               <h3 class="text-sm sm:text-base font-semibold text-neutral-900 dark:text-neutral-100">
                 {item.title}
               </h3>
-              <p class="text-xs text-neutral-500 dark:text-neutral-400">
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">
                 {item.institution}
               </p>
             </div>
@@ -368,102 +321,23 @@ const selectedProjects = [
       </div>
     </section>
 
-    <!-- Competencias técnicas -->
+    <!-- Idiomas -->
     <section class="space-y-6">
       <h2 class="text-xl font-bold tracking-tight text-neutral-950 dark:text-neutral-50 border-b border-neutral-200/60 dark:border-neutral-800/60 pb-3">
-        Competencias técnicas
+        Idiomas
       </h2>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-sm">
-        <!-- Programación -->
-        <div class="space-y-2">
-          <h3 class="text-xs font-mono font-semibold uppercase tracking-wider text-neutral-900 dark:text-neutral-100">
-            Programación
-          </h3>
-          <ul class="space-y-1 text-neutral-600 dark:text-neutral-400 text-xs">
-            {allSkills.programming.map((item) => (
-              <li class="flex items-center gap-2">
-                <span class="w-1 h-1 bg-neutral-400 dark:bg-neutral-600 select-none"></span>
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <!-- Bases de datos -->
-        <div class="space-y-2">
-          <h3 class="text-xs font-mono font-semibold uppercase tracking-wider text-neutral-900 dark:text-neutral-100">
-            Bases de datos
-          </h3>
-          <ul class="space-y-1 text-neutral-600 dark:text-neutral-400 text-xs">
-            {allSkills.databases.map((item) => (
-              <li class="flex items-center gap-2">
-                <span class="w-1 h-1 bg-neutral-400 dark:bg-neutral-600 select-none"></span>
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <!-- Cloud y herramientas -->
-        <div class="space-y-2">
-          <h3 class="text-xs font-mono font-semibold uppercase tracking-wider text-neutral-900 dark:text-neutral-100">
-            Cloud y herramientas
-          </h3>
-          <ul class="space-y-1 text-neutral-600 dark:text-neutral-400 text-xs">
-            {allSkills.cloudTools.map((item) => (
-              <li class="flex items-center gap-2">
-                <span class="w-1 h-1 bg-neutral-400 dark:bg-neutral-600 select-none"></span>
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <!-- Creative Coding -->
-        <div class="space-y-2">
-          <h3 class="text-xs font-mono font-semibold uppercase tracking-wider text-neutral-900 dark:text-neutral-100">
-            Creative Coding
-          </h3>
-          <ul class="space-y-1 text-neutral-600 dark:text-neutral-400 text-xs">
-            {allSkills.creativeCoding.map((item) => (
-              <li class="flex items-center gap-2">
-                <span class="w-1 h-1 bg-neutral-400 dark:bg-neutral-600 select-none"></span>
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <!-- Música y fotografía -->
-        <div class="space-y-2">
-          <h3 class="text-xs font-mono font-semibold uppercase tracking-wider text-neutral-900 dark:text-neutral-100">
-            Música y fotografía
-          </h3>
-          <ul class="space-y-1 text-neutral-600 dark:text-neutral-400 text-xs">
-            {allSkills.audioPhoto.map((item) => (
-              <li class="flex items-center gap-2">
-                <span class="w-1 h-1 bg-neutral-400 dark:bg-neutral-600 select-none"></span>
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <!-- Idiomas -->
-        <div class="space-y-2">
-          <h3 class="text-xs font-mono font-semibold uppercase tracking-wider text-neutral-900 dark:text-neutral-100">
-            Idiomas
-          </h3>
-          <ul class="space-y-1 text-neutral-600 dark:text-neutral-400 text-xs">
-            {allSkills.languages.map((item) => (
-              <li class="flex items-center gap-2">
-                <span class="w-1 h-1 bg-neutral-400 dark:bg-neutral-600 select-none"></span>
-                <span>{item.name} <span class="text-neutral-400 font-mono">({item.level})</span></span>
-              </li>
-            ))}
-          </ul>
-        </div>
+      <div class="divide-y divide-neutral-200/60 dark:divide-neutral-800/60">
+        {languages.map((item) => (
+          <div class="py-3.5 first:pt-0 last:pb-0 flex items-center justify-between gap-4">
+            <span class="text-sm sm:text-base font-semibold text-neutral-900 dark:text-neutral-100">
+              {item.name}
+            </span>
+            <span class="text-xs sm:text-sm font-mono text-neutral-500 dark:text-neutral-400">
+              {item.level}
+            </span>
+          </div>
+        ))}
       </div>
     </section>
 
@@ -477,19 +351,19 @@ const selectedProjects = [
         {selectedProjects.map((group) => (
           <div class="space-y-3">
             <div class="flex items-center gap-3">
-              <span class="text-xs font-mono font-bold text-neutral-900 dark:text-neutral-100 px-2 py-0.5 border border-neutral-200/80 dark:border-neutral-800 bg-neutral-100/80 dark:bg-neutral-900">
+              <span class="text-xs font-mono font-semibold text-neutral-900 dark:text-neutral-100 px-2 py-0.5 border border-neutral-200/80 dark:border-neutral-800 bg-neutral-100/80 dark:bg-neutral-900">
                 {group.year}
               </span>
               <div class="h-px flex-1 bg-neutral-200/40 dark:bg-neutral-800/40"></div>
             </div>
 
-            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs sm:text-sm pl-1">
+            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm pl-1">
               {group.items.map((item) => (
                 <li class="flex items-start gap-2 py-1 text-neutral-700 dark:text-neutral-300">
-                  <span class="text-neutral-400 mt-0.5 select-none">•</span>
+                  <span class="text-neutral-400 mt-1 select-none text-xs">•</span>
                   <div>
-                    <span class="font-semibold text-neutral-950 dark:text-neutral-50">{item.name}</span>
-                    <span class="text-neutral-500 dark:text-neutral-400 font-normal"> — {item.desc}</span>
+                    <span class="font-medium text-neutral-950 dark:text-neutral-50">{item.name}</span>
+                    <span class="text-neutral-500 dark:text-neutral-400"> — {item.desc}</span>
                   </div>
                 </li>
               ))}
