@@ -1,23 +1,23 @@
 ---
 title: "ARAUCO"
-description: "Colección de arte generativo que rinde homenaje a la Araucaria araucana y a la iconografía mapuche mediante algoritmos de programación creativa."
+description: "Colección de arte generativo que rinde homenaje a la Araucaria araucana y a la iconografía mapuche."
 pubDate: 2024-02-28
 category: "Arte Generativo"
 tags: ["Creative Coding", "p5.js", "fxhash", "Generative Art", "Perlin Noise"]
 featured: true
-coverImage: "../../assets/projects/arauco/cover2.jpg"
+coverImage: "../../assets/projects/arauco/cover.png"
 coverAlt: "ARAUCO enmarcado - Arte generativo en p5.js"
 links: {}
 ---
 import { Image } from 'astro:assets';
-import coverImg from '../../assets/projects/arauco/cover2.jpg';
+import coverImg from '../../assets/projects/arauco/cover.png';
 import codeImg from '../../assets/projects/arauco/code.png';
 import payneImg from '../../assets/projects/arauco/payne.jpg';
 import polewImg from '../../assets/projects/arauco/polew.jpg';
 import keluImg from '../../assets/projects/arauco/kelu.jpg';
 import chozImg from '../../assets/projects/arauco/choz.jpg';
 import hangingImg from '../../assets/projects/arauco/hanging.jpg';
-import deskImg from '../../assets/projects/arauco/desk.jpg';
+import deskImg from '../../assets/projects/arauco/desk.png';
 
 ## Sobre la obra
 
@@ -33,13 +33,13 @@ La *Araucaria araucana*, conocida también como **pewén**, es un árbol sagrado
 
 ## Proceso creativo
 
-La obra fue desarrollada en [p5.js](https://p5js.org/), una biblioteca de JavaScript orientada a la programación creativa. Cada composición es generada de forma procedural en el navegador a partir de un mismo algoritmo, cuyo comportamiento varía mediante distintos parámetros y procesos estocásticos.
+La obra fue desarrollada en [p5.js](https://p5js.org/), una biblioteca de JavaScript orientada a la programación creativa. Cada composición es generada de forma procedural en el navegador a partir de un mismo algoritmo, cuyo comportamiento varía mediante distintos parámetros.
 
 Entre las principales técnicas utilizadas destacan:
 
-- **Perlin Noise**: para modelar la silueta de la cordillera, la atmósfera y las texturas orgánicas del follaje.
-- **Curvas de Bézier**: empleadas en la construcción de ramas, troncos y patrones geométricos de forma fluida.
-- **Procesos estocásticos**: responsables de distribuir los elementos visuales mediante reglas probabilísticas que equilibran variación, ritmo y coherencia compositiva.
+- **Perlin Noise**: para modelar la silueta de la cordillera y las texturas orgánicas del follaje.
+- **Curvas de Bézier**: empleadas en la construcción de ramas, troncos y patrones geométricos.
+- **Procesos estocásticos**: responsables de distribuir los elementos visuales mediante reglas que equilibran variación, ritmo y coherencia compositiva.
 
 <div class="my-8 overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
   <Image src={codeImg} alt="Snippet del código en p5.js" class="w-full h-auto object-cover" />
@@ -49,7 +49,7 @@ Entre las principales técnicas utilizadas destacan:
 
 ## Galería de iteraciones
 
-Cada iteración surge del mismo sistema generativo, modificando automáticamente la composición, la distribución de los elementos y la paleta cromática. Aunque todas las obras comparten una identidad visual común, ninguna se repite exactamente, convirtiendo cada ejecución del algoritmo en una pieza única.
+Cada iteración se genera de forma procedural
 
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8">
   <div class="overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
@@ -70,14 +70,14 @@ Cada iteración surge del mismo sistema generativo, modificando automáticamente
 
 ## Presentación y montaje
 
-Las obras fueron concebidas en alta resolución para garantizar una reproducción fiel tanto en formato digital como en impresiones Fine Art (A3 a 300 DPI), permitiendo su exhibición en distintos contextos expositivos.
+Las obras fueron concebidas para ser impresas en alta resolución (300 DPI) permitiendo su exhibición en distintos formatos.
 
 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-8">
   <div class="overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
-    <Image src={hangingImg} alt="Póster ARAUCO suspendido en galería" class="w-full h-auto object-cover" />
+    <Image src={hangingImg} alt="Póster suspendido en galería" class="w-full h-auto object-cover" />
   </div>
   <div class="overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
-    <Image src={deskImg} alt="Lámina enmarcada ARAUCO en espacio de trabajo" class="w-full h-auto object-cover" />
+    <Image src={deskImg} alt="Impresión enmarcada" class="w-full h-auto object-cover" />
   </div>
 </div>
 

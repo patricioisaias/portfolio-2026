@@ -2,116 +2,577 @@
 // src/components/ImageZoom.astro
 ---
 
-<!-- Lightbox Modal -->
+<!-- Lightbox / Carousel Modal -->
 <div
   id="image-zoom-modal"
-  class="fixed inset-0 z-50 hidden items-center justify-center p-4 sm:p-8 bg-neutral-950/85 backdrop-blur-md opacity-0 transition-opacity duration-200 cursor-zoom-out"
+  class="fixed inset-0 z-50 hidden items-center justify-center bg-neutral-950/90 backdrop-blur-md opacity-0 transition-opacity duration-200 select-none"
   role="dialog"
   aria-modal="true"
-  aria-label="Vista ampliada de imagen"
+  aria-label="Visor de imágenes ampliada y carrusel"
 >
+  <!-- Top Bar Controls -->
+  <header class="absolute top-0 inset-x-0 z-50 flex items-center justify-between px-4 py-3 sm:px-6 sm:py-4 bg-gradient-to-b from-neutral-950/80 via-neutral-950/40 to-transparent pointer-events-auto">
+    <!-- Image Counter / Status -->
+    <div class="flex items-center gap-3 text-xs sm:text-sm font-mono text-neutral-300">
+      <span id="image-zoom-counter" class="px-2.5 py-1 rounded bg-neutral-900/80 border border-neutral-700/60 backdrop-blur-sm">
+        1 / 1
+      </span>
+      <span id="image-zoom-level" class="hidden sm:inline-block px-2 py-0.5 text-[11px] rounded bg-neutral-900/60 text-neutral-400 border border-neutral-800">
+        100%
+      </span>
+    </div>
+
+    <!-- Zoom & Action Controls -->
+    <div class="flex items-center gap-1.5 sm:gap-2">
+      <!-- Zoom Out -->
+      <button
+        id="image-zoom-out-btn"
+        type="button"
+        class="p-2 sm:p-2.5 rounded-lg bg-neutral-900/80 hover:bg-neutral-800 text-neutral-300 hover:text-white border border-neutral-700/60 backdrop-blur-sm transition-all focus:outline-none focus:ring-2 focus:ring-white/40 disabled:opacity-40 disabled:cursor-not-allowed"
+        aria-label="Reducir zoom"
+        title="Reducir zoom (-)"
+      >
+        <svg class="w-4 h-4 sm:w-4.5 sm:h-4.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" />
+        </svg>
+      </button>
+
+      <!-- Zoom In -->
+      <button
+        id="image-zoom-in-btn"
+        type="button"
+        class="p-2 sm:p-2.5 rounded-lg bg-neutral-900/80 hover:bg-neutral-800 text-neutral-300 hover:text-white border border-neutral-700/60 backdrop-blur-sm transition-all focus:outline-none focus:ring-2 focus:ring-white/40 disabled:opacity-40 disabled:cursor-not-allowed"
+        aria-label="Aumentar zoom"
+        title="Aumentar zoom (+)"
+      >
+        <svg class="w-4 h-4 sm:w-4.5 sm:h-4.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+        </svg>
+      </button>
+
+      <!-- Reset Zoom -->
+      <button
+        id="image-zoom-reset-btn"
+        type="button"
+        class="p-2 sm:p-2.5 rounded-lg bg-neutral-900/80 hover:bg-neutral-800 text-neutral-300 hover:text-white border border-neutral-700/60 backdrop-blur-sm transition-all focus:outline-none focus:ring-2 focus:ring-white/40"
+        aria-label="Restablecer tamaño"
+        title="Restablecer tamaño (0)"
+      >
+        <svg class="w-4 h-4 sm:w-4.5 sm:h-4.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 9V4.5M9 9H4.5M9 9 3.75 3.75M9 15v4.5M9 15H4.5M9 15l-5.25 5.25M15 9h4.5M15 9V4.5M15 9l5.25-5.25M15 15h4.5M15 15v4.5m0-4.5 5.25 5.25" />
+        </svg>
+      </button>
+
+      <!-- Close Modal -->
+      <button
+        id="image-zoom-close"
+        type="button"
+        class="p-2 sm:p-2.5 ml-1 rounded-lg bg-neutral-900/80 hover:bg-neutral-800 text-neutral-300 hover:text-white border border-neutral-700/60 backdrop-blur-sm transition-all focus:outline-none focus:ring-2 focus:ring-white/40"
+        aria-label="Cerrar visor"
+        title="Cerrar (Esc)"
+      >
+        <svg class="w-4 h-4 sm:w-4.5 sm:h-4.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Navigation Previous Button -->
   <button
-    id="image-zoom-close"
+    id="image-zoom-prev"
     type="button"
-    class="absolute top-4 right-4 z-50 p-2.5 rounded-full bg-neutral-900/80 hover:bg-neutral-800 text-neutral-300 hover:text-white border border-neutral-700/60 backdrop-blur-sm transition-all focus:outline-none focus:ring-2 focus:ring-white/50"
-    aria-label="Cerrar vista ampliada"
+    class="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 z-40 p-3 sm:p-3.5 rounded-full bg-neutral-900/80 hover:bg-neutral-800 text-neutral-200 hover:text-white border border-neutral-700/60 backdrop-blur-md transition-all duration-150 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-white/40 shadow-xl"
+    aria-label="Foto anterior"
+    title="Foto anterior (←)"
   >
-    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+    <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
     </svg>
   </button>
 
-  <div class="relative max-w-full max-h-full flex flex-col items-center justify-center pointer-events-auto">
-    <img
-      id="image-zoom-img"
-      src=""
-      alt=""
-      class="max-w-[92vw] max-h-[85vh] object-contain shadow-2xl transition-transform duration-200 scale-95 select-none cursor-zoom-out"
-    />
+  <!-- Navigation Next Button -->
+  <button
+    id="image-zoom-next"
+    type="button"
+    class="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 z-40 p-3 sm:p-3.5 rounded-full bg-neutral-900/80 hover:bg-neutral-800 text-neutral-200 hover:text-white border border-neutral-700/60 backdrop-blur-md transition-all duration-150 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-white/40 shadow-xl"
+    aria-label="Foto siguiente"
+    title="Foto siguiente (→)"
+  >
+    <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+    </svg>
+  </button>
+
+  <!-- Image Stage Area -->
+  <div
+    id="image-zoom-stage"
+    class="relative w-full h-full flex items-center justify-center p-4 sm:p-12 overflow-hidden cursor-zoom-in"
+  >
+    <div
+      id="image-zoom-wrapper"
+      class="relative flex items-center justify-center max-w-full max-h-full transition-transform duration-150 ease-out will-change-transform"
+    >
+      <img
+        id="image-zoom-img"
+        src=""
+        alt=""
+        draggable="false"
+        class="max-w-[90vw] max-h-[80vh] sm:max-h-[82vh] object-contain shadow-2xl transition-opacity duration-150 select-none pointer-events-auto"
+      />
+    </div>
+  </div>
+
+  <!-- Bottom Bar: Caption & Keyboard Shortcuts Hint -->
+  <footer class="absolute bottom-0 inset-x-0 z-40 flex flex-col items-center justify-center px-4 py-3 sm:py-4 bg-gradient-to-t from-neutral-950/90 via-neutral-950/50 to-transparent pointer-events-none space-y-1.5 text-center">
     <p
       id="image-zoom-caption"
-      class="mt-3 text-xs sm:text-sm font-mono text-neutral-300 bg-neutral-900/80 px-3 py-1 border border-neutral-700/50 max-w-[90vw] text-center empty:hidden"
+      class="pointer-events-auto max-w-[85vw] text-xs sm:text-sm font-mono text-neutral-200 bg-neutral-900/80 px-3.5 py-1 rounded-md border border-neutral-700/60 backdrop-blur-sm empty:hidden shadow-lg"
     ></p>
-  </div>
+    <p class="hidden md:block text-[11px] text-neutral-500 font-mono">
+      Flechas ← → navegar • Doble clic o rueda del ratón para zoom • Arrastrar para mover • Esc para cerrar
+    </p>
+  </footer>
 </div>
 
 <style is:global>
-  /* Add zoom cursor to content images */
+  /* Content images styling */
   .prose img,
   article img,
   figure img,
   [data-zoomable] img,
   .zoomable-img {
     cursor: zoom-in;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+  
+  .prose img:hover,
+  article img:hover,
+  figure img:hover,
+  [data-zoomable] img:hover,
+  .zoomable-img:hover {
+    opacity: 0.95;
+  }
+
+  /* Zoom Pan States */
+  .lightbox-is-zoomed {
+    cursor: grab !important;
+  }
+  .lightbox-is-dragging {
+    cursor: grabbing !important;
   }
 </style>
 
 <script>
+  interface GalleryItem {
+    src: string;
+    alt: string;
+    element: HTMLImageElement;
+  }
+
   function setupImageZoom() {
     const modal = document.getElementById('image-zoom-modal');
+    const stage = document.getElementById('image-zoom-stage');
+    const wrapper = document.getElementById('image-zoom-wrapper');
     const zoomImg = document.getElementById('image-zoom-img') as HTMLImageElement | null;
-    const zoomCaption = document.getElementById('image-zoom-caption');
+    const caption = document.getElementById('image-zoom-caption');
+    const counter = document.getElementById('image-zoom-counter');
+    const levelIndicator = document.getElementById('image-zoom-level');
+    
     const closeBtn = document.getElementById('image-zoom-close');
+    const prevBtn = document.getElementById('image-zoom-prev');
+    const nextBtn = document.getElementById('image-zoom-next');
+    const zoomInBtn = document.getElementById('image-zoom-in-btn') as HTMLButtonElement | null;
+    const zoomOutBtn = document.getElementById('image-zoom-out-btn') as HTMLButtonElement | null;
+    const resetBtn = document.getElementById('image-zoom-reset-btn') as HTMLButtonElement | null;
 
-    if (!modal || !zoomImg || !closeBtn) return;
+    if (!modal || !stage || !wrapper || !zoomImg || !closeBtn) return;
 
-    function openModal(src: string, alt: string) {
-      if (!modal || !zoomImg) return;
-      zoomImg.src = src;
-      zoomImg.alt = alt || 'Imagen ampliada';
-      if (zoomCaption) {
-        zoomCaption.textContent = alt && alt !== 'Imagen ampliada' ? alt : '';
+    let galleryItems: GalleryItem[] = [];
+    let currentIndex = 0;
+    
+    // Zoom & Pan state
+    let scale = 1;
+    const minScale = 1;
+    const maxScale = 4;
+    const scaleStep = 0.5;
+    let translateX = 0;
+    let translateY = 0;
+    
+    // Drag state
+    let isDragging = false;
+    let startX = 0;
+    let startY = 0;
+    let startTranslateX = 0;
+    let startTranslateY = 0;
+    let hasMoved = false;
+
+    // Touch swipe state
+    let touchStartX = 0;
+    let touchStartY = 0;
+
+    function updateTransform(animate = true) {
+      if (!wrapper) return;
+      if (animate) {
+        wrapper.style.transition = 'transform 0.15s cubic-bezier(0.2, 0, 0, 1)';
+      } else {
+        wrapper.style.transition = 'none';
       }
+      wrapper.style.transform = `translate3d(${translateX}px, ${translateY}px, 0) scale(${scale})`;
+      
+      // Update UI level indicator
+      if (levelIndicator) {
+        levelIndicator.textContent = `${Math.round(scale * 100)}%`;
+      }
+      if (zoomInBtn) zoomInBtn.disabled = scale >= maxScale;
+      if (zoomOutBtn) zoomOutBtn.disabled = scale <= minScale;
+
+      // Update cursor
+      if (scale > 1) {
+        stage?.classList.add('lightbox-is-zoomed');
+        stage?.classList.remove('cursor-zoom-in');
+      } else {
+        stage?.classList.remove('lightbox-is-zoomed', 'lightbox-is-dragging');
+        stage?.classList.add('cursor-zoom-in');
+      }
+    }
+
+    function resetZoom(animate = true) {
+      scale = 1;
+      translateX = 0;
+      translateY = 0;
+      updateTransform(animate);
+    }
+
+    function zoomTo(newScale: number, centerX?: number, centerY?: number) {
+      const targetScale = Math.min(Math.max(newScale, minScale), maxScale);
+      if (targetScale === scale) return;
+
+      if (targetScale === 1) {
+        resetZoom();
+        return;
+      }
+
+      if (centerX !== undefined && centerY !== undefined && stage) {
+        const rect = stage.getBoundingClientRect();
+        const offsetX = centerX - (rect.left + rect.width / 2);
+        const offsetY = centerY - (rect.top + rect.height / 2);
+        
+        const factor = targetScale / scale;
+        translateX = translateX * factor - offsetX * (factor - 1) * 0.5;
+        translateY = translateY * factor - offsetY * (factor - 1) * 0.5;
+      }
+
+      scale = targetScale;
+      clampPan();
+      updateTransform(true);
+    }
+
+    function clampPan() {
+      if (!stage || !zoomImg) return;
+      if (scale <= 1) {
+        translateX = 0;
+        translateY = 0;
+        return;
+      }
+      const maxPanX = (window.innerWidth * (scale - 1)) / 2 + 50;
+      const maxPanY = (window.innerHeight * (scale - 1)) / 2 + 50;
+      translateX = Math.max(Math.min(translateX, maxPanX), -maxPanX);
+      translateY = Math.max(Math.min(translateY, maxPanY), -maxPanY);
+    }
+
+    function renderCurrentImage() {
+      if (!zoomImg || galleryItems.length === 0) return;
+      const item = galleryItems[currentIndex];
+      if (!item) return;
+
+      // Quick fade animation
+      zoomImg.style.opacity = '0.3';
+      
+      const imgObj = new Image();
+      imgObj.src = item.src;
+      imgObj.onload = () => {
+        if (!zoomImg) return;
+        zoomImg.src = item.src;
+        zoomImg.alt = item.alt || 'Fotografía';
+        zoomImg.style.opacity = '1';
+      };
+
+      if (caption) {
+        const text = item.alt && item.alt !== 'Fotografía' && !item.alt.startsWith('http') ? item.alt : '';
+        caption.textContent = text;
+      }
+
+      if (counter) {
+        counter.textContent = `${currentIndex + 1} / ${galleryItems.length}`;
+      }
+
+      // Hide or show prev/next buttons based on gallery size
+      const hasMultiple = galleryItems.length > 1;
+      if (prevBtn) prevBtn.style.display = hasMultiple ? 'flex' : 'none';
+      if (nextBtn) nextBtn.style.display = hasMultiple ? 'flex' : 'none';
+
+      resetZoom(false);
+
+      // Preload adjacent images
+      if (hasMultiple) {
+        const nextIdx = (currentIndex + 1) % galleryItems.length;
+        const prevIdx = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+        new Image().src = galleryItems[nextIdx].src;
+        new Image().src = galleryItems[prevIdx].src;
+      }
+    }
+
+    function nextImage() {
+      if (galleryItems.length <= 1) return;
+      currentIndex = (currentIndex + 1) % galleryItems.length;
+      renderCurrentImage();
+    }
+
+    function prevImage() {
+      if (galleryItems.length <= 1) return;
+      currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+      renderCurrentImage();
+    }
+
+    function openModal(items: GalleryItem[], index: number) {
+      if (!modal) return;
+      galleryItems = items;
+      currentIndex = Math.max(0, Math.min(index, galleryItems.length - 1));
+      
+      renderCurrentImage();
+
       modal.classList.remove('hidden');
       modal.classList.add('flex');
+      
       requestAnimationFrame(() => {
-        modal.classList.remove('opacity-0');
-        modal.classList.add('opacity-100');
-        zoomImg.classList.remove('scale-95');
-        zoomImg.classList.add('scale-100');
+        modal?.classList.remove('opacity-0');
+        modal?.classList.add('opacity-100');
       });
       document.body.style.overflow = 'hidden';
     }
 
     function closeModal() {
-      if (!modal || !zoomImg) return;
+      if (!modal) return;
       modal.classList.remove('opacity-100');
       modal.classList.add('opacity-0');
-      zoomImg.classList.remove('scale-100');
-      zoomImg.classList.add('scale-95');
       setTimeout(() => {
-        modal.classList.remove('flex');
-        modal.classList.add('hidden');
-        zoomImg.src = '';
+        modal?.classList.remove('flex');
+        modal?.classList.add('hidden');
+        if (zoomImg) zoomImg.src = '';
+        resetZoom(false);
         document.body.style.overflow = '';
       }, 200);
     }
 
-    modal.onclick = (e) => {
-      if (e.target === modal || (e.target as HTMLElement).closest('#image-zoom-close') || e.target === zoomImg) {
-        closeModal();
+    // Button Events
+    closeBtn.onclick = closeModal;
+    if (prevBtn) prevBtn.onclick = (e) => { e.stopPropagation(); prevImage(); };
+    if (nextBtn) nextBtn.onclick = (e) => { e.stopPropagation(); nextImage(); };
+    if (zoomInBtn) zoomInBtn.onclick = (e) => { e.stopPropagation(); zoomTo(scale + scaleStep); };
+    if (zoomOutBtn) zoomOutBtn.onclick = (e) => { e.stopPropagation(); zoomTo(scale - scaleStep); };
+    if (resetBtn) resetBtn.onclick = (e) => { e.stopPropagation(); resetZoom(true); };
+
+    // Keyboard Shortcuts
+    function handleKeyDown(e: KeyboardEvent) {
+      if (modal?.classList.contains('hidden')) return;
+
+      switch (e.key) {
+        case 'Escape':
+          e.preventDefault();
+          closeModal();
+          break;
+        case 'ArrowRight':
+        case 'd':
+        case 'D':
+          e.preventDefault();
+          nextImage();
+          break;
+        case 'ArrowLeft':
+        case 'a':
+        case 'A':
+          e.preventDefault();
+          prevImage();
+          break;
+        case '+':
+        case '=':
+          e.preventDefault();
+          zoomTo(scale + scaleStep);
+          break;
+        case '-':
+        case '_':
+          e.preventDefault();
+          zoomTo(scale - scaleStep);
+          break;
+        case '0':
+        case 'r':
+        case 'R':
+          e.preventDefault();
+          resetZoom(true);
+          break;
+      }
+    }
+    window.removeEventListener('keydown', handleKeyDown);
+    window.addEventListener('keydown', handleKeyDown);
+
+    // Mouse Wheel Zoom
+    stage.onwheel = (e) => {
+      e.preventDefault();
+      const delta = e.deltaY < 0 ? 0.3 : -0.3;
+      zoomTo(scale + delta, e.clientX, e.clientY);
+    };
+
+    // Double Click to Zoom / Reset
+    stage.ondblclick = (e) => {
+      e.preventDefault();
+      if (scale === 1) {
+        zoomTo(2.5, e.clientX, e.clientY);
+      } else {
+        resetZoom(true);
       }
     };
 
-    window.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
-        closeModal();
-      }
-    });
+    // Mouse Drag & Pan / Click to Close
+    stage.onmousedown = (e) => {
+      // If clicking directly on top or bottom bar or navigation buttons, ignore
+      if ((e.target as HTMLElement).closest('header, footer, button')) return;
 
-    const images = document.querySelectorAll<HTMLImageElement>(
-      '.prose img, article .overflow-hidden img, figure img, [data-zoomable] img, .zoomable-img'
+      isDragging = true;
+      hasMoved = false;
+      startX = e.clientX;
+      startY = e.clientY;
+      startTranslateX = translateX;
+      startTranslateY = translateY;
+
+      if (scale > 1) {
+        stage.classList.add('lightbox-is-dragging');
+      }
+    };
+
+    window.onmousemove = (e) => {
+      if (!isDragging) return;
+      const dx = e.clientX - startX;
+      const dy = e.clientY - startY;
+
+      if (Math.abs(dx) > 4 || Math.abs(dy) > 4) {
+        hasMoved = true;
+      }
+
+      if (scale > 1) {
+        translateX = startTranslateX + dx;
+        translateY = startTranslateY + dy;
+        clampPan();
+        updateTransform(false);
+      }
+    };
+
+    window.onmouseup = (e) => {
+      if (!isDragging) return;
+      isDragging = false;
+      stage.classList.remove('lightbox-is-dragging');
+
+      if (!hasMoved) {
+        // Simple click without drag
+        const target = e.target as HTMLElement;
+        if (target === stage || target === modal) {
+          closeModal();
+        }
+      } else if (scale === 1) {
+        // Horizontal swipe with mouse
+        const dx = e.clientX - startX;
+        if (dx < -60) {
+          nextImage();
+        } else if (dx > 60) {
+          prevImage();
+        }
+      }
+    };
+
+    // Touch Support for Mobile / Tablets
+    stage.ontouchstart = (e) => {
+      if (e.touches.length === 1) {
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+        startTranslateX = translateX;
+        startTranslateY = translateY;
+        isDragging = true;
+        hasMoved = false;
+      }
+    };
+
+    stage.ontouchmove = (e) => {
+      if (!isDragging || e.touches.length !== 1) return;
+      const currentX = e.touches[0].clientX;
+      const currentY = e.touches[0].clientY;
+      const dx = currentX - touchStartX;
+      const dy = currentY - touchStartY;
+
+      if (Math.abs(dx) > 5 || Math.abs(dy) > 5) {
+        hasMoved = true;
+      }
+
+      if (scale > 1) {
+        e.preventDefault();
+        translateX = startTranslateX + dx;
+        translateY = startTranslateY + dy;
+        clampPan();
+        updateTransform(false);
+      }
+    };
+
+    stage.ontouchend = (e) => {
+      if (!isDragging) return;
+      isDragging = false;
+
+      if (hasMoved && scale === 1 && e.changedTouches.length === 1) {
+        const dx = e.changedTouches[0].clientX - touchStartX;
+        if (dx < -50) nextImage();
+        else if (dx > 50) prevImage();
+      }
+    };
+
+    // Attach click listeners to all project & content images
+    const contentContainers = document.querySelectorAll<HTMLElement>(
+      'article, .prose, main, figure, [data-gallery]'
     );
 
-    images.forEach((img) => {
-      if (img.id === 'image-zoom-img') return;
-      img.addEventListener('click', (e) => {
-        // Allow zoom in detail pages and photography
-        if (img.closest('figure') || img.closest('.prose') || img.closest('article') || img.hasAttribute('data-zoomable')) {
+    contentContainers.forEach((container) => {
+      const containerImages = Array.from(
+        container.querySelectorAll<HTMLImageElement>(
+          'img:not(#image-zoom-img):not([data-no-zoom])'
+        )
+      ).filter((img) => {
+        // Filter out tiny icons or avatars
+        const rect = img.getBoundingClientRect();
+        return !img.closest('nav') && !img.closest('header.page-nav') && (rect.width > 50 || img.naturalWidth > 50 || img.hasAttribute('src'));
+      });
+
+      if (containerImages.length === 0) return;
+
+      const items: GalleryItem[] = containerImages.map((img) => ({
+        src: img.currentSrc || img.src,
+        alt: img.alt || '',
+        element: img,
+      }));
+
+      containerImages.forEach((img, idx) => {
+        // Avoid duplicate listeners
+        if (img.dataset.zoomInitialized) return;
+        img.dataset.zoomInitialized = 'true';
+
+        img.addEventListener('click', (e) => {
           e.preventDefault();
           e.stopPropagation();
-          openModal(img.currentSrc || img.src, img.alt);
-        }
+
+          // Refresh current src in case responsive src changed
+          const freshItems: GalleryItem[] = containerImages.map((im) => ({
+            src: im.currentSrc || im.src,
+            alt: im.alt || '',
+            element: im,
+          }));
+
+          openModal(freshItems, idx);
+        });
       });
     });
   }
