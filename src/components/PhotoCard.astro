@@ -26,11 +26,8 @@ const { title, description, pubDate, category = 'Fotografía', links = {}, cover
       </div>
     )}
 
-    <!-- Category & Date -->
+    <!-- Date -->
     <div class="flex items-center justify-between gap-2 text-xs">
-      <span class="inline-flex items-center px-2.5 py-0.5 font-medium border border-neutral-200/80 dark:border-neutral-800 bg-neutral-200/50 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300">
-        {category}
-      </span>
       <time datetime={pubDate.toISOString()} class="text-neutral-400 dark:text-neutral-500 font-mono text-[11px]">
         {formatDate(pubDate)}
       </time>

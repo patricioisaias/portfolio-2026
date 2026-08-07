@@ -6,8 +6,6 @@ import PhotoCard from '../../components/PhotoCard.astro';
 const photos = (await getCollection('photography')).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
-
-const categories = Array.from(new Set(photos.map((p) => p.data.category || 'Fotografía')));
 ---
 
 <Layout
@@ -25,16 +23,6 @@ const categories = Array.from(new Set(photos.map((p) => p.data.category || 'Foto
         Series fotográficas, registro documental de artes escénicas y exploración compositiva del cuerpo y el movimiento.
       </p>
     </header>
-
-    <!-- Category Pills Overview -->
-    <div class="flex flex-wrap items-center gap-2 pt-2 border-b border-neutral-200/60 dark:border-neutral-800/60 pb-4 text-xs">
-      <span class="text-neutral-400 dark:text-neutral-500 font-mono">Disciplinas:</span>
-      {categories.map((cat) => (
-        <span class="px-2.5 py-1 border border-neutral-200/80 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-900 text-neutral-700 dark:text-neutral-300 font-medium">
-          {cat}
-        </span>
-      ))}
-    </div>
 
     <!-- Photography Grid -->
     <section class="grid grid-cols-1 md:grid-cols-2 gap-6" aria-label="Listado de fotografía">
