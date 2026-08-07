@@ -1,0 +1,37 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="404 — Página no encontrada | Patricio Céspedes"
+  description="La página que buscas no existe o ha sido movida."
+>
+  <div class="min-h-[50vh] flex flex-col items-center justify-center text-center space-y-6 max-w-md mx-auto py-12">
+    <span class="text-xs font-mono font-medium px-3 py-1 rounded-full border border-neutral-200 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-900 text-neutral-600 dark:text-neutral-400">
+      Error 404
+    </span>
+
+    <h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-neutral-950 dark:text-neutral-50">
+      Página no encontrada
+    </h1>
+
+    <p class="text-sm sm:text-base text-neutral-600 dark:text-neutral-400 leading-relaxed">
+      La ruta que intentas visitar no existe, fue renombrada o ya no está disponible.
+    </p>
+
+    <div class="flex flex-wrap items-center justify-center gap-3 pt-4">
+      <a
+        href="/"
+        class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-lg bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-900 hover:opacity-90 transition-opacity"
+      >
+        Volver al inicio
+      </a>
+      <a
+        href="/projects"
+        class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-lg border border-neutral-300 dark:border-neutral-700 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-50 dark:hover:bg-neutral-900 transition-colors"
+      >
+        Explorar proyectos
+      </a>
+    </div>
+  </div>
+</Layout>

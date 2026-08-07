@@ -1,0 +1,96 @@
+---
+title: "VOLTHAUS"
+description: "Proyecto interdisciplinario ganador del Premio Azul 2019 (Universidad de Chile). Desarrollo del dispositivo wearable ONE-T para el control sonoro en tiempo real a través de danza contemporánea e interacción cuerpo-tecnología, culminando en la obra SENBIOSIS."
+pubDate: 2022-09-01
+category: "Investigación"
+tags: ["Wearables", "Arduino", "Max/MSP", "Música Interactiva", "Danza Contemporánea", "HCI", "Creative Tech", "Premio Azul"]
+featured: true
+coverImage: "../../assets/projects/volthaus/onet-detail.jpg"
+coverAlt: "Prototipo wearable ONE-T - Sensores y microcontrolador para interacción sonora y danza"
+links: {}
+---
+import { Image } from 'astro:assets';
+import onetDetailImg from '../../assets/projects/volthaus/onet-detail.jpg';
+import interactionImg from '../../assets/projects/volthaus/interaction.jpg';
+import performanceImg from '../../assets/projects/volthaus/performance.jpg';
+import teamImg from '../../assets/projects/volthaus/team.jpg';
+import maxPatchImg from '../../assets/projects/volthaus/max-patch.jpg';
+import logoImg from '../../assets/projects/volthaus/logo.png';
+
+## Sobre el proyecto
+
+En 2019, **VOLTHAUS** fue galardonado con el **Premio Azul a la Creatividad Estudiantil** de la [Universidad de Chile](https://uchile.cl/). El proyecto nació como una investigación interdisciplinaria centrada en la convergencia entre tecnología interactiva, composición musical electroacústica y danza contemporánea.
+
+La premisa fundamental de VOLTHAUS consistió en desdibujar las fronteras tradicionales entre el intérprete musical y el bailarín, transformando el movimiento corporal y el gesto físico en el motor directo de generación y modulación sonora en tiempo real.
+
+<div class="my-8 overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
+  <Image src={onetDetailImg} alt="Detalle del dispositivo wearable ONE-T" class="w-full h-auto object-cover" />
+</div>
+
+---
+
+## Prototipo ONE-T: Interacción Wearable
+
+Como núcleo tecnológico de la investigación, el equipo diseñó y construyó **ONE-T**, un dispositivo *wearable* compuesto por guantes y brazaletes ergonómicos desarrollados a partir de un microcontrolador **Arduino Nano**.
+
+El dispositivo integró:
+- **Sensores de movimiento e inerciales**: para registrar aceleración, inclinación y dinámica gestual de brazos y manos.
+- **Sensores de luz (LDRs / fotosensores)**: ubicados en puntos estratégicos para captar gradaciones lumínicas según la proximidad del cuerpo, la sombra y la iluminación del espacio escénico.
+- **Comunicación en tiempo real**: transmisión continua de datos hacia la estación de procesamiento sonoro.
+
+Esta arquitectura permitió a los intérpretes intervenir la materia sonora a través de su propia coreografía, estableciendo un diálogo directo e intuitivo entre cuerpo, tecnología y sonido.
+
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8">
+  <div class="overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
+    <Image src={interactionImg} alt="Bailarinas utilizando los dispositivos ONE-T" class="w-full h-auto object-cover" />
+  </div>
+  <div class="overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
+    <Image src={performanceImg} alt="Exploración coreográfica y espacial con ONE-T" class="w-full h-auto object-cover" />
+  </div>
+</div>
+
+---
+
+## Procesamiento sonoro en Max/MSP
+
+El flujo de señales sensoriales provenientes de ONE-T fue canalizado y procesado en un entorno desarrollado en **Max/MSP**. 
+
+El sistema implementó:
+- **Calibración y filtrado de señales**: suavizado de curvas de respuesta (smoothing) y escalamiento de rangos dinámicos.
+- **Mapeo paramétrico**: vinculación de vectores de movimiento con filtros de frecuencia, generadores de envolvente, disparadores de buffers y moduladores de síntesis granular.
+- **Espacialización y mezcla**: distribución dinámica de fuentes sonoras en el espacio acústico según la trayectoria y distancia de las bailarinas.
+
+<div class="my-8 overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
+  <Image src={maxPatchImg} alt="Parche modular en Max/MSP para procesamiento de señales y síntesis en tiempo real" class="w-full h-auto object-cover" />
+</div>
+
+---
+
+## SENBIOSIS (2020–2022)
+
+El proceso de investigación y desarrollo técnico culminó en la creación de **SENBIOSIS (2020–2022)**, una obra de 12 minutos para electrónica en vivo y tres bailarinas.
+
+En SENBIOSIS, la relación entre música y danza deja de ser un acompañamiento pasivo para convertirse en una relación simbiótica: cada desplazamiento, torsión y suspensión del cuerpo genera tensiones, texturas y silencios que articulan la estructura compositiva en vivo.
+
+<div class="my-8 aspect-video overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
+  <iframe
+    src="https://www.youtube.com/embed/pQUmtEPyIYU?start=183&rel=0"
+    title="SENBIOSIS - VOLTHAUS (Registro en vivo)"
+    class="w-full h-full"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen
+  ></iframe>
+</div>
+
+---
+
+## Equipo del proyecto
+
+El desarrollo de VOLTHAUS y SENBIOSIS fue posible gracias al trabajo interdisciplinario de un equipo multidisciplinario:
+
+- **Patricio Céspedes & David Bustamante** — Música, diseño de interacción y programación
+- **Celeste Sepúlveda, Vesna Osiadacz & Natalia Riveros** — Danza, coreografía y diseño de vestuario
+
+<div class="my-8 overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
+  <Image src={teamImg} alt="Equipo del proyecto VOLTHAUS" class="w-full h-auto object-cover" />
+</div>

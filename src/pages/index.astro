@@ -1,19 +1,14 @@
 ---
-import { getCollection } from 'astro:content';
-import { Image } from 'astro:assets';
-import Layout from '../layouts/Layout.astro';
-import ProjectCard from '../components/ProjectCard.astro';
-import NoteCard from '../components/NoteCard.astro';
-import { siteConfig } from '../site.config';
-import homeCover from '../assets/home-cover.jpg';
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import { siteConfig } from "../site.config";
+import homeCover from "../assets/home-cover.jpg";
 
-const featuredProjects = (
-  await getCollection('projects', ({ data }) => data.featured)
-)
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 2);
-
-const recentNotes = (await getCollection('notes', ({ data }) => !data.draft))
+const allProjects = await getCollection("projects");
+const featuredProjects = allProjects
+  .filter((p) => p.data.featured)
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, 2);
 ---
@@ -27,15 +22,14 @@ const recentNotes = (await getCollection('notes', ({ data }) => !data.draft))
         <h1
           class="text-3xl sm:text-5xl font-bold tracking-tight text-neutral-950 dark:text-neutral-50 leading-[1.15]"
         >
-          Software, sistemas y procesos creativos.
+          Patricio Céspedes
         </h1>
         <p
           class="text-base sm:text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed"
         >
           Desarrollador de software y artista interdisciplinario. Mi trabajo
           explora la intersección entre arte y tecnología mediante proyectos que
-          integran sistemas generativos, fotografía, música y desarrollo de
-          aplicaciones.
+          integran sistemas generativos, música y desarrollo de aplicaciones.
         </p>
       </div>
 
@@ -56,7 +50,9 @@ const recentNotes = (await getCollection('notes', ({ data }) => !data.draft))
       </div>
 
       <!-- Hero Banner Image -->
-      <div class="border border-neutral-200/60 dark:border-neutral-800/60 overflow-hidden bg-neutral-100 dark:bg-neutral-900">
+      <div
+        class="border border-neutral-200/60 dark:border-neutral-800/60 overflow-hidden bg-neutral-100 dark:bg-neutral-900"
+      >
         <Image
           src={homeCover}
           alt="Fotografía urbana en blanco y negro de Patricio Céspedes"
@@ -118,7 +114,7 @@ const recentNotes = (await getCollection('notes', ({ data }) => !data.draft))
           href="/projects"
           class="text-xs font-medium text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100 transition-colors"
         >
-          Ver todos ({featuredProjects.length}) →
+          Ver todos ({allProjects.length}) →
         </a>
       </div>
 

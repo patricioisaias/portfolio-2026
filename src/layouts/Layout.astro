@@ -2,6 +2,7 @@
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import ImageZoom from '../components/ImageZoom.astro';
+import { siteConfig } from '../site.config';
 import '../styles/global.css';
 
 export interface Props {
@@ -11,12 +12,49 @@ export interface Props {
 }
 
 const {
-  title = 'Patricio Céspedes | Analista Programador & Licenciado en Artes',
-  description = 'Portafolio personal, hub creativo, diario digital. Analista Programador enfocado en backend, arquitectura cloud, arte multidisciplinario.',
+  title = siteConfig.title,
+  description = siteConfig.description,
   image = '/og-image.png',
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://patricioisaias.dev');
+const siteUrl = Astro.site ?? new URL(siteConfig.url);
+const canonicalURL = new URL(Astro.url.pathname, siteUrl);
+const imageURL = new URL(image, siteUrl);
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Person',
+      '@id': `${siteConfig.url}/#person`,
+      name: siteConfig.author,
+      url: siteConfig.url,
+      jobTitle: 'Analista Programador & Creative Technologist',
+      description: siteConfig.description,
+      sameAs: siteConfig.socialLinks.map((s) => s.href),
+      alumniOf: [
+        {
+          '@type': 'EducationalOrganization',
+          name: 'Duoc UC',
+        },
+        {
+          '@type': 'EducationalOrganization',
+          name: 'Universidad de Chile',
+        },
+      ],
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${siteConfig.url}/#website`,
+      url: siteConfig.url,
+      name: siteConfig.title,
+      description: siteConfig.description,
+      publisher: {
+        '@id': `${siteConfig.url}/#person`,
+      },
+    },
+  ],
+};
 ---
 
 <!doctype html>
@@ -42,14 +80,17 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://patricio
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={image} />
+    <meta property="og:image" content={imageURL.href} />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={canonicalURL} />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={image} />
+    <meta property="twitter:image" content={imageURL.href} />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
     <!-- Anti-FOUC Theme Script -->
     <script is:inline>

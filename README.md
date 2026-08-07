@@ -10,7 +10,7 @@ Este proyecto reúne trabajos de desarrollo de software, arte generativo, compos
 
 ## 🛠️ Stack Tecnológico
 
-- **Framework:** [Astro](https://astro.build/) (v5+)
+- **Framework:** [Astro](https://astro.build/) (v7)
 - **Estilos:** [Tailwind CSS](https://tailwindcss.com/) (v4)
 - **Contenido:** MDX & Content Collections
 - **Lenguaje:** TypeScript / JavaScript
