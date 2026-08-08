@@ -1,0 +1,12 @@
+#N canvas 200 200 680 480 10;
+#X text 40 30 IRRTUM v7 - Pure Data Audio Processor;
+#X text 40 55 Developed by Patricio Céspedes;
+#X text 40 85 Description:;
+#X text 40 105 Free audio processor designed for sound textures\, glitches and experimental audio processing.;
+#X text 40 145 Requirements:;
+#X text 40 165 Pure Data Vanilla 0.54 (Cyclone\, ELSE\, Freeverb~) or plugdata;
+#X text 40 205 Modules:;
+#X text 40 225 - Sampler & Looper;
+#X text 40 245 - Effects Chain;
+#X text 40 265 - Modulation Matrix;
+#X text 40 285 - Randomize Section;

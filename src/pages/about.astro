@@ -1,176 +1,198 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import { siteConfig } from '../site.config';
+import Layout from "../layouts/Layout.astro";
+import { siteConfig } from "../site.config";
 
 const stack = [
   {
-    category: 'Backend & Lenguajes',
-    skills: ['Java', 'Spring Boot', 'Python', 'JavaScript'],
+    category: "Backend & Lenguajes",
+    skills: ["Java", "Spring Boot", "Python", "JavaScript"],
   },
   {
-    category: 'Bases de datos',
-    skills: ['Oracle SQL', 'PL/SQL', 'MySQL'],
+    category: "Bases de datos",
+    skills: ["Oracle SQL", "PL/SQL", "MySQL"],
   },
   {
-    category: 'Cloud & Herramientas',
-    skills: ['AWS (EC2, EBS)', 'Docker', 'Linux', 'Git / GitHub', 'Postman'],
+    category: "Cloud & Herramientas",
+    skills: ["AWS (EC2, EBS)", "Docker", "Linux", "Git / GitHub", "Postman"],
   },
   {
-    category: 'Creative Tech & Audio',
-    skills: ['Arduino', 'p5.js', 'Max/MSP', 'Ableton Live'],
+    category: "Creative Tech & Audio",
+    skills: ["Arduino", "p5.js", "Max/MSP", "Ableton Live"],
   },
 ];
 
 const experience = [
   {
-    role: 'Desarrollador Freelance',
-    company: 'Remoto',
-    period: 'Enero 2023 – Julio 2025',
+    role: "Desarrollador Freelance",
+    company: "Remoto",
+    period: "Enero 2023 – Julio 2025",
   },
   {
-    role: 'Director de Proyecto',
-    company: 'VOLTHAUS',
-    period: 'Marzo 2020 – Agosto 2022',
+    role: "Director de Proyecto",
+    company: "VOLTHAUS",
+    period: "Marzo 2020 – Agosto 2022",
   },
   {
-    role: 'Pasante de Arte',
-    company: 'Museo de Arte Contemporáneo (MAC)',
-    period: 'Septiembre 2019 – Diciembre 2019',
+    role: "Pasante de Arte",
+    company: "Museo de Arte Contemporáneo (MAC)",
+    period: "Septiembre 2019 – Diciembre 2019",
   },
   {
-    role: 'Ayudante Docente',
-    company: 'Universidad de Chile',
-    period: 'Marzo 2019 – Noviembre 2019',
+    role: "Ayudante Docente",
+    company: "Universidad de Chile",
+    period: "Marzo 2019 – Noviembre 2019",
   },
   {
-    role: 'Fotógrafo y Profesor de Música',
-    company: 'Freelance',
-    period: '2015 – Presente',
+    role: "Fotógrafo y Profesor de Música",
+    company: "Freelance",
+    period: "2015 – Presente",
   },
 ];
 
 const education = [
   {
-    degree: 'Analista Programador',
-    institution: 'Duoc UC',
-    period: '2025 – Presente',
+    degree: "Analista Programador",
+    institution: "Duoc UC",
+    period: "2025 – Presente",
   },
   {
-    degree: 'Licenciatura en Artes, mención Composición Musical',
-    institution: 'Universidad de Chile',
-    period: '2014 – 2020',
+    degree: "Licenciatura en Artes, mención Composición Musical",
+    institution: "Universidad de Chile",
+    period: "2014 – 2020",
   },
   {
-    degree: 'Formación Artística, mención Interpretación en Piano',
-    institution: 'Liceo Experimental Artístico',
-    period: '2008 – 2011',
+    degree: "Formación Artística, mención Interpretación en Piano",
+    institution: "Liceo Experimental Artístico",
+    period: "2008 – 2011",
   },
   {
-    degree: 'Enseñanza Media',
-    institution: 'Instituto Nacional José Miguel Carrera',
-    period: '2007 – 2012',
+    degree: "Enseñanza Media",
+    institution: "Instituto Nacional José Miguel Carrera",
+    period: "2007 – 2012",
   },
 ];
 
 const awards = [
   {
-    title: 'Premio Azul a la Creatividad Estudiantil',
-    institution: 'Universidad de Chile',
-    year: '2019',
+    title: "Premio Azul a la Creatividad Estudiantil",
+    institution: "Universidad de Chile",
+    year: "2019",
   },
   {
-    title: 'Premio al Mérito Artístico',
-    institution: 'Instituto Nacional',
-    year: '2009',
+    title: "Premio al Mérito Artístico",
+    institution: "Instituto Nacional",
+    year: "2009",
   },
 ];
 
 const languages = [
-  { name: 'Español', level: 'Nativo' },
-  { name: 'Inglés', level: 'B2 – Competencia profesional' },
-  { name: 'Alemán', level: 'A1 – Inicial' },
+  { name: "Español", level: "Nativo" },
+  { name: "Inglés", level: "B2 – Competencia profesional" },
+  { name: "Alemán", level: "A1 – Inicial" },
 ];
 
 const selectedProjects = [
   {
-    year: '2023',
+    year: "2023",
     items: [
-      { name: 'Generative Academy', desc: 'Plataforma educativa en línea.' },
+      { name: "Generative Academy", desc: "Plataforma educativa en línea." },
     ],
   },
   {
-    year: '2022',
+    year: "2022",
     items: [
-      { name: 'ARAUCO', desc: 'Proyecto de arte generativo.' },
-      { name: 'Teppich', desc: 'Proyecto de arte generativo.' },
-      { name: 'Madone Solitaire', desc: 'Proyecto de arte generativo.' },
-      { name: 'Monochrome Sonatas', desc: 'Serie fotográfica.' },
-      { name: 'Flores del Mal', desc: 'Proyecto de arte generativo.' },
-      { name: 'SENBIOSIS', desc: 'Obra interdisciplinaria.' },
+      { name: "ARAUCO", desc: "Proyecto de arte generativo." },
+      { name: "Teppich", desc: "Proyecto de arte generativo." },
+      { name: "Madone Solitaire", desc: "Proyecto de arte generativo." },
+      { name: "Monochrome Sonatas", desc: "Serie fotográfica." },
+      { name: "Flores del Mal", desc: "Proyecto de arte generativo." },
+      { name: "SENBIOSIS", desc: "Obra interdisciplinaria." },
     ],
   },
   {
-    year: '2021',
+    year: "2021",
     items: [
-      { name: 'Extracciones', desc: 'Serie fotográfica.' },
-      { name: 'Nexos', desc: 'Concurso de música electrónica.' },
-      { name: 'IRRTUM', desc: 'Procesador de audio.' },
+      { name: "Extracciones", desc: "Serie fotográfica." },
+      { name: "Nexos", desc: "Concurso de música electrónica." },
+      { name: "IRRTUM", desc: "Procesador de audio." },
     ],
   },
   {
-    year: '2020',
+    year: "2020",
     items: [
-      { name: 'GAMA', desc: 'Obra audiovisual.' },
-      { name: 'Pris', desc: 'Obra de música de cámara.' },
+      { name: "GAMA", desc: "Obra audiovisual." },
+      { name: "Pris", desc: "Obra de música de cámara." },
     ],
   },
   {
-    year: '2019',
+    year: "2019",
     items: [
-      { name: 'VOLTHAUS', desc: 'Proyecto interdisciplinario.' },
-      { name: 'COLORADOR', desc: 'Aplicación para Android.' },
-      { name: 'Pasarela Cosmos', desc: 'Banda sonora.' },
+      { name: "VOLTHAUS", desc: "Proyecto interdisciplinario." },
+      { name: "COLORADOR", desc: "Aplicación para Android." },
+      { name: "Pasarela Cosmos", desc: "Banda sonora." },
     ],
   },
   {
-    year: '2018',
+    year: "2018",
     items: [
-      { name: 'Zimoun', desc: 'Pasantía artística.' },
-      { name: 'Amazonas (Relatos Sintéticos)', desc: 'Obra de música electroacústica.' },
-      { name: '3 Miniaturas', desc: 'Obra para cuatro timbales.' },
-      { name: '3 Estudios', desc: 'Obra para piano solo.' },
-      { name: 'Trípticos', desc: 'Exposición individual (Espacio Elefante).' },
+      { name: "Zimoun", desc: "Pasantía artística." },
+      {
+        name: "Amazonas (Relatos Sintéticos)",
+        desc: "Obra de música electroacústica.",
+      },
+      { name: "3 Miniaturas", desc: "Obra para cuatro timbales." },
+      { name: "3 Estudios", desc: "Obra para piano solo." },
+      { name: "Trípticos", desc: "Exposición individual (Espacio Elefante)." },
     ],
   },
   {
-    year: '2017',
+    year: "2017",
     items: [
-      { name: 'Retratos', desc: 'Exposición colectiva (Café Chincol, Barrio Bellas Artes).' },
-      { name: 'Relatos del Puente', desc: 'Exposición individual (FAU, Universidad de Chile).' },
-      { name: 'ESPINOLA 2017', desc: 'Registro fotográfico de backstage (Ñuñoa, Lastarria y Bellavista).' },
+      {
+        name: "Retratos",
+        desc: "Exposición colectiva (Café Chincol, Barrio Bellas Artes).",
+      },
+      {
+        name: "Relatos del Puente",
+        desc: "Exposición individual (FAU, Universidad de Chile).",
+      },
+      {
+        name: "ESPINOLA 2017",
+        desc: "Registro fotográfico de backstage (Ñuñoa, Lastarria y Bellavista).",
+      },
     ],
   },
   {
-    year: '2016',
+    year: "2016",
     items: [
-      { name: 'Ascenso', desc: 'Intervención artística (Facultad de Artes, Universidad de Chile).' },
-      { name: 'REFLEX', desc: 'Obra para tres bailarines, contrabajo y electrónica (Centro GAM y Espacio Matta).' },
-      { name: 'ESPINOLA Fashion Show', desc: 'Banda sonora (Facultad de Artes, Universidad de Chile).' },
-      { name: 'Nuestra Facultad', desc: 'Serie fotográfica.' },
+      {
+        name: "Ascenso",
+        desc: "Intervención artística (Facultad de Artes, Universidad de Chile).",
+      },
+      {
+        name: "REFLEX",
+        desc: "Obra para tres bailarines, contrabajo y electrónica (Centro GAM y Espacio Matta).",
+      },
+      {
+        name: "ESPINOLA Fashion Show",
+        desc: "Banda sonora (Facultad de Artes, Universidad de Chile).",
+      },
+      { name: "Nuestra Facultad", desc: "Serie fotográfica." },
     ],
   },
   {
-    year: '2015',
+    year: "2015",
     items: [
-      { name: 'ESPINOLA Fashion Show', desc: 'Banda sonora y registro fotográfico (Barrio Lastarria).' },
-      { name: 'Lehaim', desc: 'EP de música electrónica.' },
+      {
+        name: "ESPINOLA Fashion Show",
+        desc: "Banda sonora y registro fotográfico (Barrio Lastarria).",
+      },
+      { name: "Lehaim", desc: "EP de música electrónica." },
     ],
   },
   {
-    year: '2013',
-    items: [
-      { name: 'Estación Común', desc: 'EP de música instrumental.' },
-    ],
+    year: "2013",
+    items: [{ name: "Estación Común", desc: "EP de música instrumental." }],
   },
 ];
 ---
@@ -180,22 +202,38 @@ const selectedProjects = [
   description="Estudiante de Analista Programador, Licenciado en Artes. Backend, arquitectura de microservicios, cloud y creación interdisciplinaria."
 >
   <div class="max-w-3xl mx-auto space-y-16 sm:space-y-20">
-    
     <!-- Intro / Bio Header -->
     <header class="space-y-6">
-      <h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-neutral-950 dark:text-neutral-50 leading-tight">
+      <h1
+        class="text-3xl sm:text-4xl font-bold tracking-tight text-neutral-950 dark:text-neutral-50 leading-tight"
+      >
         Patricio Céspedes
       </h1>
 
-      <div class="space-y-4 text-base text-neutral-600 dark:text-neutral-400 leading-relaxed">
+      <div
+        class="space-y-4 text-base text-neutral-600 dark:text-neutral-400 leading-relaxed"
+      >
         <p>
-          Soy estudiante de cuarto semestre de Analista Programador, con interés en desarrollo backend, arquitectura de microservicios y tecnologías cloud. Me motiva diseñar soluciones escalables, aprender nuevas tecnologías y seguir fortaleciendo mis habilidades en desarrollo de software.
+          Soy estudiante de cuarto semestre de Analista Programador, con interés
+          en desarrollo backend, arquitectura de microservicios y tecnologías
+          cloud. Me motiva diseñar soluciones escalables, aprender nuevas
+          tecnologías y seguir fortaleciendo mis habilidades en desarrollo de
+          software.
         </p>
         <p>
-          Antes de iniciar mi formación actual me desempeñé en el ámbito artístico, liderando proyectos interdisciplinarios y ejerciendo docencia musical. Esa experiencia me permitió fortalecer competencias de gestión de equipos, comunicación y resolución de problemas, además de desarrollar una visión creativa para enfrentar desafíos complejos. Este trabajo fue reconocido con el Premio Azul de la Universidad de Chile.
+          Antes de iniciar mi formación actual me desempeñé en el ámbito
+          artístico, liderando proyectos interdisciplinarios y ejerciendo
+          docencia musical. Esa experiencia me permitió fortalecer competencias
+          de gestión de equipos, comunicación y resolución de problemas, además
+          de desarrollar una visión creativa para enfrentar desafíos complejos.
+          Este trabajo fue reconocido con el Premio Azul de la Universidad de
+          Chile.
         </p>
         <p>
-          Actualmente busco integrarme a un equipo donde pueda seguir desarrollándome profesionalmente, aportando una perspectiva técnico-creativa en el desarrollo de productos y soluciones tecnológicas innovadoras.
+          Actualmente busco integrarme a un equipo donde pueda seguir
+          desarrollándome profesionalmente, aportando una perspectiva
+          técnico-creativa en el desarrollo de productos y soluciones
+          tecnológicas innovadoras.
         </p>
       </div>
 
@@ -208,7 +246,9 @@ const selectedProjects = [
           class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-900 hover:opacity-90 transition-opacity"
         >
           <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+            <path
+              d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+            ></path>
           </svg>
           Conectar en LinkedIn
         </a>
@@ -219,7 +259,11 @@ const selectedProjects = [
           class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg border border-neutral-300 dark:border-neutral-700 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-50 dark:hover:bg-neutral-900 transition-colors"
         >
           <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+            ></path>
           </svg>
           GitHub
         </a>
@@ -228,150 +272,246 @@ const selectedProjects = [
 
     <!-- Stack Tecnológico -->
     <section class="space-y-6">
-      <h2 class="text-xl font-bold tracking-tight text-neutral-950 dark:text-neutral-50 border-b border-neutral-200/60 dark:border-neutral-800/60 pb-3">
+      <h2
+        class="text-xl font-bold tracking-tight text-neutral-950 dark:text-neutral-50 border-b border-neutral-200/60 dark:border-neutral-800/60 pb-3"
+      >
         Stack tecnológico
       </h2>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        {stack.map((group) => (
-          <div class="p-5 border border-neutral-200/60 dark:border-neutral-800/60 bg-neutral-50/40 dark:bg-neutral-900/30 space-y-3">
-            <h3 class="text-xs font-mono font-semibold uppercase tracking-wider text-neutral-900 dark:text-neutral-100">
-              {group.category}
-            </h3>
-            <ul class="space-y-1.5 text-sm text-neutral-700 dark:text-neutral-300">
-              {group.skills.map((skill) => (
-                <li class="flex items-center gap-2">
-                  <span class="w-1 h-1 bg-neutral-400 dark:bg-neutral-600 select-none"></span>
-                  <span>{skill}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
+        {
+          stack.map((group) => (
+            <div class="p-5 border border-neutral-200/60 dark:border-neutral-800/60 bg-neutral-50/40 dark:bg-neutral-900/30 space-y-3">
+              <h3 class="text-xs font-mono font-semibold uppercase tracking-wider text-neutral-900 dark:text-neutral-100">
+                {group.category}
+              </h3>
+              <ul class="space-y-1.5 text-sm text-neutral-700 dark:text-neutral-300">
+                {group.skills.map((skill) => (
+                  <li class="flex items-center gap-2">
+                    <span class="w-1 h-1 bg-neutral-400 dark:bg-neutral-600 select-none" />
+                    <span>{skill}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
       </div>
     </section>
 
     <!-- Experiencia -->
     <section class="space-y-6">
-      <h2 class="text-xl font-bold tracking-tight text-neutral-950 dark:text-neutral-50 border-b border-neutral-200/60 dark:border-neutral-800/60 pb-3">
+      <h2
+        class="text-xl font-bold tracking-tight text-neutral-950 dark:text-neutral-50 border-b border-neutral-200/60 dark:border-neutral-800/60 pb-3"
+      >
         Experiencia
       </h2>
 
       <div class="divide-y divide-neutral-200/60 dark:divide-neutral-800/60">
-        {experience.map((item) => (
-          <div class="py-4 first:pt-0 last:pb-0 flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 sm:gap-4">
-            <h3 class="text-sm sm:text-base font-semibold text-neutral-900 dark:text-neutral-100">
-              {item.company} <span class="text-neutral-400 font-normal">—</span> <span class="font-normal text-neutral-700 dark:text-neutral-300">{item.role}</span>
-            </h3>
-            <span class="text-xs font-mono text-neutral-400 dark:text-neutral-500 whitespace-nowrap">
-              {item.period}
-            </span>
-          </div>
-        ))}
+        {
+          experience.map((item) => (
+            <div class="py-4 first:pt-0 last:pb-0 flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 sm:gap-4">
+              <h3 class="text-sm sm:text-base font-semibold text-neutral-900 dark:text-neutral-100">
+                {item.company}{" "}
+                <span class="text-neutral-400 font-normal">—</span>{" "}
+                <span class="font-normal text-neutral-700 dark:text-neutral-300">
+                  {item.role}
+                </span>
+              </h3>
+              <span class="text-xs font-mono text-neutral-400 dark:text-neutral-500 whitespace-nowrap">
+                {item.period}
+              </span>
+            </div>
+          ))
+        }
       </div>
     </section>
 
     <!-- Formación -->
     <section class="space-y-6">
-      <h2 class="text-xl font-bold tracking-tight text-neutral-950 dark:text-neutral-50 border-b border-neutral-200/60 dark:border-neutral-800/60 pb-3">
+      <h2
+        class="text-xl font-bold tracking-tight text-neutral-950 dark:text-neutral-50 border-b border-neutral-200/60 dark:border-neutral-800/60 pb-3"
+      >
         Formación
       </h2>
 
       <div class="divide-y divide-neutral-200/60 dark:divide-neutral-800/60">
-        {education.map((item) => (
-          <div class="py-4 first:pt-0 last:pb-0 flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 sm:gap-4">
-            <div>
-              <h3 class="text-sm sm:text-base font-semibold text-neutral-900 dark:text-neutral-100">
-                {item.institution}
-              </h3>
-              <p class="text-sm text-neutral-600 dark:text-neutral-400">
-                {item.degree}
-              </p>
+        {
+          education.map((item) => (
+            <div class="py-4 first:pt-0 last:pb-0 flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 sm:gap-4">
+              <div>
+                <h3 class="text-sm sm:text-base font-semibold text-neutral-900 dark:text-neutral-100">
+                  {item.institution}
+                </h3>
+                <p class="text-sm text-neutral-600 dark:text-neutral-400">
+                  {item.degree}
+                </p>
+              </div>
+              <span class="text-xs font-mono text-neutral-400 dark:text-neutral-500 whitespace-nowrap">
+                {item.period}
+              </span>
             </div>
-            <span class="text-xs font-mono text-neutral-400 dark:text-neutral-500 whitespace-nowrap">
-              {item.period}
-            </span>
-          </div>
-        ))}
+          ))
+        }
       </div>
     </section>
 
     <!-- Reconocimientos -->
     <section class="space-y-6">
-      <h2 class="text-xl font-bold tracking-tight text-neutral-950 dark:text-neutral-50 border-b border-neutral-200/60 dark:border-neutral-800/60 pb-3">
+      <h2
+        class="text-xl font-bold tracking-tight text-neutral-950 dark:text-neutral-50 border-b border-neutral-200/60 dark:border-neutral-800/60 pb-3"
+      >
         Reconocimientos
       </h2>
 
       <div class="divide-y divide-neutral-200/60 dark:divide-neutral-800/60">
-        {awards.map((item) => (
-          <div class="py-4 first:pt-0 last:pb-0 flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 sm:gap-4">
-            <div>
-              <h3 class="text-sm sm:text-base font-semibold text-neutral-900 dark:text-neutral-100">
-                {item.title}
-              </h3>
-              <p class="text-sm text-neutral-600 dark:text-neutral-400">
-                {item.institution}
-              </p>
+        {
+          awards.map((item) => (
+            <div class="py-4 first:pt-0 last:pb-0 flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 sm:gap-4">
+              <div>
+                <h3 class="text-sm sm:text-base font-semibold text-neutral-900 dark:text-neutral-100">
+                  {item.title}
+                </h3>
+                <p class="text-sm text-neutral-600 dark:text-neutral-400">
+                  {item.institution}
+                </p>
+              </div>
+              <span class="text-xs font-mono text-neutral-400 dark:text-neutral-500 whitespace-nowrap">
+                {item.year}
+              </span>
             </div>
-            <span class="text-xs font-mono text-neutral-400 dark:text-neutral-500 whitespace-nowrap">
-              {item.year}
-            </span>
-          </div>
-        ))}
+          ))
+        }
       </div>
     </section>
 
     <!-- Idiomas -->
     <section class="space-y-6">
-      <h2 class="text-xl font-bold tracking-tight text-neutral-950 dark:text-neutral-50 border-b border-neutral-200/60 dark:border-neutral-800/60 pb-3">
+      <h2
+        class="text-xl font-bold tracking-tight text-neutral-950 dark:text-neutral-50 border-b border-neutral-200/60 dark:border-neutral-800/60 pb-3"
+      >
         Idiomas
       </h2>
 
       <div class="divide-y divide-neutral-200/60 dark:divide-neutral-800/60">
-        {languages.map((item) => (
-          <div class="py-3.5 first:pt-0 last:pb-0 flex items-center justify-between gap-4">
-            <span class="text-sm sm:text-base font-semibold text-neutral-900 dark:text-neutral-100">
-              {item.name}
-            </span>
-            <span class="text-xs sm:text-sm font-mono text-neutral-500 dark:text-neutral-400">
-              {item.level}
-            </span>
-          </div>
-        ))}
+        {
+          languages.map((item) => (
+            <div class="py-3.5 first:pt-0 last:pb-0 flex items-center justify-between gap-4">
+              <span class="text-sm sm:text-base font-semibold text-neutral-900 dark:text-neutral-100">
+                {item.name}
+              </span>
+              <span class="text-xs sm:text-sm font-mono text-neutral-500 dark:text-neutral-400">
+                {item.level}
+              </span>
+            </div>
+          ))
+        }
       </div>
     </section>
 
-    <!-- Proyectos seleccionados -->
-    <section class="space-y-8">
-      <h2 class="text-xl font-bold tracking-tight text-neutral-950 dark:text-neutral-50 border-b border-neutral-200/60 dark:border-neutral-800/60 pb-3">
-        Proyectos seleccionados
+    <!-- Playlist de Spotify -->
+    <section class="space-y-6">
+      <h2
+        class="text-xl font-bold tracking-tight text-neutral-950 dark:text-neutral-50 border-b border-neutral-200/60 dark:border-neutral-800/60 pb-3"
+      >
+        Playlist de Spotify
       </h2>
 
-      <div class="space-y-8">
-        {selectedProjects.map((group) => (
-          <div class="space-y-3">
-            <div class="flex items-center gap-3">
-              <span class="text-xs font-mono font-semibold text-neutral-900 dark:text-neutral-100 px-2 py-0.5 border border-neutral-200/80 dark:border-neutral-800 bg-neutral-100/80 dark:bg-neutral-900">
-                {group.year}
-              </span>
-              <div class="h-px flex-1 bg-neutral-200/40 dark:bg-neutral-800/40"></div>
-            </div>
-
-            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm pl-1">
-              {group.items.map((item) => (
-                <li class="flex items-start gap-2 py-1 text-neutral-700 dark:text-neutral-300">
-                  <span class="text-neutral-400 mt-1 select-none text-xs">•</span>
-                  <div>
-                    <span class="font-medium text-neutral-950 dark:text-neutral-50">{item.name}</span>
-                    <span class="text-neutral-500 dark:text-neutral-400"> — {item.desc}</span>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
+      <div
+        class="overflow-hidden rounded-xl border border-neutral-200/70 dark:border-neutral-800/70 bg-neutral-50/40 dark:bg-neutral-900/30"
+      >
+        <iframe
+          data-testid="embed-iframe"
+          style="border-radius:1px"
+          src="https://open.spotify.com/embed/playlist/08U3jDJnjzT7JKilX4TGr8?utm_source=generator&theme=0&si=a8f520cb962f45bc"
+          width="100%"
+          height="600"
+          allowfullscreen=""
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy"></iframe>
       </div>
     </section>
 
+    <!-- Proyectos seleccionados (Desplegable) -->
+    <section>
+      <details
+        class="group border border-neutral-200/70 dark:border-neutral-800/70 bg-neutral-50/40 dark:bg-neutral-900/30 p-5 sm:p-6 transition-colors"
+      >
+        <summary
+          class="flex items-center justify-between cursor-pointer select-none list-none [&::-webkit-details-marker]:hidden"
+        >
+          <div class="space-y-1">
+            <h2
+              class="text-xl font-bold tracking-tight text-neutral-950 dark:text-neutral-50 flex items-center gap-2"
+            >
+              <span>Proyectos seleccionados</span>
+              <span
+                class="text-xs font-mono font-normal text-neutral-500 dark:text-neutral-400 px-2 py-0.5 border border-neutral-200/80 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-800"
+              >
+                2013 – 2023
+              </span>
+            </h2>
+            <p
+              class="text-xs sm:text-sm text-neutral-500 dark:text-neutral-400"
+            >
+              Haz clic para desplegar la cronología completa de proyectos y
+              obras.
+            </p>
+          </div>
+          <div
+            class="p-2 text-neutral-500 dark:text-neutral-400 group-hover:text-neutral-950 dark:group-hover:text-neutral-100 transition-colors"
+          >
+            <svg
+              class="w-5 h-5 group-open:rotate-180 transition-transform duration-200"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
+            </svg>
+          </div>
+        </summary>
+
+        <div
+          class="pt-8 space-y-8 border-t border-neutral-200/60 dark:border-neutral-800/60 mt-6"
+        >
+          {
+            selectedProjects.map((group) => (
+              <div class="space-y-3">
+                <div class="flex items-center gap-3">
+                  <span class="text-xs font-mono font-semibold text-neutral-900 dark:text-neutral-100 px-2 py-0.5 border border-neutral-200/80 dark:border-neutral-800 bg-neutral-100/80 dark:bg-neutral-900">
+                    {group.year}
+                  </span>
+                  <div class="h-px flex-1 bg-neutral-200/40 dark:bg-neutral-800/40" />
+                </div>
+
+                <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm pl-1">
+                  {group.items.map((item) => (
+                    <li class="flex items-start gap-2 py-1 text-neutral-700 dark:text-neutral-300">
+                      <span class="text-neutral-400 mt-1 select-none text-xs">
+                        •
+                      </span>
+                      <div>
+                        <span class="font-medium text-neutral-950 dark:text-neutral-50">
+                          {item.name}
+                        </span>
+                        <span class="text-neutral-500 dark:text-neutral-400">
+                          {" "}
+                          — {item.desc}
+                        </span>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))
+          }
+        </div>
+      </details>
+    </section>
   </div>
 </Layout>

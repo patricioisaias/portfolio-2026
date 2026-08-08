@@ -5,15 +5,17 @@ pubDate: 2019-11-15
 category: "Música & Sonido"
 tags: ["Arte Sonoro", "Música Electroacústica", "Ableton Live", "Max for Live", "Field Recording", "Sound Design"]
 featured: true
-coverImage: "../../assets/projects/zimoun/cover.png"
+coverImage: "../../assets/projects/zimoun/cover.jpg"
 coverAlt: "Instalación sonora de Zimoun en MAC Quinta Normal"
 links: {}
 ---
 import { Image } from 'astro:assets';
-import coverImg from '../../assets/projects/zimoun/cover.png';
-import ableton1Img from '../../assets/projects/zimoun/ableton-1.png';
-import ableton2Img from '../../assets/projects/zimoun/ableton-2.png';
+import coverImg from '../../assets/projects/zimoun/cover.jpg';
+import boxesImg from '../../assets/projects/zimoun/boxes.jpg';
+import posterImg from '../../assets/projects/zimoun/poster.jpeg';
 import structureImg from '../../assets/projects/zimoun/structure.png';
+import instalation1Img from '../../assets/projects/zimoun/instalation-1.jpg';
+import instalation2Img from '../../assets/projects/zimoun/instalation-2.jpg';
 import spatializationImg from '../../assets/projects/zimoun/spatialization.png';
 
 ## Contexto
@@ -26,6 +28,15 @@ Como respuesta a esta experiencia desarrollé una composición electroacústica 
 
 <div class="my-8 overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
   <Image src={coverImg} alt="Instalación sonora de Zimoun en MAC Quinta Normal" class="w-full h-auto object-cover" />
+</div>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8">
+  <div class="overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
+    <Image src={boxesImg} alt="Instalación de cajas de cartón y motores cinéticos en MAC Quinta Normal" class="w-full h-auto object-cover" />
+  </div>
+  <div class="overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
+    <Image src={posterImg} alt="Afiche de la exposición de Zimoun en el MAC Quinta Normal" class="w-full h-auto object-cover" />
+  </div>
 </div>
 
 ---
@@ -97,10 +108,10 @@ Con el propósito de preservar el carácter tímbrico de las grabaciones origina
 
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8">
   <div class="overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
-    <Image src={ableton1Img} alt="Instalación Zimoun" class="w-full h-auto object-cover" />
+    <Image src={instalation1Img} alt="Instalación Zimoun" class="w-full h-auto object-cover" />
   </div>
   <div class="overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
-    <Image src={ableton2Img} alt="Instalación Zimoun" class="w-full h-auto object-cover" />
+    <Image src={instalation2Img} alt="Instalación Zimoun" class="w-full h-auto object-cover" />
   </div>
 </div>
 

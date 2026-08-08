@@ -1,0 +1,119 @@
+---
+title: "IRRTUM"
+description: "Procesador de audio gratuito desarrollado en Pure Data, diseñado para la creación y exploración de texturas sonoras, glitches y procesamiento experimental de audio."
+pubDate: 2021-08-15
+category: "Música & Sonido"
+tags: ["Pure Data", "Plugdata", "Sound Design", "Audio Processing", "Generative Audio", "Glitch", "Creative Coding", "DSP"]
+featured: true
+coverImage: "../../assets/projects/irrtum/user-interface.png"
+coverAlt: "IRRTUM - Interfaz de usuario del procesador de audio en Pure Data"
+links: {}
+---
+import { Image } from 'astro:assets';
+import userInterfaceImg from '../../assets/projects/irrtum/user-interface.png';
+import bellsVideo from '../../assets/projects/irrtum/bells.mp4';
+import percsVideo from '../../assets/projects/irrtum/percs.mp4';
+import samplerImg from '../../assets/projects/irrtum/sampler.png';
+import effectsImg from '../../assets/projects/irrtum/effects.png';
+import modulationMatrixImg from '../../assets/projects/irrtum/modulation-matrix.png';
+import randomizerImg from '../../assets/projects/irrtum/randomizer.png';
+
+## Interfaz de usuario
+
+IRRTUM es un procesador de audio gratuito desarrollado en Pure Data, diseñado para la creación y exploración de texturas sonoras, glitches y procesamiento experimental de audio.
+
+El instrumento permite manipular diferentes parámetros de forma independiente y aleatorizarlos para generar variaciones sonoras impredecibles. Su interfaz incorpora herramientas de sampler y looper, cadenas de efectos, una matriz de modulación y un sistema de aleatorización que amplía las posibilidades de experimentación y diseño sonoro.
+
+IRRTUM puede ejecutarse en Pure Data Vanilla 0.54, utilizando las librerías Cyclone, ELSE y Freeverb~, o mediante [plugdata](https://plugdata.org/), que incorpora estas librerías de forma integrada.
+
+El proyecto explora la relación entre programación, síntesis y experimentación sonora, convirtiendo el procesamiento de audio en una herramienta para la creación de paisajes y texturas sonoras.
+
+<div class="my-8 overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
+  <Image src={userInterfaceImg} alt="Interfaz de usuario de IRRTUM en Pure Data" class="w-full h-auto object-cover" />
+</div>
+
+---
+
+## Descarga gratis
+
+<div class="my-8 p-5 border border-neutral-200/80 dark:border-neutral-800/80 bg-neutral-50/50 dark:bg-neutral-900/40 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+  <div class="space-y-1">
+    <div class="flex items-center gap-2">
+      <span class="font-mono text-sm font-semibold text-neutral-950 dark:text-neutral-50">IRRTUM-v7.pd</span>
+      <span class="text-xs px-2 py-0.5 font-mono bg-neutral-200/70 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400">58.4 KB</span>
+    </div>
+    <p class="text-xs text-neutral-500 dark:text-neutral-400">
+      Compatible con Pure Data Vanilla 0.54 (Cyclone, ELSE, Freeverb~) y plugdata.
+    </p>
+  </div>
+  <a
+    href="/downloads/IRRTUM-v7.pd"
+    download="IRRTUM-v7.pd"
+    class="inline-flex items-center gap-2 px-4 py-2 text-xs font-medium bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-900 hover:opacity-90 transition-opacity whitespace-nowrap"
+  >
+    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+    </svg>
+    Descargar patch (.pd)
+  </a>
+</div>
+
+---
+
+## Sonido de campanas
+
+<div class="my-8 overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60 bg-black">
+  <video
+    src={bellsVideo}
+    controls
+    playsinline
+    preload="metadata"
+    class="w-full h-auto block"
+  ></video>
+</div>
+
+---
+
+## Sonido de percusiones
+
+<div class="my-8 overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60 bg-black">
+  <video
+    src={percsVideo}
+    controls
+    playsinline
+    preload="metadata"
+    class="w-full h-auto block"
+  ></video>
+</div>
+
+---
+
+## Sampler and looper
+
+<div class="my-8 overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
+  <Image src={samplerImg} alt="Módulo Sampler and Looper de IRRTUM" class="w-full h-auto object-cover" />
+</div>
+
+---
+
+## Effects chain
+
+<div class="my-8 overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
+  <Image src={effectsImg} alt="Cadena de efectos de IRRTUM" class="w-full h-auto object-cover" />
+</div>
+
+---
+
+## Modulation Matrix
+
+<div class="my-8 overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
+  <Image src={modulationMatrixImg} alt="Matriz de modulación de IRRTUM" class="w-full h-auto object-cover" />
+</div>
+
+---
+
+## Randomize section
+
+<div class="my-8 overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
+  <Image src={randomizerImg} alt="Sección de aleatorización de parámetros de IRRTUM" class="w-full h-auto object-cover" />
+</div>
