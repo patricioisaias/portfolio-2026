@@ -22,6 +22,8 @@ const { title, description, pubDate, category, links, coverImage, coverAlt } = p
           alt={coverAlt || title}
           class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300"
           loading="lazy"
+          widths={[360, 600, 800]}
+          sizes="(max-width: 768px) 100vw, 380px"
         />
       </div>
     )}

@@ -137,21 +137,26 @@
 
 <style is:global>
   /* Content images styling */
-  .prose img,
-  article img,
-  figure img,
-  [data-zoomable] img,
-  .zoomable-img {
+  .prose img:not([data-no-zoom]):not(.no-zoom),
+  article img:not([data-no-zoom]):not(.no-zoom),
+  figure img:not([data-no-zoom]):not(.no-zoom),
+  [data-zoomable] img:not([data-no-zoom]):not(.no-zoom),
+  .zoomable-img:not([data-no-zoom]):not(.no-zoom) {
     cursor: zoom-in;
     transition: transform 0.2s ease, opacity 0.2s ease;
   }
   
-  .prose img:hover,
-  article img:hover,
-  figure img:hover,
-  [data-zoomable] img:hover,
-  .zoomable-img:hover {
+  .prose img:not([data-no-zoom]):not(.no-zoom):hover,
+  article img:not([data-no-zoom]):not(.no-zoom):hover,
+  figure img:not([data-no-zoom]):not(.no-zoom):hover,
+  [data-zoomable] img:not([data-no-zoom]):not(.no-zoom):hover,
+  .zoomable-img:not([data-no-zoom]):not(.no-zoom):hover {
     opacity: 0.95;
+  }
+
+  img[data-no-zoom],
+  .no-zoom {
+    cursor: default !important;
   }
 
   /* Zoom Pan States */
@@ -539,7 +544,7 @@
     contentContainers.forEach((container) => {
       const containerImages = Array.from(
         container.querySelectorAll<HTMLImageElement>(
-          'img:not(#image-zoom-img):not([data-no-zoom])'
+          'img:not(#image-zoom-img):not([data-no-zoom]):not(.no-zoom)'
         )
       ).filter((img) => {
         // Filter out tiny icons or avatars
