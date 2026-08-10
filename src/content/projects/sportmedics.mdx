@@ -5,7 +5,6 @@ pubDate: 2025-12-01
 category: "Backend & Cloud"
 tags: ["Java", "Spring Boot", "Microservices", "API Gateway", "Eureka", "MySQL"]
 featured: true
-draft: true
 links:
   github: "https://github.com/patricioisaias/sportmedics-backend"
 coverImage: "../../assets/projects/sportmedics/logo.jpg"
@@ -39,5 +38,5 @@ El proyecto implementa patrones de arquitectura distribuida para asegurar el des
 Las siguientes mejoras arquitectónicas están planificadas para ser implementadas durante este semestre:
 
 1. **Redes y Seguridad (VPC):** Diseño de una Nube Virtual Privada (VPC) estructurada con subredes públicas (para exponer únicamente el API Gateway) y subredes privadas (para proteger los microservicios y bases de datos), aislando el tráfico mediante Security Groups.
-2. **Almacenamiento (Amazon RDS & S3):** Migración de las bases de datos locales autogestionadas hacia **Amazon RDS** para garantizar alta disponibilidad y respaldos automáticos. Integración de **Amazon S3** para la gestión de archivos estáticos (imágenes de perfil de miembros y fotos del inventario).
-3. **Cómputo Escalable (Amazon EC2):** Despliegue de los contenedores/artefactos de los microservicios en instancias **Amazon EC2**, diseñando una arquitectura que permita habilitar recursos de cómputo seguros que soporten las demandas operacionales del centro deportivo.
+2. **Almacenamiento y Bases de Datos (Amazon RDS & EFS/EBS):** Migración de las bases de datos locales hacia **Amazon RDS** para garantizar alta disponibilidad. Integración de volúmenes de bloque y red (EBS y EFS) según los requerimientos de cada microservicio.
+3. **Cómputo Escalable y Monitoreo (EC2, Auto Scaling, CloudWatch):** Despliegue de los contenedores en instancias **Amazon EC2** configuradas con **Auto Scaling Groups** para balancear la carga automáticamente, sumado a un monitoreo centralizado utilizando **CloudWatch**.

@@ -22,7 +22,7 @@ export interface SiteConfig {
 export const siteConfig: SiteConfig = {
   author: 'Patricio Céspedes',
   title: 'Patricio Céspedes | Desarrollador & Artista',
-  description: 'Desarrollador de software y artista interdisciplinario. Proyectos de backend, sistemas generativos, música y fotografía.',
+  description: 'Software Engineer enfocado en desarrollo backend, arquitectura de microservicios y despliegue cloud (AWS).',
   url: 'https://patriciocespedes.vercel.app',
   status: 'Santiago, Chile',
   navItems: [

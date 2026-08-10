@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://patricioisaias.dev/sitemap-index.xml
+Sitemap: https://patriciocespedes.vercel.app/sitemap-index.xml

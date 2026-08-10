@@ -2,6 +2,9 @@
   "name": "portfolio-2026",
   "type": "module",
   "version": "0.0.1",
+  "description": "Portafolio de Patricio Céspedes, Desarrollador de Software y Artista Interdisciplinario",
+  "author": "Patricio Céspedes",
+  "keywords": ["portfolio", "astro", "backend", "software-engineer"],
   "engines": {
     "node": ">=22.12.0"
   },
