@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import ImageZoom from '../components/ImageZoom.astro';
 import { siteConfig } from '../site.config';
+import { ClientRouter } from 'astro:transitions';
 import '../styles/global.css';
 
 export interface Props {
@@ -115,6 +116,7 @@ const jsonLd = {
         document.documentElement.classList.remove('dark');
       }
     </script>
+    <ClientRouter />
   </head>
   <body class="min-h-screen flex flex-col bg-white text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100 antialiased selection:bg-neutral-200 dark:selection:bg-neutral-800">
     <Navbar />

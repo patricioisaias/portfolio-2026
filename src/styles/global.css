@@ -16,6 +16,7 @@
   html {
     scroll-behavior: smooth;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    scrollbar-gutter: stable;
   }
 
   body {
