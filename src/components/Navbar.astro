@@ -30,7 +30,7 @@ const pathname = Astro.props.currentPath ?? Astro.url.pathname;
             class={`px-3 py-1.5 rounded-md text-sm transition-colors ${
               isActive
                 ? 'text-neutral-950 dark:text-white font-semibold bg-neutral-100 dark:bg-neutral-800/60'
-                : 'hover:text-neutral-900 dark:hover:text-neutral-100 hover:bg-neutral-50 dark:hover:bg-neutral-900/60'
+                : 'hover:text-accent dark:hover:text-accent hover:bg-accent/5 dark:hover:bg-accent/10'
             }`}
           >
             {item.name}
@@ -52,7 +52,7 @@ const pathname = Astro.props.currentPath ?? Astro.url.pathname;
         type="button"
         aria-label="Abrir menú de navegación"
         aria-expanded="false"
-        class="p-2 rounded-lg text-neutral-600 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors focus:outline-none focus:ring-2 focus:ring-neutral-400 dark:focus:ring-neutral-600"
+        class="p-2 rounded-lg text-neutral-600 dark:text-neutral-400 hover:text-accent dark:hover:text-accent hover:bg-accent/5 dark:hover:bg-accent/10 transition-colors focus:outline-none focus:ring-2 focus:ring-accent/50"
       >
         <svg id="menu-icon-open" class="w-5 h-5 block" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
@@ -75,7 +75,7 @@ const pathname = Astro.props.currentPath ?? Astro.url.pathname;
             class={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
               isActive
                 ? 'text-neutral-950 dark:text-white font-semibold bg-neutral-100 dark:bg-neutral-800/60'
-                : 'text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 hover:bg-neutral-50 dark:hover:bg-neutral-900/60'
+                : 'text-neutral-600 dark:text-neutral-400 hover:text-accent dark:hover:text-accent hover:bg-accent/5 dark:hover:bg-accent/10'
             }`}
           >
             {item.name}

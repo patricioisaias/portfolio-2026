@@ -82,7 +82,7 @@
   <button
     id="image-zoom-prev"
     type="button"
-    class="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 z-40 p-3 sm:p-3.5 rounded-full bg-neutral-900/80 hover:bg-neutral-800 text-neutral-200 hover:text-white border border-neutral-700/60 backdrop-blur-md transition-all duration-150 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-white/40 shadow-xl"
+    class="hidden md:flex absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 z-40 p-3 sm:p-3.5 rounded-full bg-neutral-900/80 hover:bg-neutral-800 text-neutral-200 hover:text-white border border-neutral-700/60 backdrop-blur-md transition-all duration-150 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-white/40 shadow-xl"
     aria-label="Foto anterior"
     title="Foto anterior (←)"
   >
@@ -95,7 +95,7 @@
   <button
     id="image-zoom-next"
     type="button"
-    class="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 z-40 p-3 sm:p-3.5 rounded-full bg-neutral-900/80 hover:bg-neutral-800 text-neutral-200 hover:text-white border border-neutral-700/60 backdrop-blur-md transition-all duration-150 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-white/40 shadow-xl"
+    class="hidden md:flex absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 z-40 p-3 sm:p-3.5 rounded-full bg-neutral-900/80 hover:bg-neutral-800 text-neutral-200 hover:text-white border border-neutral-700/60 backdrop-blur-md transition-all duration-150 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-white/40 shadow-xl"
     aria-label="Foto siguiente"
     title="Foto siguiente (→)"
   >
@@ -314,8 +314,8 @@
 
       // Hide or show prev/next buttons based on gallery size
       const hasMultiple = galleryItems.length > 1;
-      if (prevBtn) prevBtn.style.display = hasMultiple ? 'flex' : 'none';
-      if (nextBtn) nextBtn.style.display = hasMultiple ? 'flex' : 'none';
+      if (prevBtn) prevBtn.style.display = hasMultiple ? '' : 'none';
+      if (nextBtn) nextBtn.style.display = hasMultiple ? '' : 'none';
 
       resetZoom(false);
 
@@ -582,7 +582,5 @@
     });
   }
 
-  setupImageZoom();
   document.addEventListener('astro:page-load', setupImageZoom);
-  document.addEventListener('astro:after-swap', setupImageZoom);
 </script>

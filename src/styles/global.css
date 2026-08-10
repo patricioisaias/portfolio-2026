@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+@theme {
+  --color-accent: oklch(72% .17 50);
+}
+
 @custom-variant dark (&:where(.dark, .dark *));
 
 @layer base {
@@ -49,8 +53,8 @@
 
   .prose a:hover,
   .content-link:hover {
-    text-decoration-color: currentColor;
-    opacity: 0.8;
+    color: var(--color-accent);
+    text-decoration-color: var(--color-accent);
   }
 
   .prose a[href^="http"]:not(:has(img)),
