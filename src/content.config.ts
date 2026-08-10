@@ -33,19 +33,7 @@ const projects = defineCollection({
     }),
 });
 
-const notes = defineCollection({
-  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/notes' }),
-  schema: ({ image }) =>
-    z.object({
-      title: z.string(),
-      description: z.string(),
-      pubDate: z.coerce.date(),
-      updatedDate: z.coerce.date().optional(),
-      coverImage: image().optional(),
-      tags: z.array(z.string()).default([]),
-      draft: z.boolean().default(false),
-    }),
-});
+
 
 const photography = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/photography' }),
@@ -71,4 +59,4 @@ const photography = defineCollection({
     }),
 });
 
-export const collections = { projects, notes, photography };
+export const collections = { projects, photography };
