@@ -103,18 +103,21 @@ const jsonLd = {
 
     <!-- Anti-FOUC Theme Script -->
     <script is:inline>
-      const getThemePreference = () => {
-        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-          return localStorage.getItem('theme');
+      const setDarkMode = () => {
+        const theme = (() => {
+          if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+            return localStorage.getItem('theme');
+          }
+          return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        })();
+        if (theme === 'dark') {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
         }
-        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
       };
-      const theme = getThemePreference();
-      if (theme === 'dark') {
-        document.documentElement.classList.add('dark');
-      } else {
-        document.documentElement.classList.remove('dark');
-      }
+      setDarkMode();
+      document.addEventListener('astro:after-swap', setDarkMode);
     </script>
     <ClientRouter />
   </head>
