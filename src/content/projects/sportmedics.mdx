@@ -1,0 +1,43 @@
+---
+title: "SportMedics Backend"
+description: "Sistema de microservicios para la gestión integral de un gimnasio local."
+pubDate: 2025-12-01
+category: "Backend & Cloud"
+tags: ["Java", "Spring Boot", "Microservices", "API Gateway", "Eureka", "MySQL"]
+featured: true
+draft: true
+links:
+  github: "https://github.com/patricioisaias/sportmedics-backend"
+coverImage: "../../assets/projects/sportmedics/logo.jpg"
+coverAlt: "Logo de SportMedics Backend"
+---
+
+import { Image } from 'astro:assets';
+import logoImg from '../../assets/projects/sportmedics/logo.jpg';
+
+SportMedics es un sistema backend diseñado para la gestión integral de un gimnasio local ubicado en la comuna de La Cisterna. El sistema automatiza y controla los accesos, autenticación, facturación, empleados, inventario, miembros, notificaciones, horarios, suscripciones y entrenamientos.
+
+Todo el proyecto fue construido aplicando patrones de **arquitectura de microservicios** utilizando el ecosistema de Spring Boot.
+
+## Arquitectura del Sistema
+
+El proyecto implementa patrones de arquitectura distribuida para asegurar el desacoplamiento, la escalabilidad y la mantenibilidad:
+
+- **API Gateway:** Funciona como el único punto de entrada seguro para las peticiones de los clientes externos (navegadores o apps).
+- **Eureka Server:** Encargado del registro y descubrimiento dinámico de todos los servicios desplegados.
+- **Microservicios Independientes:** El sistema se divide en 10 módulos con responsabilidades únicas (Miembros, Suscripciones, Facturación, Inventario, Notificaciones, etc.).
+- **Bases de Datos Aisladas:** Cada microservicio gestiona su propio esquema de base de datos MySQL, respetando estrictamente el patrón *Database-per-Service*.
+- **Comunicación Interna:** Integración de *Feign Clients* para la comunicación eficiente entre los distintos microservicios.
+
+---
+
+## Roadmap y Próximos Pasos (Infraestructura Cloud)
+
+> **Migración a AWS (En Planificación)**  
+> Actualmente cursando el ramo de *Infraestructura Cloud*, el próximo gran hito de este proyecto es migrar su despliegue desde un entorno local hacia la nube pública de **Amazon Web Services (AWS)**.
+
+Las siguientes mejoras arquitectónicas están planificadas para ser implementadas durante este semestre:
+
+1. **Redes y Seguridad (VPC):** Diseño de una Nube Virtual Privada (VPC) estructurada con subredes públicas (para exponer únicamente el API Gateway) y subredes privadas (para proteger los microservicios y bases de datos), aislando el tráfico mediante Security Groups.
+2. **Almacenamiento (Amazon RDS & S3):** Migración de las bases de datos locales autogestionadas hacia **Amazon RDS** para garantizar alta disponibilidad y respaldos automáticos. Integración de **Amazon S3** para la gestión de archivos estáticos (imágenes de perfil de miembros y fotos del inventario).
+3. **Cómputo Escalable (Amazon EC2):** Despliegue de los contenedores/artefactos de los microservicios en instancias **Amazon EC2**, diseñando una arquitectura que permita habilitar recursos de cómputo seguros que soporten las demandas operacionales del centro deportivo.

@@ -22,6 +22,7 @@ const projects = defineCollection({
       ]),
       tags: z.array(z.string()).default([]),
       featured: z.boolean().default(false),
+      draft: z.boolean().default(false),
       links: z
         .object({
           github: z.string().url().optional(),
