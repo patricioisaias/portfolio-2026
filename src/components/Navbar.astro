@@ -65,17 +65,20 @@ const pathname = Astro.props.currentPath ?? Astro.url.pathname;
   </div>
 
   <!-- Mobile Drawer -->
-  <div id="mobile-menu" class="hidden md:hidden border-b border-neutral-200/60 dark:border-neutral-800/60 bg-white/95 dark:bg-neutral-950/95 backdrop-blur-md px-4 pt-2 pb-4">
-    <nav class="flex flex-col space-y-1" aria-label="Navegación móvil">
+  <div 
+    id="mobile-menu" 
+    class="absolute top-full left-0 w-full md:hidden border-b border-neutral-200/60 dark:border-neutral-800/60 bg-white/98 dark:bg-neutral-950/98 backdrop-blur-xl px-4 pt-4 pb-6 transition-all duration-300 ease-out opacity-0 invisible -translate-y-2 shadow-xl shadow-neutral-200/20 dark:shadow-black/40"
+  >
+    <nav class="flex flex-col space-y-2" aria-label="Navegación móvil">
       {siteConfig.navItems.map((item) => {
         const isActive = pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href));
         return (
           <a
             href={item.href}
-            class={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+            class={`px-4 py-3 rounded-lg text-base font-medium transition-all duration-200 ${
               isActive
-                ? 'text-neutral-950 dark:text-white font-semibold bg-neutral-200/60 dark:bg-neutral-800/60'
-                : 'text-neutral-600 dark:text-neutral-400 hover:text-accent dark:hover:text-accent hover:bg-accent/5 dark:hover:bg-accent/10'
+                ? 'text-neutral-950 dark:text-white font-semibold bg-neutral-100 dark:bg-neutral-800/80 shadow-sm'
+                : 'text-neutral-600 dark:text-neutral-400 hover:text-neutral-950 dark:hover:text-white hover:bg-neutral-50 dark:hover:bg-neutral-900/50'
             }`}
           >
             {item.name}
@@ -95,10 +98,27 @@ const pathname = Astro.props.currentPath ?? Astro.url.pathname;
 
     if (!btn || !menu || !iconOpen || !iconClose) return;
 
+    // Reset state on load/swap to prevent visual bugs
+    menu.classList.remove('opacity-100', 'visible', 'translate-y-0');
+    menu.classList.add('opacity-0', 'invisible', '-translate-y-2');
+    btn.setAttribute('aria-expanded', 'false');
+    iconOpen.classList.remove('hidden');
+    iconClose.classList.add('hidden');
+
     btn.addEventListener('click', () => {
       const isExpanded = btn.getAttribute('aria-expanded') === 'true';
       btn.setAttribute('aria-expanded', String(!isExpanded));
-      menu.classList.toggle('hidden');
+      
+      if (isExpanded) {
+        // Cierra el menú
+        menu.classList.remove('opacity-100', 'visible', 'translate-y-0');
+        menu.classList.add('opacity-0', 'invisible', '-translate-y-2');
+      } else {
+        // Abre el menú
+        menu.classList.remove('opacity-0', 'invisible', '-translate-y-2');
+        menu.classList.add('opacity-100', 'visible', 'translate-y-0');
+      }
+
       iconOpen.classList.toggle('hidden');
       iconClose.classList.toggle('hidden');
     });
