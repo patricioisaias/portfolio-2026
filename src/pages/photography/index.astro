@@ -10,7 +10,7 @@ const photos = (await getCollection("photography")).sort(
 
 <Layout
   title="Fotografía | Patricio Céspedes"
-  description="Fotografía callejera y registro documental de artes escénicas."
+  description="Retratos, arquitectura, vida urbana y registro de artes escénicas."
 >
   <div class="space-y-10">
     <!-- Page Header -->
@@ -30,7 +30,7 @@ const photos = (await getCollection("photography")).sort(
     <!-- Photography Grid -->
     <section
       class="grid grid-cols-1 md:grid-cols-2 gap-6"
-      aria-label="Listado de fotografía"
+      aria-label="Listado de fotografías"
     >
       {photos.map((photo) => <PhotoCard photo={photo} />)}
     </section>

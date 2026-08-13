@@ -4,17 +4,13 @@ import Layout from "../../layouts/Layout.astro";
 import ProjectCard from "../../components/ProjectCard.astro";
 
 const projects = (await getCollection("projects"))
-  .filter(p => !p.data.draft)
-  .sort(
-    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-  );
-
-
+  .filter((p) => !p.data.draft)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
 <Layout
   title="Proyectos | Patricio Céspedes"
-  description="Selección de proyectos de desarrollo de software, arte generativo y gestión interdisciplinaria."
+  description="Selección de proyectos de desarrollo de software, arte y gestión interdisciplinaria."
 >
   <div class="space-y-10">
     <!-- Page Header -->
@@ -27,10 +23,10 @@ const projects = (await getCollection("projects"))
       <p
         class="text-sm sm:text-base text-neutral-600 dark:text-neutral-400 leading-relaxed"
       >
-        Desarrollo de software, arte generativo y gestión interdisciplinaria.
+        Selección de proyectos de desarrollo de software, arte y gestión
+        interdisciplinaria.
       </p>
     </header>
-
 
     <!-- Projects Grid -->
     <section
