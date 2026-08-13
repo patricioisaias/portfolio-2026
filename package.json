@@ -4,7 +4,12 @@
   "version": "0.0.1",
   "description": "Portafolio de Patricio Céspedes, Desarrollador de Software y Artista Interdisciplinario",
   "author": "Patricio Céspedes",
-  "keywords": ["portfolio", "astro", "backend", "software-engineer"],
+  "keywords": [
+    "portfolio",
+    "astro",
+    "backend",
+    "software-engineer"
+  ],
   "engines": {
     "node": ">=22.12.0"
   },
@@ -17,6 +22,8 @@
   "dependencies": {
     "@astrojs/mdx": "^7.0.5",
     "@astrojs/sitemap": "^3.7.3",
+    "@fontsource-variable/geist": "^5.3.0",
+    "@fontsource-variable/geist-mono": "^5.3.0",
     "@tailwindcss/vite": "^4.3.3",
     "astro": "^7.1.6",
     "tailwindcss": "^4.3.3"
