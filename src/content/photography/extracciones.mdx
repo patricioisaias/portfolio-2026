@@ -11,6 +11,7 @@ camera: "Nikon D3300"
 location: "Santiago, Chile"
 ---
 import { Image } from 'astro:assets';
+import Photo from '../../components/Photo.astro';
 import collageImg from '../../assets/projects/extracciones/collage.png';
 import mockupImg from '../../assets/projects/extracciones/mockup.jpg';
 import e1Img from '../../assets/projects/extracciones/e1.jpg';
@@ -31,8 +32,8 @@ Durante varios meses de documentación se seleccionaron imágenes en función de
 
 El movimiento propio de la danza queda congelado en cada imagen, dando lugar a composiciones donde predominan la forma, el equilibrio y la expresión corporal.
 
-<div class="my-8 overflow-hidden">
-  <Image src={collageImg} alt="Collage de la serie completa Extracciones" class="w-full h-auto object-cover" />
+<div class="my-8">
+  <Photo src={collageImg} alt="Collage de la serie completa Extracciones" />
 </div>
 
 ---
@@ -46,37 +47,19 @@ Extracciones se presenta como un políptico compuesto por nueve fotografías org
 ## Galería de composiciones
 
 <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 my-8">
-  <div class="overflow-hidden bg-neutral-900">
-    <Image src={e1Img} alt="Extracción I" class="w-full h-auto object-cover" />
-  </div>
-  <div class="overflow-hidden bg-neutral-900">
-    <Image src={e2Img} alt="Extracción II" class="w-full h-auto object-cover" />
-  </div>
-  <div class="overflow-hidden bg-neutral-100">
-    <Image src={e3Img} alt="Extracción III" class="w-full h-auto object-cover" />
-  </div>
-  <div class="overflow-hidden bg-neutral-900">
-    <Image src={e4Img} alt="Extracción IV" class="w-full h-auto object-cover" />
-  </div>
-  <div class="overflow-hidden bg-neutral-900">
-    <Image src={e5Img} alt="Extracción V" class="w-full h-auto object-cover" />
-  </div>
-  <div class="overflow-hidden bg-neutral-900">
-    <Image src={e6Img} alt="Extracción VI" class="w-full h-auto object-cover" />
-  </div>
-  <div class="overflow-hidden bg-neutral-900">
-    <Image src={e7Img} alt="Extracción VII" class="w-full h-auto object-cover" />
-  </div>
-  <div class="overflow-hidden bg-neutral-900">
-    <Image src={e8Img} alt="Extracción VIII" class="w-full h-auto object-cover" />
-  </div>
-  <div class="overflow-hidden bg-neutral-100">
-    <Image src={e9Img} alt="Extracción IX" class="w-full h-auto object-cover" />
-  </div>
+  <Photo src={e1Img} alt="Extracción I" />
+  <Photo src={e2Img} alt="Extracción II" />
+  <Photo src={e3Img} alt="Extracción III" />
+  <Photo src={e4Img} alt="Extracción IV" />
+  <Photo src={e5Img} alt="Extracción V" />
+  <Photo src={e6Img} alt="Extracción VI" />
+  <Photo src={e7Img} alt="Extracción VII" />
+  <Photo src={e8Img} alt="Extracción VIII" />
+  <Photo src={e9Img} alt="Extracción IX" />
 </div>
 
-<div class="my-8 overflow-hidden">
-  <Image src={mockupImg} alt="Montaje y enmarcado de obra de la serie Extracciones" class="w-full h-auto object-cover" />
+<div class="my-8">
+  <Photo src={mockupImg} alt="Montaje y enmarcado de obra de la serie Extracciones" />
 </div>
 
 ---

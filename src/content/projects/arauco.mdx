@@ -10,6 +10,7 @@ coverAlt: "ARAUCO enmarcado - Arte generativo en p5.js"
 links: {}
 ---
 import { Image } from 'astro:assets';
+import Photo from '../../components/Photo.astro';
 import coverImg from '../../assets/projects/arauco/cover.png';
 import codeImg from '../../assets/projects/arauco/code.png';
 import payneImg from '../../assets/projects/arauco/payne.jpg';
@@ -25,8 +26,8 @@ La *Araucaria araucana*, conocida también como **pewén**, es un árbol sagrado
 
 **ARAUCO** rinde homenaje a la araucaria, la cordillera de los Andes y la cosmovisión mapuche. La obra incorpora elementos simbólicos como el *kultrun*, la estrella *Wünelfe* y el *Ngümin* (cruz escalonada), reinterpretándolos mediante un sistema generativo que recrea un paisaje inspirado en el sur de Chile, donde la cordillera emerge tras el bosque nativo.
 
-<div class="my-8 overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
-  <Image src={coverImg} alt="ARAUCO - Composición Enmarcada" class="w-full h-auto object-cover" />
+<div class="my-8">
+  <Photo src={coverImg} alt="ARAUCO - Composición Enmarcada" />
 </div>
 
 ---
@@ -41,8 +42,8 @@ Entre las principales técnicas utilizadas destacan:
 - **Curvas de Bézier**: empleadas en la construcción de ramas, troncos y patrones geométricos.
 - **Procesos estocásticos**: responsables de distribuir los elementos visuales mediante reglas que equilibran variación, ritmo y coherencia compositiva.
 
-<div class="my-8 overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
-  <Image src={codeImg} alt="Snippet del código en p5.js" class="w-full h-auto object-cover" />
+<div class="my-8">
+  <Photo src={codeImg} alt="Snippet del código en p5.js" />
 </div>
 
 ---
@@ -52,18 +53,10 @@ Entre las principales técnicas utilizadas destacan:
 Cada iteración se genera de forma procedural
 
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8">
-  <div class="overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
-    <Image src={payneImg} alt="Payne" class="w-full h-auto object-cover" />
-  </div>
-  <div class="overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
-    <Image src={polewImg} alt="Polew" class="w-full h-auto object-cover" />
-  </div>
-  <div class="overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
-    <Image src={keluImg} alt="Kelü" class="w-full h-auto object-cover" />
-  </div>
-  <div class="overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
-    <Image src={chozImg} alt="Choz" class="w-full h-auto object-cover" />
-  </div>
+    <Photo src={payneImg} alt="Payne" />
+    <Photo src={polewImg} alt="Polew" />
+    <Photo src={keluImg} alt="Kelü" />
+    <Photo src={chozImg} alt="Choz" />
 </div>
 
 ---
@@ -73,12 +66,8 @@ Cada iteración se genera de forma procedural
 Las obras fueron concebidas para ser impresas en alta resolución (300 DPI) permitiendo su exhibición en distintos formatos.
 
 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-8">
-  <div class="overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
-    <Image src={hangingImg} alt="Póster suspendido en galería" class="w-full h-auto object-cover" />
-  </div>
-  <div class="overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
-    <Image src={deskImg} alt="Impresión enmarcada" class="w-full h-auto object-cover" />
-  </div>
+    <Photo src={hangingImg} alt="Póster suspendido en galería" />
+    <Photo src={deskImg} alt="Impresión enmarcada" />
 </div>
 
 ---

@@ -10,9 +10,8 @@ coverAlt: "IRRTUM - Interfaz de usuario del procesador de audio en Pure Data"
 links: {}
 ---
 import { Image } from 'astro:assets';
+import Photo from '../../components/Photo.astro';
 import userInterfaceImg from '../../assets/projects/irrtum/user-interface.png';
-import bellsVideo from '../../assets/projects/irrtum/bells.mp4';
-import percsVideo from '../../assets/projects/irrtum/percs.mp4';
 import samplerImg from '../../assets/projects/irrtum/sampler.png';
 import effectsImg from '../../assets/projects/irrtum/effects.png';
 import modulationMatrixImg from '../../assets/projects/irrtum/modulation-matrix.png';
@@ -28,8 +27,8 @@ IRRTUM puede ejecutarse en Pure Data Vanilla 0.54, utilizando las librerías Cyc
 
 El proyecto explora la relación entre programación, síntesis y experimentación sonora, convirtiendo el procesamiento de audio en una herramienta para la creación de paisajes y texturas sonoras.
 
-<div class="my-8 overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
-  <Image src={userInterfaceImg} alt="Interfaz de usuario de IRRTUM en Pure Data" class="w-full h-auto object-cover" />
+<div class="my-8">
+  <Photo src={userInterfaceImg} alt="Interfaz de usuario de IRRTUM en Pure Data" />
 </div>
 
 ---
@@ -64,7 +63,7 @@ El proyecto explora la relación entre programación, síntesis y experimentaci�
 
 <div class="my-8 overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60 bg-black">
   <video
-    src={bellsVideo}
+    src="/projects/irrtum/bells.mp4"
     controls
     playsinline
     preload="metadata"
@@ -78,7 +77,7 @@ El proyecto explora la relación entre programación, síntesis y experimentaci�
 
 <div class="my-8 overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60 bg-black">
   <video
-    src={percsVideo}
+    src="/projects/irrtum/percs.mp4"
     controls
     playsinline
     preload="metadata"
@@ -90,30 +89,30 @@ El proyecto explora la relación entre programación, síntesis y experimentaci�
 
 ## Sampler and looper
 
-<div class="my-8 overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
-  <Image src={samplerImg} alt="Módulo Sampler and Looper de IRRTUM" class="w-full h-auto object-cover" />
+<div class="my-8">
+  <Photo src={samplerImg} alt="Módulo Sampler and Looper de IRRTUM" />
 </div>
 
 ---
 
 ## Effects chain
 
-<div class="my-8 overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
-  <Image src={effectsImg} alt="Cadena de efectos de IRRTUM" class="w-full h-auto object-cover" />
+<div class="my-8">
+  <Photo src={effectsImg} alt="Cadena de efectos de IRRTUM" />
 </div>
 
 ---
 
 ## Modulation Matrix
 
-<div class="my-8 overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
-  <Image src={modulationMatrixImg} alt="Matriz de modulación de IRRTUM" class="w-full h-auto object-cover" />
+<div class="my-8">
+  <Photo src={modulationMatrixImg} alt="Matriz de modulación de IRRTUM" />
 </div>
 
 ---
 
 ## Randomize section
 
-<div class="my-8 overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
-  <Image src={randomizerImg} alt="Sección de aleatorización de parámetros de IRRTUM" class="w-full h-auto object-cover" />
+<div class="my-8">
+  <Photo src={randomizerImg} alt="Sección de aleatorización de parámetros de IRRTUM" />
 </div>

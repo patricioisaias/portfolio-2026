@@ -10,6 +10,7 @@ coverAlt: "Instalación sonora de Zimoun en MAC Quinta Normal"
 links: {}
 ---
 import { Image } from 'astro:assets';
+import Photo from '../../components/Photo.astro';
 import coverImg from '../../assets/projects/zimoun/cover.jpg';
 import boxesImg from '../../assets/projects/zimoun/boxes.jpg';
 import posterImg from '../../assets/projects/zimoun/poster.jpeg';
@@ -26,17 +27,13 @@ Esta experiencia constituyó una inmersión directa en el arte sonoro, la escult
 
 Como respuesta a esta experiencia desarrollé una composición electroacústica experimental en Ableton Live, construida exclusivamente a partir de grabaciones de campo realizadas durante el montaje y funcionamiento de las obras.
 
-<div class="my-8 overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
-  <Image src={coverImg} alt="Instalación sonora de Zimoun en MAC Quinta Normal" class="w-full h-auto object-cover" />
+<div class="my-8">
+  <Photo src={coverImg} alt="Instalación sonora de Zimoun en MAC Quinta Normal" />
 </div>
 
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8">
-  <div class="overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
-    <Image src={boxesImg} alt="Instalación de cajas de cartón y motores cinéticos en MAC Quinta Normal" class="w-full h-auto object-cover" />
-  </div>
-  <div class="overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
-    <Image src={posterImg} alt="Afiche de la exposición de Zimoun en el MAC Quinta Normal" class="w-full h-auto object-cover" />
-  </div>
+    <Photo src={boxesImg} alt="Instalación de cajas de cartón y motores cinéticos en MAC Quinta Normal" />
+    <Photo src={posterImg} alt="Afiche de la exposición de Zimoun en el MAC Quinta Normal" />
 </div>
 
 ---
@@ -87,8 +84,8 @@ Las fuentes fueron organizadas desde aquellas con mayor contenido frecuencial ha
 - Múltiples bolas de algodón desplazándose dentro de contenedores de cartón.
 - Bolas de algodón accionadas contra alambres metálicos tensados.
 
-<div class="my-8 overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
-  <Image src={structureImg} alt="Sesión en Ableton Live" class="w-full h-auto object-cover" />
+<div class="my-8">
+  <Photo src={structureImg} alt="Sesión en Ableton Live" />
 </div>
 
 ---
@@ -107,12 +104,8 @@ Con el propósito de preservar el carácter tímbrico de las grabaciones origina
 - **Granulator**: síntesis granular para la expansión temporal y transformación de texturas.
 
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8">
-  <div class="overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
-    <Image src={instalation1Img} alt="Instalación Zimoun" class="w-full h-auto object-cover" />
-  </div>
-  <div class="overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
-    <Image src={instalation2Img} alt="Instalación Zimoun" class="w-full h-auto object-cover" />
-  </div>
+    <Photo src={instalation1Img} alt="Instalación Zimoun" />
+    <Photo src={instalation2Img} alt="Instalación Zimoun" />
 </div>
 
 ---
@@ -123,6 +116,6 @@ La mezcla fue realizada en formato estéreo (2.0), incorporando el dispositivo `
 
 La ubicación espacial de cada fuente fue construida mediante automatizaciones continuas de panorama, nivel y filtrado, generando una escena sonora dinámica en la que los sonidos se desplazan, se aproximan y se alejan del oyente. Este tratamiento refuerza la sensación de profundidad y movimiento, extendiendo la experiencia de las instalaciones originales hacia un entorno de escucha inmersivo.
 
-<div class="my-8 overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
-  <Image src={spatializationImg} alt="Automatización de espacialización y profundidad" class="w-full h-auto object-cover" />
+<div class="my-8">
+  <Photo src={spatializationImg} alt="Automatización de espacialización y profundidad" />
 </div>

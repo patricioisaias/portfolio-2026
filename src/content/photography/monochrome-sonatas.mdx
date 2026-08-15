@@ -11,6 +11,7 @@ camera: "Nikon D3300"
 location: "Chile"
 ---
 import { Image } from 'astro:assets';
+import Photo from '../../components/Photo.astro';
 import cigarroImg from '../../assets/projects/monochrome-sonatas/cigarro.jpg';
 import danzaImg from '../../assets/projects/monochrome-sonatas/danza.jpg';
 import diagonalImg from '../../assets/projects/monochrome-sonatas/diagonal.jpg';
@@ -19,7 +20,7 @@ import estatuaImg from '../../assets/projects/monochrome-sonatas/estatua.jpg';
 import gapImg from '../../assets/projects/monochrome-sonatas/gap.jpg';
 import jardinImg from '../../assets/projects/monochrome-sonatas/jardin.jpg';
 import miradaImg from '../../assets/projects/monochrome-sonatas/mirada.jpg';
-import monedaImg from '../../assets/projects/monochrome-sonatas/moneda.jpg';
+import ahumadaImg from '../../assets/projects/monochrome-sonatas/ahumada.jpg';
 import palomaImg from '../../assets/projects/monochrome-sonatas/paloma.jpg';
 import pasarelaImg from '../../assets/projects/monochrome-sonatas/pasarela.jpg';
 import pianoImg from '../../assets/projects/monochrome-sonatas/piano.jpg';
@@ -35,113 +36,42 @@ import tamaraImg from '../../assets/projects/monochrome-sonatas/tamara.jpg';
 import tomiImg from '../../assets/projects/monochrome-sonatas/tomi.jpg';
 import trioImg from '../../assets/projects/monochrome-sonatas/trio.jpg';
 import vamosImg from '../../assets/projects/monochrome-sonatas/vamos.jpg';
+import casinoImg from '../../assets/projects/monochrome-sonatas/casino.jpg';
+import mitadImg from '../../assets/projects/monochrome-sonatas/mitad.jpg';
+import monedaImg from '../../assets/projects/monochrome-sonatas/moneda.jpg';
+import sombreroImg from '../../assets/projects/monochrome-sonatas/sombrero.jpg';
 
 **Monochrome Sonatas** es una serie fotográfica en blanco y negro realizada en diversos lugares de Chile. La colección documenta instantes de soledad urbana, retratando a personas que parecen desvinculadas de su entorno. A través de la relación entre el sujeto y el espacio que habita, las imágenes exploran temas como el aislamiento, la introspección y la experiencia silenciosa de la vida cotidiana.
 
-<div class="my-8 overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
-  <Image src={pilaresImg} alt="Columnas" class="w-full h-auto object-cover" />
-</div>
-
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8">
-  <div class="overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
-    <Image src={tamaraImg} alt="Tamara Acosta" class="w-full h-auto object-cover" />
-  </div>
-  <div class="overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
-    <Image src={tomiImg} alt="Tomi" class="w-full h-auto object-cover" />
-  </div>
-</div>
-
-<div class="my-8 overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
-  <Image src={miradaImg} alt="Mirada" class="w-full h-auto object-cover" />
-</div>
-
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8">
-  <div class="overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
-    <Image src={monedaImg} alt="Vendedor afuera de La Moneda" class="w-full h-auto object-cover" />
-  </div>
-  <div class="overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
-    <Image src={relojImg} alt="Bailarín y el tiempo" class="w-full h-auto object-cover" />
-  </div>
-</div>
-
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8">
-  <div class="overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
-    <Image src={cigarroImg} alt="El Cigarro" class="w-full h-auto object-cover" />
-  </div>
-  <div class="overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
-    <Image src={gapImg} alt="GAP" class="w-full h-auto object-cover" />
-  </div>
-</div>
-
-<div class="my-8 overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
-  <Image src={sombraImg} alt="Presentación de danza" class="w-full h-auto object-cover" />
-</div>
-
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8">
-  <div class="overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
-    <Image src={pasarelaImg} alt="Pasarela" class="w-full h-auto object-cover" />
-  </div>
-  <div class="overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
-    <Image src={jardinImg} alt="Jardín" class="w-full h-auto object-cover" />
-  </div>
-</div>
-
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8">
-  <div class="overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
-    <Image src={rielImg} alt="Rieles y perspectiva" class="w-full h-auto object-cover" />
-  </div>
-  <div class="overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
-    <Image src={diagonalImg} alt="Composición diagonal" class="w-full h-auto object-cover" />
-  </div>
-</div>
-
-<div class="my-8 overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
-  <Image src={rayosImg} alt="Rayos de luz" class="w-full h-auto object-cover" />
-</div>
-
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8">
-  <div class="overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
-    <Image src={reflejoImg} alt="Reflejo roto" class="w-full h-auto object-cover" />
-  </div>
-  <div class="overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
-    <Image src={sunbatherImg} alt="Baño de luz" class="w-full h-auto object-cover" />
-  </div>
-</div>
-
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8">
-  <div class="overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
-    <Image src={danzaImg} alt="Sombras" class="w-full h-auto object-cover" />
-  </div>
-  <div class="overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
-    <Image src={entreImg} alt="Entre figuras" class="w-full h-auto object-cover" />
-  </div>
-</div>
-
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8">
-  <div class="overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
-    <Image src={pianoImg} alt="Graciela" class="w-full h-auto object-cover" />
-  </div>
-  <div class="overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
-    <Image src={estatuaImg} alt="Estatua" class="w-full h-auto object-cover" />
-  </div>
-</div>
-
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8">
-  <div class="overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
-    <Image src={trioImg} alt="Trío" class="w-full h-auto object-cover" />
-  </div>
-  <div class="overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
-    <Image src={vamosImg} alt="VAMOS" class="w-full h-auto object-cover" />
-  </div>
-</div>
-
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8">
-  <div class="overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
-    <Image src={palomaImg} alt="Casino Facultad de Artes" class="w-full h-auto object-cover" />
-  </div>
-  <div class="overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
-    <Image src={playaImg} alt="Playa de Pichilemu" class="w-full h-auto object-cover" />
-  </div>
+  <Photo src={pilaresImg} alt="Columnas" full />
+  <Photo src={tamaraImg} alt="Tamara Acosta" />
+  <Photo src={tomiImg} alt="Tomi" />
+  <Photo src={miradaImg} alt="Mirada" full />
+  <Photo src={ahumadaImg} alt="Vendedor afuera de La Moneda" />
+  <Photo src={relojImg} alt="Bailarín y el tiempo" />
+  <Photo src={mitadImg} alt="Mitad" full />
+  <Photo src={cigarroImg} alt="El Cigarro" />
+  <Photo src={gapImg} alt="GAP" />
+  <Photo src={sombraImg} alt="Presentación de danza" full />
+  <Photo src={pasarelaImg} alt="Pasarela" />
+  <Photo src={jardinImg} alt="Jardín" />
+  <Photo src={rayosImg} alt="Rayos de luz" full />
+  <Photo src={rielImg} alt="Rieles y perspectiva" />
+  <Photo src={diagonalImg} alt="Composición diagonal" />
+  <Photo src={reflejoImg} alt="Reflejo roto" />
+  <Photo src={sunbatherImg} alt="Baño de luz" />
+  <Photo src={danzaImg} alt="Sombras" />
+  <Photo src={entreImg} alt="Entre figuras" />
+  <Photo src={pianoImg} alt="Graciela" />
+  <Photo src={estatuaImg} alt="Estatua" />
+  <Photo src={trioImg} alt="Trío" />
+  <Photo src={vamosImg} alt="VAMOS" />
+  <Photo src={monedaImg} alt="La Moneda" full />
+  <Photo src={palomaImg} alt="Casino Facultad de Artes" />
+  <Photo src={playaImg} alt="Playa de Pichilemu" />
+  <Photo src={casinoImg} alt="Casino" />
+  <Photo src={sombreroImg} alt="Sombrero" />
 </div>
 
 ---

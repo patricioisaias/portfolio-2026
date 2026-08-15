@@ -10,6 +10,7 @@ coverAlt: "Prototipo wearable ONE-T - Sensores y microcontrolador para interacci
 links: {}
 ---
 import { Image } from 'astro:assets';
+import Photo from '../../components/Photo.astro';
 import onetDetailImg from '../../assets/projects/volthaus/onet-detail.jpg';
 import interactionImg from '../../assets/projects/volthaus/interaction.jpg';
 import performanceImg from '../../assets/projects/volthaus/performance.jpg';
@@ -23,8 +24,8 @@ En 2019, **VOLTHAUS** fue galardonado con el **Premio Azul a la Creatividad Estu
 
 La premisa fundamental de VOLTHAUS consistió en desdibujar las fronteras tradicionales entre el intérprete musical y el bailarín, transformando el movimiento corporal y el gesto físico en el motor directo de generación y modulación sonora en tiempo real.
 
-<div class="my-8 overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
-  <Image src={onetDetailImg} alt="Detalle del dispositivo wearable ONE-T" class="w-full h-auto object-cover" />
+<div class="my-8">
+  <Photo src={onetDetailImg} alt="Detalle del dispositivo wearable ONE-T" />
 </div>
 
 ---
@@ -41,12 +42,8 @@ El dispositivo integró:
 Esta arquitectura permitió a los intérpretes intervenir la materia sonora a través de su propia coreografía, estableciendo un diálogo directo e intuitivo entre cuerpo, tecnología y sonido.
 
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8">
-  <div class="overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
-    <Image src={interactionImg} alt="Bailarinas utilizando los dispositivos ONE-T" class="w-full h-auto object-cover" />
-  </div>
-  <div class="overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
-    <Image src={performanceImg} alt="Exploración coreográfica y espacial con ONE-T" class="w-full h-auto object-cover" />
-  </div>
+    <Photo src={interactionImg} alt="Bailarinas utilizando los dispositivos ONE-T" />
+    <Photo src={performanceImg} alt="Exploración coreográfica y espacial con ONE-T" />
 </div>
 
 ---
@@ -60,8 +57,8 @@ El sistema implementó:
 - **Mapeo paramétrico**: vinculación de vectores de movimiento con filtros de frecuencia, generadores de envolvente, disparadores de buffers y moduladores de síntesis granular.
 - **Espacialización y mezcla**: distribución dinámica de fuentes sonoras en el espacio acústico según la trayectoria y distancia de las bailarinas.
 
-<div class="my-8 overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
-  <Image src={maxPatchImg} alt="Parche modular en Max/MSP para procesamiento de señales y síntesis en tiempo real" class="w-full h-auto object-cover" />
+<div class="my-8">
+  <Photo src={maxPatchImg} alt="Parche modular en Max/MSP para procesamiento de señales y síntesis en tiempo real" />
 </div>
 
 ---
@@ -91,6 +88,6 @@ El desarrollo de VOLTHAUS y SENBIOSIS fue posible gracias al trabajo interdiscip
 - **Patricio Céspedes & David Bustamante** — Música, diseño de interacción y programación
 - **Celeste Sepúlveda, Vesna Osiadacz & Natalia Riveros** — Danza, coreografía y diseño de vestuario
 
-<div class="my-8 overflow-hidden border border-neutral-200/60 dark:border-neutral-800/60">
-  <Image src={teamImg} alt="Equipo del proyecto VOLTHAUS" class="w-full h-auto object-cover" />
+<div class="my-8">
+  <Photo src={teamImg} alt="Equipo del proyecto VOLTHAUS" />
 </div>
