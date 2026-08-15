@@ -5,8 +5,8 @@ pubDate: 2021-06-10
 category: "Fotografía"
 tags: ["Fotografía", "Danza Contemporánea", "Artes Visuales", "Lightroom", "Nikon", "Composición", "Universidad de Chile"]
 featured: true
-coverImage: "../../assets/projects/extracciones/e1.jpg"
-coverAlt: "Collage 3x3 de la serie Extracciones"
+coverImage: "../../assets/projects/extracciones/banner.jpg"
+coverAlt: "Portada"
 camera: "Nikon D3300"
 location: "Santiago, Chile"
 ---
@@ -14,6 +14,7 @@ import { Image } from 'astro:assets';
 import Photo from '../../components/Photo.astro';
 import collageImg from '../../assets/projects/extracciones/collage.png';
 import mockupImg from '../../assets/projects/extracciones/mockup.jpg';
+import bannerImg from '../../assets/projects/extracciones/banner.jpg';
 import e1Img from '../../assets/projects/extracciones/e1.jpg';
 import e2Img from '../../assets/projects/extracciones/e2.jpg';
 import e3Img from '../../assets/projects/extracciones/e3.jpg';
@@ -33,7 +34,7 @@ Durante varios meses de documentación se seleccionaron imágenes en función de
 El movimiento propio de la danza queda congelado en cada imagen, dando lugar a composiciones donde predominan la forma, el equilibrio y la expresión corporal.
 
 <div class="my-8">
-  <Photo src={collageImg} alt="Collage de la serie completa Extracciones" />
+  <Photo src={bannerImg} alt="Portada" />
 </div>
 
 ---

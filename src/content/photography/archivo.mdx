@@ -1,0 +1,55 @@
+---
+title: "Archivo Fotográfico"
+description: "Colección de fotografías que abarca retratos, arquitectura y street photography."
+pubDate: 2020-05-10
+category: "Fotografía"
+tags: ["Fotografía", "Retratos", "Street Photography", "Arquitectura"]
+featured: true
+coverImage: "../../assets/projects/archivo/street/carrito.jpg"
+coverAlt: "Archivo Fotográfico"
+camera: "Varias"
+location: "Varios"
+---
+import Photo from '../../components/Photo.astro';
+
+import millarayImg from '../../assets/projects/archivo/portraits/millaray.jpg';
+import nathaImg from '../../assets/projects/archivo/portraits/natha.jpg';
+import pauliImg from '../../assets/projects/archivo/portraits/pauli.jpg';
+import t1Img from '../../assets/projects/archivo/portraits/t1.jpg';
+import t2Img from '../../assets/projects/archivo/portraits/t2.jpg';
+import t3Img from '../../assets/projects/archivo/portraits/t3.jpg';
+
+import azulImg from '../../assets/projects/archivo/street/azul.jpg';
+import carritoImg from '../../assets/projects/archivo/street/carrito.jpg';
+import collarImg from '../../assets/projects/archivo/street/collar.jpg';
+import conoImg from '../../assets/projects/archivo/street/cono.jpg';
+import contrasteImg from '../../assets/projects/archivo/street/contraste.jpg';
+import patosImg from '../../assets/projects/archivo/street/patos.jpg';
+import rojoImg from '../../assets/projects/archivo/street/rojo.jpg';
+import tricolorImg from '../../assets/projects/archivo/street/tricolor.jpg';
+
+## Retratos
+
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8">
+  <Photo src={millarayImg} alt="Millaray" />
+  <Photo src={nathaImg} alt="Natha" />
+  <Photo src={pauliImg} alt="Pauli" />
+  <Photo src={t1Img} alt="T1" />
+  <Photo src={t2Img} alt="T2" />
+  <Photo src={t3Img} alt="T3" />
+</div>
+
+---
+
+## Street Photography
+
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8">
+  <Photo src={tricolorImg} alt="Tricolor" full />
+  <Photo src={carritoImg} alt="Carrito" full/>
+  <Photo src={azulImg} alt="Azul" />
+  <Photo src={rojoImg} alt="Rojo" />
+  <Photo src={contrasteImg} alt="Contraste"/>
+  <Photo src={collarImg} alt="Collar" />
+  <Photo src={conoImg} alt="Cono"/>
+  <Photo src={patosImg} alt="Patos"/>
+</div>
