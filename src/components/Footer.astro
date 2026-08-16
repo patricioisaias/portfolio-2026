@@ -9,7 +9,7 @@ const { className = '' } = Astro.props;
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class={`w-full border-t border-neutral-200/60 dark:border-neutral-800/60 py-10 transition-colors duration-200 ${className}`}>
+<footer class={`w-full border-t border-neutral-200/60 dark:border-neutral-800/60 pt-10 pb-28 md:pb-10 transition-colors duration-200 ${className}`}>
   <div class="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 text-xs text-neutral-500 dark:text-neutral-400 text-center">
     <nav class="flex items-center gap-4 font-medium" aria-label="Enlaces de redes sociales">
       {siteConfig.socialLinks.map((link) => (
