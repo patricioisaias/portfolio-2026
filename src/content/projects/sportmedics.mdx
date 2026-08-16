@@ -15,29 +15,23 @@ import { Image } from 'astro:assets';
 import Photo from '../../components/Photo.astro';
 import logoImg from '../../assets/projects/sportmedics/logo.jpg';
 
-SportMedics es un sistema backend diseñado para la gestión integral de un gimnasio local ubicado en la comuna de La Cisterna. El sistema automatiza y controla los accesos, autenticación, facturación, empleados, inventario, miembros, notificaciones, horarios, suscripciones y entrenamientos.
+**SportMedics** es un sistema backend concebido para resolver las necesidades operativas de un gimnasio ubicado en la comuna de La Cisterna. El objetivo central de este proyecto fue llevar a la práctica conceptos avanzados de ingeniería de software para automatizar de extremo a extremo la gestión de accesos, facturación, suscripciones, rutinas de entrenamiento y control de inventario.
 
-Todo el proyecto fue construido aplicando patrones de **arquitectura de microservicios** utilizando el ecosistema de Spring Boot.
+Para lograr una alta escalabilidad se implementó una **arquitectura de microservicios** utilizando Spring Boot. 
 
 ## Arquitectura del Sistema
 
-El proyecto implementa patrones de arquitectura distribuida para asegurar el desacoplamiento, la escalabilidad y la mantenibilidad:
+El proyecto está diseñado pensando en el largo plazo y en la resiliencia, aplicando patrones de distribución que aseguran que el fallo en un módulo no afecte a todo el sistema:
 
-- **API Gateway:** Funciona como el único punto de entrada seguro para las peticiones de los clientes externos (navegadores o apps).
-- **Eureka Server:** Encargado del registro y descubrimiento dinámico de todos los servicios desplegados.
-- **Microservicios Independientes:** El sistema se divide en 10 módulos con responsabilidades únicas (Miembros, Suscripciones, Facturación, Inventario, Notificaciones, etc.).
-- **Bases de Datos Aisladas:** Cada microservicio gestiona su propio esquema de base de datos MySQL, respetando estrictamente el patrón *Database-per-Service*.
-- **Comunicación Interna:** Integración de *Feign Clients* para la comunicación eficiente entre los distintos microservicios.
+- **10 Microservicios Independientes:** El sistema se divide lógicamente en módulos con responsabilidades únicas y acotadas (Miembros, Suscripciones, Facturación, Inventario, Notificaciones, Autenticación, etc.).
+- **Bases de Datos Aisladas:** Se implementó el patrón *Database-per-Service*. Cada microservicio es dueño exclusivo de su propio esquema en MySQL, garantizando el aislamiento de los datos.
+- **API Gateway & Eureka:** Un único punto de entrada seguro (API Gateway) enruta inteligentemente las peticiones, mientras que *Eureka Server* maneja el registro y descubrimiento dinámico de todos los servicios.
+- **Comunicación Interna:** La interacción síncrona entre microservicios se resolvió eficientemente utilizando *OpenFeign*.
 
----
+## Próximos Pasos
 
-## Roadmap y Próximos Pasos (Infraestructura Cloud)
+El próximo paso en el desarrollo de SportMedics es migrar su infraestructura local hacia la nube de **Amazon Web Services (AWS)**.
 
-> **Migración a AWS (En Planificación)**  
-> Actualmente cursando el ramo de *Infraestructura Cloud*, el próximo gran hito de este proyecto es migrar su despliegue desde un entorno local hacia la nube pública de **Amazon Web Services (AWS)**.
-
-Las siguientes mejoras arquitectónicas están planificadas para ser implementadas durante este semestre:
-
-1. **Redes y Seguridad (VPC):** Diseño de una Nube Virtual Privada (VPC) estructurada con subredes públicas (para exponer únicamente el API Gateway) y subredes privadas (para proteger los microservicios y bases de datos), aislando el tráfico mediante Security Groups.
-2. **Almacenamiento y Bases de Datos (Amazon RDS & EFS/EBS):** Migración de las bases de datos locales hacia **Amazon RDS** para garantizar alta disponibilidad. Integración de volúmenes de bloque y red (EBS y EFS) según los requerimientos de cada microservicio.
-3. **Cómputo Escalable y Monitoreo (EC2, Auto Scaling, CloudWatch):** Despliegue de los contenedores en instancias **Amazon EC2** configuradas con **Auto Scaling Groups** para balancear la carga automáticamente, sumado a un monitoreo centralizado utilizando **CloudWatch**.
+- Una **VPC estructurada** con subredes públicas y privadas para proteger los microservicios y bases de datos.
+- Migración hacia bases de datos gestionadas en **Amazon RDS** para garantizar alta disponibilidad.
+- Despliegue de los contenedores utilizando **Amazon EC2** y **Auto Scaling Groups** para absorber los picos de tráfico en las horas punta del gimnasio.
