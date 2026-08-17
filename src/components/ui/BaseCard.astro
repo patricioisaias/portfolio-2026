@@ -1,0 +1,13 @@
+---
+export interface Props {
+  className?: string;
+}
+
+const { className = '' } = Astro.props;
+---
+
+<article
+  class={`group relative flex flex-col justify-between overflow-hidden rounded-sm border border-neutral-200/70 dark:border-neutral-800/70 bg-neutral-50/40 dark:bg-neutral-900/30 hover:bg-neutral-100 dark:hover:bg-neutral-900/80 hover:border-neutral-300 dark:hover:border-neutral-700 transition-all duration-500 ease-out hover:shadow-md hover:-translate-y-1 ${className}`}
+>
+  <slot />
+</article>
