@@ -10,7 +10,8 @@ const pathname = Astro.props.currentPath ?? Astro.url.pathname;
 ---
 
 <header
-  class="sticky top-0 z-50 w-full backdrop-blur-md bg-white/80 dark:bg-neutral-950/80 border-b border-neutral-200/60 dark:border-neutral-800/60 transition-colors duration-200"
+  id="navbar"
+  class="sticky top-0 z-50 w-full transition-all duration-300 bg-transparent border-b border-transparent"
 >
   <div
     class="max-w-5xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between"
@@ -40,8 +41,8 @@ const pathname = Astro.props.currentPath ?? Astro.url.pathname;
               href={item.href}
               class={`px-3 py-1.5 text-sm transition-all ${
                 isActive
-                  ? "text-neutral-950 dark:text-white font-semibold underline decoration-2 underline-offset-[6px] decoration-accent"
-                  : "hover:text-neutral-950 dark:hover:text-white hover:underline hover:decoration-2 hover:underline-offset-[6px] hover:decoration-accent"
+                  ? 'text-neutral-950 dark:text-white underline decoration-2 underline-offset-[6px] decoration-accent'
+                  : 'text-neutral-600 dark:text-neutral-400 hover:text-neutral-950 dark:hover:text-white link-underline'
               }`}
             >
               {item.name}
@@ -67,3 +68,27 @@ const pathname = Astro.props.currentPath ?? Astro.url.pathname;
   </div>
 
 </header>
+
+<script>
+  const updateNavbar = () => {
+    const navbar = document.getElementById('navbar');
+    if (!navbar) return;
+    
+    if (window.scrollY > 10) {
+      navbar.classList.add('backdrop-blur-md', 'bg-white/80', 'dark:bg-neutral-950/80', 'border-neutral-200/60', 'dark:border-neutral-800/60', 'shadow-sm');
+      navbar.classList.remove('bg-transparent', 'border-transparent');
+    } else {
+      navbar.classList.remove('backdrop-blur-md', 'bg-white/80', 'dark:bg-neutral-950/80', 'border-neutral-200/60', 'dark:border-neutral-800/60', 'shadow-sm');
+      navbar.classList.add('bg-transparent', 'border-transparent');
+    }
+  };
+
+  // Run on load
+  updateNavbar();
+
+  // Run on scroll
+  document.addEventListener('scroll', updateNavbar, { passive: true });
+  
+  // Also run on Astro view transitions
+  document.addEventListener('astro:after-swap', updateNavbar);
+</script>
